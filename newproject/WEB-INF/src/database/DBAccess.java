@@ -34,10 +34,10 @@ public class DBAccess {
      * 既定値を使用する
      */
     public DBAccess() {
-        driver = "org.postgresql.Driver"; //default driver
-        url = "jdbc:postgresql://localhost:5432/webapp";　//database name:webappの場合
-        user = "postgres";　//default username
-        password = ""; // password書き込み
+        driver = "org.postgresql.Driver";
+        url = "jdbc:postgresql://localhost:5432/webapp";
+        user = "postgres";
+        password = "qw2102007";
     }
 
     /**
