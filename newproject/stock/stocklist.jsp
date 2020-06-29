@@ -42,6 +42,21 @@ while(rs.next()) {
 
 tableHTML += "</table>";
 
+rs = db.getResultSet("select * from news where date = now()::date");
+String pHTML="<p>";
+while(rs.next()) {
+
+    int stockcode = rs.getInt("stock_code");
+    Date date = rs.getDate("date");
+    String title=rs.getString("news_title");
+
+    pHTML+="<"+stockcode+">"+"["+title+"]"+date;
+
+}
+
+pHTML+="</p>";
+
+
 // データベースへのコネクションを閉じる
 db.close();
 
@@ -91,29 +106,19 @@ db.close();
 	<div class="l-wrapper">
 
 
+
 	  <div class="c-container">
 	    <div class="sample sample02">
 	      <div class="swiper-container">
 	        <div class="swiper-wrapper">
 	          <div class="swiper-slide">
 	            <div class="sample02-inner">
-	              <p><朝日>日産がＳＵＶ「キックス」発売　国内で１０年ぶり新車種</p>
-	                <!-- <br class="u-d-n u-d-i-md">うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。 -->
+					<%= pHTML %>
+
 	            </div>
 	          </div>
 
-	          <div class="swiper-slide">
-	            <div class="sample02-inner">
-	              <p><Nikkei>◇Nissan Motor: New HV released on 30th. Three expectations for this.</p>
-	            </div>
-	          </div>
 
-	          <div class="swiper-slide">
-	            <div class="sample02-inner">
-	              <p><TECH>★日経平均寄与度ﾗﾝｷﾝｸﾞ(大引)―値上り59、値下り163銘柄</p>
-	                <!-- <br class="u-d-n u-d-i-md">しずかにあの年のイーハトーヴォの五月から十月までを書きつけましょう。 -->
-	            </div>
-	          </div>
 	        </div>
 
 	        <div class="swiper-button-prev">
