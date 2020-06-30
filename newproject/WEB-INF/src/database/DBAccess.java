@@ -35,9 +35,9 @@ public class DBAccess {
      */
     public DBAccess() {
         driver = "org.postgresql.Driver";
-        url = "jdbc:postgresql://localhost:5432/webapp";
+        url = "jdbc:postgresql://localhost:5432/tomcat";
         user = "postgres";
-        password = "qw2102007";
+        password = "0w0mjgmaj";
     }
 
     /**
