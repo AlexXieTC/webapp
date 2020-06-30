@@ -73,6 +73,13 @@ input {
   margin-top: 0.1em;
 }
 
+/*変更点*/
+.backLeft{
+	wight: 100%;
+	background: url('../img/stock.jpg');
+
+}
+
 .left {
   width: 50%;
   height: 100%;
