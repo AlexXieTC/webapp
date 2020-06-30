@@ -3,12 +3,12 @@ package bean;
 public class Asset {
 
 		private String userID;
-		private String stockCode;
+		private int stockCode;
 		private int number;
-		
+
 
 		public Asset() {
-	
+
 		}
 
 
@@ -22,12 +22,12 @@ public class Asset {
 		}
 
 
-		public String getStockCode() {
+		public int getStockCode() {
 			return stockCode;
 		}
 
 
-		public void setStockCode(String stockCode) {
+		public void setStockCode(int stockCode) {
 			this.stockCode = stockCode;
 		}
 
@@ -40,7 +40,7 @@ public class Asset {
 		public void setNumber(int number) {
 			this.number = number;
 		}
-		
-		
+
+
 
 }
