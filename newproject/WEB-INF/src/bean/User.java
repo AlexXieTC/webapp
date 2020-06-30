@@ -3,7 +3,7 @@ package bean;
 import java.util.Date;
 
 public class User {
-	private String id;
+	private String userID;
 	private String password;
 	private int money;
 	private Date simulationDate;
@@ -11,11 +11,11 @@ public class User {
 	public User() {
 
 	}
-	
+
 
 	public User(String id, String password, int money, Date simulationDate) {
 		super();
-		this.id = id;
+		this.userID = id;
 		this.password = password;
 		this.money = money;
 		this.simulationDate = simulationDate;
@@ -23,10 +23,10 @@ public class User {
 
 
 	public String getId() {
-		return id;
+		return userID;
 	}
 	public void setId(String id) {
-		this.id = id;
+		this.userID = id;
 	}
 	public String getPassword() {
 		return password;
