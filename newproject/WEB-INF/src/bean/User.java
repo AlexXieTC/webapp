@@ -11,6 +11,16 @@ public class User {
 	public User() {
 
 	}
+	
+
+	public User(String id, String password, int money, Date simulationDate) {
+		super();
+		this.id = id;
+		this.password = password;
+		this.money = money;
+		this.simulationDate = simulationDate;
+	}
+
 
 	public String getId() {
 		return id;
