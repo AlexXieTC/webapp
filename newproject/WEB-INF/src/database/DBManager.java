@@ -56,6 +56,48 @@ public class DBManager{
 		}
 	}
 
+	//複数の更新処理を挟む場合のようなsql実行処理
+	public static int complexUpdate(List<String> sqls) throws SQLException{
+
+		Connection con =null;
+		Statement smt=null;
+		int result;
+		try {
+			con=getConnection();
+			con.setAutoCommit(false);
+			smt=con.createStatement();
+
+			for(String sql:sqls) {
+				result = smt.executeUpdate(sql);
+
+				if(result <=0) {
+					con.rollback();
+					return 0;
+				}
+			}
+
+			con.commit();
+			return 1;
+
+
+		}finally {
+			if(smt != null) {
+				try {
+				smt.close();
+				}catch(SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if(con != null) {
+				try {
+					con.close();
+				}catch(SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+
 
 	public static <T> List<T> findAll(String sql, ResultSetBeanMapping<T> mapping)
 		throws SQLException{
