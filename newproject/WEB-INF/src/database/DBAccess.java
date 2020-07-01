@@ -39,6 +39,7 @@ public class DBAccess {
 //        url = "jdbc:postgresql://192.168.0.0/16:5432/webapp";
         user = "postgres";
         password = "password";
+
     }
 
     /**
