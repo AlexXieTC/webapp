@@ -3,14 +3,12 @@ package resultmapping;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import javax.jws.soap.SOAPBinding.Use;
-
 import bean.User;
 
-public class UserMapping implements ResultSetBeanMapping<Use>{
+public class UserMapping implements ResultSetBeanMapping<User>{
 
 	@Override
-	public Use createFromResultSet(ResultSet rs) throws SQLException {
+	public User createFromResultSet(ResultSet rs) throws SQLException {
 		// TODO 自動生成されたメソッド・スタブ
 		User user = new User();
 		user.setId(rs.getString("user_id"));
