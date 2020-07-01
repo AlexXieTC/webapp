@@ -10,11 +10,15 @@ import java.util.List;
 
 import resultmapping.ResultSetBeanMapping;
 
+
 public class DBManager{
+	public static void main(String[] args) {
+		System.out.println();
+	}
 	//接続するデータベース名
-	private static final String DB="serversidedb";
+	private static final String DB="tomcat";
 	//各ユーザのパスワード
-	private static final String  PASS ="";
+	private static final String  PASS ="0w0mjgmaj";
 
 	public static Connection getConnection() throws SQLException{
 		try {

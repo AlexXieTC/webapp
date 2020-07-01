@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 <%@ page import="java.sql.*, database.*, java.util.*, bean.* "
     contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 
 <%-- <%
+=======
+<%@ page import="java.sql.*, database.DBAccess"
+    contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
+<%
+>>>>>>> 1347692dd5f2ceb091cfbf65fc5f78e4f63dac77
 // 内容: データベースにアクセスする
 
 // MyDBAccess のインスタンスを生成する
@@ -61,10 +67,14 @@ pHTML+="</p>";
 // データベースへのコネクションを閉じる
 db.close();
 
+<<<<<<< HEAD
 %> --%>
 
 
 
+=======
+%>
+>>>>>>> 1347692dd5f2ceb091cfbf65fc5f78e4f63dac77
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -117,6 +127,7 @@ db.close();
 	        <div class="swiper-wrapper">
 	          <div class="swiper-slide">
 	            <div class="sample02-inner">
+<<<<<<< HEAD
 					<% List<News> newsList = (List<News>)request.getAttribute("newsList");
 						News nbean0=newsList.get(0);%>
 
@@ -125,22 +136,36 @@ db.close();
 	            </div>
 	          </div>
 
+=======
+					<%= pHTML %>
+
+	            </div>
+	          </div>
+
+
+>>>>>>> 1347692dd5f2ceb091cfbf65fc5f78e4f63dac77
 	        </div>
 
 	        <div class="swiper-button-prev">
 	          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 44">
 	            <path class="c-arrow c-arrow-prev" d="M0,22L22,0l2.1,2.1L4.2,22l19.9,19.9L22,44L0,22L0,22L0,22z" />
+<<<<<<< HEAD
 					<%
 						News nbean1=newsList.get(1);%>
 					<p> <%=nbean1.getStockCode()%><%=nbean1.getNewsDate()%><%=nbean1.getTitle()%></p>
+=======
+>>>>>>> 1347692dd5f2ceb091cfbf65fc5f78e4f63dac77
 	          </svg>
 	        </div>
 	        <div class="swiper-button-next">
 	          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 44">
 	            <path class="c-arrow c-arrow-next" d="M27,22L27,22L5,44l-2.1-2.1L22.8,22L2.9,2.1L5,0L27,22L27,22z" />
+<<<<<<< HEAD
 					<%
 						News nbean2=newsList.get(2);%>
 					<p> <%=nbean2.getStockCode()%><%=nbean2.getNewsDate()%><%=nbean2.getTitle()%></p>
+=======
+>>>>>>> 1347692dd5f2ceb091cfbf65fc5f78e4f63dac77
 	          </svg>
 	        </div>
 
@@ -177,7 +202,11 @@ db.close();
 
         <hr>
 
+<<<<<<< HEAD
 <%-- 			<%= tableHTML %> --%>
+=======
+			<%= tableHTML %>
+>>>>>>> 1347692dd5f2ceb091cfbf65fc5f78e4f63dac77
 
 
         <h2>SNES in Dribbble Shots</h2>

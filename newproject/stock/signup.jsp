@@ -46,22 +46,27 @@
               </form>
             </div>
           </div>
+
+          <%--ここから新規登録ページ--%>
           <div class="right">
             <div class="content">
               <h2>Sign Up</h2>
+              <form action="<%=request.getContextPath()%>/signup" method="Post">
               <form id="form-login" method="post" onsubmit="return false;">
+
                 <div class="form-element form-stack">
                   <label for="username-login" class="form-label">Username</label>
-                  <input id="username-login" type="text" name="username">
+                  <input id="username-login" type="text" name="username" maxlength='20' pattern="^[0-9A-Za-z]+$">
                 </div>
                 <div class="form-element form-stack">
                   <label for="password-login" class="form-label">Password</label>
-                  <input id="password-login" type="password" name="password">
+                  <input id="password-login" type="password" name="password" maxlength='20'>
                 </div>
                 <div class="form-element form-submit">
                   <button id="logIn" class="login" type="submit" name="login">Sign Up</button>
                   <!-- <button id="goRight" class="login off" name="signup">Sign Up</button> -->
                 </div>
+              </form>
               </form>
             </div>
           </div>
