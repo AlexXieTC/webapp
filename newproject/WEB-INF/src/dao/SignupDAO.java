@@ -5,7 +5,11 @@ import java.sql.SQLException;
 import bean.User;
 import database.DBManager;
 
+<<<<<<< HEAD:newproject/WEB-INF/src/dao/signupDAO.java
+public class signupDAO {
+=======
 public class SignupDAO {
+>>>>>>> 1347692dd5f2ceb091cfbf65fc5f78e4f63dac77:newproject/WEB-INF/src/dao/SignupDAO.java
 	public static void main(String[] args) throws SQLException {
 		User user = new User();
 		user.setId("admin");
