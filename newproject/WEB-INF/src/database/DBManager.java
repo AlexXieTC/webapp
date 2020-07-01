@@ -16,16 +16,17 @@ public class DBManager{
 		System.out.println();
 	}
 	//接続するデータベース名
-	private static final String DB="serversidedb";
+	private static final String DB="tomcat";
 	//各ユーザのパスワード
-	private static final String  PASS ="";
+	private static final String  PASS ="0w0mjgmaj";
 
 	public static Connection getConnection() throws SQLException{
 		try {
 			Class.forName("org.postgresql.Driver");
 			Connection con=DriverManager.getConnection(
-			"jdbc:postgresql://localhost:5432/"+DB,
+			"jdbc:postgresql://localhost:5432/tocat"+DB,
 			"postgres",PASS);
+			System.out.println(PASS);
 			return con;
 		}catch(ClassNotFoundException e) {
 			throw new SQLException(e);

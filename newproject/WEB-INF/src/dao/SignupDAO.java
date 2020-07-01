@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import bean.User;
 import database.DBManager;
 
-public class signupDAO {
+public class SignupDAO {
 	public static void main(String[] args) throws SQLException {
 		User user = new User();
 		user.setId("admin");
