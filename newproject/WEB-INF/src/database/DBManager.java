@@ -24,9 +24,8 @@ public class DBManager{
 		try {
 			Class.forName("org.postgresql.Driver");
 			Connection con=DriverManager.getConnection(
-			"jdbc:postgresql://localhost:5432/tocat"+DB,
+			"jdbc:postgresql://localhost:5432/"+DB,
 			"postgres",PASS);
-			System.out.println(PASS);
 			return con;
 		}catch(ClassNotFoundException e) {
 			throw new SQLException(e);

@@ -6,6 +6,7 @@ import bean.User;
 import database.DBManager;
 
 public class LoginDAO {
+
 	public static int checkUser(User ubean)throws SQLException {
 		String sql="SELECT * FROM USERINFORMATION"
 				+ " WHERE USER_ID="
