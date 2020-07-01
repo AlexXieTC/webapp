@@ -1,6 +1,8 @@
-package database;
+package dao;
 
 import java.sql.SQLException;
+
+import database.DBManager;
 
 public class ShowInfoDAO {
 	public static int selectNews()throws SQLException {

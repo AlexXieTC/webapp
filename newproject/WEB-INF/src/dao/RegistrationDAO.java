@@ -1,8 +1,9 @@
-package database;
+package dao;
 
 import java.sql.SQLException;
 
 import bean.User;
+import database.DBManager;
 
 public class RegistrationDAO {
 	public static int insertUser(User ubean)throws SQLException{
