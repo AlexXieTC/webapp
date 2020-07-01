@@ -10,7 +10,11 @@ import java.util.List;
 
 import resultmapping.ResultSetBeanMapping;
 
+
 public class DBManager{
+	public static void main(String[] args) {
+		System.out.println();
+	}
 	//接続するデータベース名
 	private static final String DB="serversidedb";
 	//各ユーザのパスワード
