@@ -20,7 +20,7 @@
           <li><a href="index.html">Contacts</a></li>
         </ul>
         <div class ="loginForm">
-			<form method="post" action="<%=request.getContextPath() %>" class ="loginInput">
+			<form method="post" action="<%=request.getContextPath() %>/test" class ="loginInput">
 				User ID <input type="text" name="userID"><br>
 				Password<input type="password">
           		<input type="submit" value="Log in">
