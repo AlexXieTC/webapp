@@ -69,13 +69,23 @@
 
 <					<% List<News> newsList = (List<News>)request.getAttribute("newsList");
 						News nbean0=newsList.get(0);%>
-
-
 					<p> <%=nbean0.getStockCode()%><%=nbean0.getNewsDate()%><%=nbean0.getTitle()%></p>
 	            </div>
 
 	          </div>
+	        <div class="swiper-slide">
+	            <div class="sample02-inner">
+	             <%News nbean1=newsList.get(1);%>
+				<p> <%=nbean1.getStockCode()%><%=nbean1.getNewsDate()%><%=nbean1.getTitle()%></p>
+	            </div>
+	          </div>
 
+	        <div class="swiper-slide">
+	            <div class="sample02-inner">
+	            <%News nbean2=newsList.get(2);%>
+				<p> <%=nbean2.getStockCode()%><%=nbean2.getNewsDate()%><%=nbean2.getTitle()%></p>
+	            </div>
+	          </div>
 
 
 	        </div>
@@ -83,22 +93,11 @@
 	        <div class="swiper-button-prev">
 	          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 44">
 	            <path class="c-arrow c-arrow-prev" d="M0,22L22,0l2.1,2.1L4.2,22l19.9,19.9L22,44L0,22L0,22L0,22z" />
-
-<%-- 					<%
-						News nbean1=newsList.get(1);%>
-					<p> <%=nbean1.getStockCode()%><%=nbean1.getNewsDate()%><%=nbean1.getTitle()%></p> --%>
-
-
 	          </svg>
 	        </div>
 	        <div class="swiper-button-next">
 	          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 44">
 	            <path class="c-arrow c-arrow-next" d="M27,22L27,22L5,44l-2.1-2.1L22.8,22L2.9,2.1L5,0L27,22L27,22z" />
-
-<%-- 					<%
-						News nbean2=newsList.get(2);%>
-					<p> <%=nbean2.getStockCode()%><%=nbean2.getNewsDate()%><%=nbean2.getTitle()%></p> --%>
-
 	          </svg>
 	        </div>
 
