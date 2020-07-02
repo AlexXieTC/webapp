@@ -69,12 +69,7 @@ session.setAttribute("user", user);
 				<tr>
 					<th>購入株数</th>
 					<td>
-					<select name ="parchaseNumber">
-						<c:forEach begin ="100" end ="${sessionScope.user.money/price.openPrice }" step="100" var="i">
-						<option value="${i }">${i}</option>
-						</c:forEach>
-					</select>
-
+					<input type="number" name ="parchaseNumber" value="100" min="100" step="100" max="${user.money/price.openPrice }"/>株
 					</td>
 				</tr>
 			</table>
