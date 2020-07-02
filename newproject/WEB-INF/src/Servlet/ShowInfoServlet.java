@@ -18,7 +18,7 @@ public class ShowInfoServlet extends HttpServlet{
 	public void doGet(HttpServletRequest request,
 	HttpServletResponse response)throws ServletException, IOException {
 
-		request.setCharacterEncoding("Windows-31J");
+		request.setCharacterEncoding("Shift_JIS");
 		String forwardURL=null;
 
 		try {
