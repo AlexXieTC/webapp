@@ -8,17 +8,6 @@
 	<title>QUICK証券</title>
 
 	<meta charset="Shift_JIS" lang="ja">
-<!--  	<link rel="stylesheet" href="./css/top.css">
-	<link rel="stylesheet" href="./css/highlight.js.css">
-	 <link rel="stylesheet" href="./css/swiper.min.css">
-	 <link rel="stylesheet" href="./css/style.css">
-	 <link rel="stylesheet" href="./css/sample.css">
-	 <link rel="stylesheet" href="./css/sample02.css">
-
-	 <script src="./js/highlight.js"></script>
-	 <script src="./js/highlightjs-line-numbers.min.js"></script>
-	 <script src="./js/swiper.min.js"></script>
-	 <script src="./js/script.js"></script> -->
 
 	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/top.css">
 	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/highlight.js.css">
@@ -112,7 +101,7 @@
 
 
 
-
+<!--
     <div id="main-content">
       <div class="container">
          <div class="row">
@@ -133,34 +122,33 @@
              <p>Obviously this blue part here is the land. Let the great experiment begin! But I'm the oldest. The matriarch if you will. She's always got to wedge herself in the middle of us so that she can control everything. Yeah. Mom's awesome. Maybe we should call her?</p>
              <p class="text-center"><a class="btn" href="index.html">Read more</a></p>
            </div>
-        </div><!-- @end .row -->
+        </div>@end .row -->
 
         <hr>
 
 
-<%-- 			<%= tableHTML %> --%>
+	<table>
 
-<%-- 		<table>
-
-			<% List<Stock> stockList = (List<Stock>)request.getAttribute("stockList");
-            for(int i=0; i< stockList.size();i++){
-            	Stock sbean=stockList.get(i);
-
+			<% List<Price> priceList = (List<Price>)request.getAttribute("priceList");
+            for(Price pbean:priceList){
 			%>
 
-			<tr bgcolor="000080"><td><font color="white">銘柄コード</font></td>
-		    <td><font color="white\">日付</font></td>
-		    <td><font color="white\">始値</font></td>
-		    <td><font color="white\">終値</font></td>
-		    <td><font color="white\">出来高</font></td>
+			<tr bgcolor="000800">
+			<th><font color="white">銘柄コード</font></th>
+			<th><font color="white">銘柄名</font></th>
+		    <th><font color="white">日付</font></th>
+		    <th><font color="white">始値</font></th>
+		    <th><font color="white">終値</font></th>
+		    <th><font color="white">出来高</font></th>
 
 
 			<tr>
-			<td align="right">=sbean.getStockCode() </td>
-            <td>  </td>
-            <td> </td>
-            <td>   </td>
-            <td>  </td>
+			<td align="right"><%=pbean.getStockCode() %> </td>
+			<td><%=pbean.getStockName() %> </td>
+            <td><%=pbean.getDate() %> </td>
+            <td><%=pbean.getOpenPrice() %>   </td>
+            <td><%=pbean.getClosingPrice() %> </td>
+            <td><%=pbean.getVolume() %>  </td>
             </tr>
 
 
@@ -169,7 +157,7 @@
 			%>
 
 
-		</table> --%>
+		</table>
 
 
         <h2>SNES in Dribbble Shots</h2>

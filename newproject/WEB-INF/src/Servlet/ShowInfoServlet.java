@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import bean.News;
-import bean.Stock;
+import bean.Price;
 import dao.ShowInfoDAO;
 
 
@@ -24,8 +24,8 @@ public class ShowInfoServlet extends HttpServlet{
 		try {
 			List<News> newsList=ShowInfoDAO.selectNews();
 			request.setAttribute("newsList", newsList);
-			List<Stock> stockList=ShowInfoDAO.selectStock();
-			request.setAttribute("stockList", stockList);
+			List<Price> priceList=ShowInfoDAO.selectPrice();
+			request.setAttribute("priceList", priceList);
 			forwardURL = "/stock/stocklist.jsp";
 
 		}catch(NumberFormatException e) {

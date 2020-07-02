@@ -12,6 +12,7 @@ public class PriceMapping implements ResultSetBeanMapping<Price>{
 		// TODO 自動生成されたメソッド・スタブ
 		Price price = new Price();
 		price.setStockCode(rs.getInt("stock_code"));
+		price.setStockName(rs.getString("stock_name"));
 		price.setDate(rs.getDate("date"));
 		price.setOpenPrice(rs.getInt("open_price"));
 		price.setClosingPrice(rs.getInt("closing_price"));

@@ -6,6 +6,9 @@ public class Price {
 	private int stockCode;
 	private Date date;
 	private int openPrice;
+	private String stockName;
+
+
 	public int getStockCode() {
 		return stockCode;
 	}
@@ -44,6 +47,14 @@ public class Price {
 
 	public void setVolume(int volume) {
 		this.volume = volume;
+	}
+
+	public String getStockName() {
+		return stockName;
+	}
+
+	public void setStockName(String stockName) {
+		this.stockName = stockName;
 	}
 
 	private int closingPrice;
