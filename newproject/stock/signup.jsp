@@ -55,8 +55,8 @@
               <form id="form-login" method="post" onsubmit="return false;">
 
                 <div class="form-element form-stack">
-                  <label for="username-login" class="form-label">Username</label>
-                  <input id="username-login" type="text" name="username" maxlength='20' pattern="^[0-9A-Za-z]+$">
+                  <label for="userID-login" class="form-label">User ID</label>
+                  <input id="userID-login" type="text" name="userID" maxlength='20' pattern="^[0-9A-Za-z]+$">
                 </div>
                 <div class="form-element form-stack">
                   <label for="password-login" class="form-label">Password</label>
