@@ -26,5 +26,25 @@
    		  <url-pattern>/showinfo</url-pattern>
     </servlet-mapping>
 
+  	<servlet>
+         <servlet-name>signupS </servlet-name>
+          <servlet-class>Servlet.SignupServlet </servlet-class>
+	</servlet>
+    <servlet-mapping>
+   		  <servlet-name>signupS</servlet-name>
+   		  <url-pattern>/signup</url-pattern>
+    </servlet-mapping>
+
+
+  	<servlet>
+         <servlet-name>loginS </servlet-name>
+          <servlet-class>Servlet.LoginServlet </servlet-class>
+	</servlet>
+    <servlet-mapping>
+   		  <servlet-name>loginS</servlet-name>
+   		  <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+
+
 
 </web-app>

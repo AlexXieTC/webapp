@@ -12,7 +12,7 @@
 
 <h2>V‹K“o˜^‚ÉŽ¸”s‚µ‚Ü‚µ‚½</h2>
 <br><br>
-<a href="<%=request.getContextPath() %>/database/inputregist.jsp">ŒûÀì¬‰æ–Ê‚É–ß‚é</a>
+<a href="<%=request.getContextPath() %>/database/inputregist.jsp">V‹K“o˜^‰æ–Ê‚É–ß‚é</a>
 
 </body>
 </html>
