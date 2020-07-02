@@ -5,15 +5,14 @@ import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import bean.News;
+import bean.Stock;
 import dao.ShowInfoDAO;
 
-@WebServlet("/showinfo")
 
 public class ShowInfoServlet extends HttpServlet{
 	public void doGet(HttpServletRequest request,
@@ -25,7 +24,9 @@ public class ShowInfoServlet extends HttpServlet{
 		try {
 			List<News> newsList=ShowInfoDAO.selectNews();
 			request.setAttribute("newsList", newsList);
-			forwardURL = "/newproject/stock/stocklist.jsp";
+			List<Stock> stockList=ShowInfoDAO.selectStock();
+			request.setAttribute("stockList", stockList);
+			forwardURL = "/stock/stocklist.jsp";
 
 		}catch(NumberFormatException e) {
 			e.printStackTrace();

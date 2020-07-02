@@ -17,7 +17,7 @@ public class signupServlet extends HttpServlet{
 
 	public void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException,IOException{
-		request.setCharacterEncoding("Windows-31J");
+		request.setCharacterEncoding("Shift_JIS");
 		String userID=request.getParameter("userID");
 		String password=request.getParameter("password");
 //		String money=request.getParameter("money");

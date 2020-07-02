@@ -1,13 +1,12 @@
-<<<<<<< HEAD
 <%@ page import="java.sql.*, database.*, java.util.*, bean.* "
-    contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
+    contentType="text/html; charset=Windows-31J" pageEncoding="Windows-31J"%>
 
 <%-- <%
-=======
+
 <%@ page import="java.sql.*, database.DBAccess"
     contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 <%
->>>>>>> 1347692dd5f2ceb091cfbf65fc5f78e4f63dac77
+
 // 内容: データベースにアクセスする
 
 // MyDBAccess のインスタンスを生成する
@@ -67,14 +66,10 @@ pHTML+="</p>";
 // データベースへのコネクションを閉じる
 db.close();
 
-<<<<<<< HEAD
 %> --%>
 
 
 
-=======
-%>
->>>>>>> 1347692dd5f2ceb091cfbf65fc5f78e4f63dac77
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -82,7 +77,7 @@ db.close();
 	<title>QUICK証券</title>
 
 	<meta charset="Shift_JIS" lang="ja">
- 	<link rel="stylesheet" href="./css/top.css">
+<!--  	<link rel="stylesheet" href="./css/top.css">
 	<link rel="stylesheet" href="./css/highlight.js.css">
 	 <link rel="stylesheet" href="./css/swiper.min.css">
 	 <link rel="stylesheet" href="./css/style.css">
@@ -92,7 +87,21 @@ db.close();
 	 <script src="./js/highlight.js"></script>
 	 <script src="./js/highlightjs-line-numbers.min.js"></script>
 	 <script src="./js/swiper.min.js"></script>
-	 <script src="./js/script.js"></script>
+	 <script src="./js/script.js"></script> -->
+
+	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/top.css">
+	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/highlight.js.css">
+	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/swiper.min.css">
+	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/style.css">
+	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/sample.css">
+	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/sample02.css">
+
+	 <script src="<%=request.getContextPath()%>/stock/js/highlight.js"></script>
+	 <script src="<%=request.getContextPath()%>/stock/js/highlightjs-line-numbers.min.js"></script>
+	 <script src="<%=request.getContextPath()%>/stock/js/swiper.min.js"></script>
+	 <script src="<%=request.getContextPath()%>/stock/js/script.js"></script>
+
+
 
 </head>
 <body>
@@ -117,55 +126,49 @@ db.close();
       </div>
     </header>
 
+
+
+<form action="<%=request.getContextPath() %>/showinfo" method="POST">
 	<div class="l-wrapper">
-
-
-
 	  <div class="c-container">
 	    <div class="sample sample02">
 	      <div class="swiper-container">
 	        <div class="swiper-wrapper">
 	          <div class="swiper-slide">
 	            <div class="sample02-inner">
-<<<<<<< HEAD
-					<% List<News> newsList = (List<News>)request.getAttribute("newsList");
+
+<					<% List<News> newsList = (List<News>)request.getAttribute("newsList");
 						News nbean0=newsList.get(0);%>
 
 
 					<p> <%=nbean0.getStockCode()%><%=nbean0.getNewsDate()%><%=nbean0.getTitle()%></p>
 	            </div>
-	          </div>
 
-=======
-					<%= pHTML %>
-
-	            </div>
 	          </div>
 
 
->>>>>>> 1347692dd5f2ceb091cfbf65fc5f78e4f63dac77
+
 	        </div>
 
 	        <div class="swiper-button-prev">
 	          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 44">
 	            <path class="c-arrow c-arrow-prev" d="M0,22L22,0l2.1,2.1L4.2,22l19.9,19.9L22,44L0,22L0,22L0,22z" />
-<<<<<<< HEAD
-					<%
+
+<%-- 					<%
 						News nbean1=newsList.get(1);%>
-					<p> <%=nbean1.getStockCode()%><%=nbean1.getNewsDate()%><%=nbean1.getTitle()%></p>
-=======
->>>>>>> 1347692dd5f2ceb091cfbf65fc5f78e4f63dac77
+					<p> <%=nbean1.getStockCode()%><%=nbean1.getNewsDate()%><%=nbean1.getTitle()%></p> --%>
+
+
 	          </svg>
 	        </div>
 	        <div class="swiper-button-next">
 	          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 44">
 	            <path class="c-arrow c-arrow-next" d="M27,22L27,22L5,44l-2.1-2.1L22.8,22L2.9,2.1L5,0L27,22L27,22z" />
-<<<<<<< HEAD
-					<%
+
+<%-- 					<%
 						News nbean2=newsList.get(2);%>
-					<p> <%=nbean2.getStockCode()%><%=nbean2.getNewsDate()%><%=nbean2.getTitle()%></p>
-=======
->>>>>>> 1347692dd5f2ceb091cfbf65fc5f78e4f63dac77
+					<p> <%=nbean2.getStockCode()%><%=nbean2.getNewsDate()%><%=nbean2.getTitle()%></p> --%>
+
 	          </svg>
 	        </div>
 
@@ -177,6 +180,9 @@ db.close();
 
 	  </div><!-- .c-container -->
 	</div><!-- .l-wrapper -->
+</form>
+
+
 
     <div id="main-content">
       <div class="container">
@@ -202,11 +208,39 @@ db.close();
 
         <hr>
 
-<<<<<<< HEAD
+
 <%-- 			<%= tableHTML %> --%>
-=======
-			<%= tableHTML %>
->>>>>>> 1347692dd5f2ceb091cfbf65fc5f78e4f63dac77
+
+<%-- 		<table>
+
+			<% List<Stock> stockList = (List<Stock>)request.getAttribute("stockList");
+            for(int i=0; i< stockList.size();i++){
+            	Stock sbean=stockList.get(i);
+
+			%>
+
+			<tr bgcolor="000080"><td><font color="white">銘柄コード</font></td>
+		    <td><font color="white\">日付</font></td>
+		    <td><font color="white\">始値</font></td>
+		    <td><font color="white\">終値</font></td>
+		    <td><font color="white\">出来高</font></td>
+
+
+			<tr>
+			<td align="right">=sbean.getStockCode() </td>
+            <td>  </td>
+            <td> </td>
+            <td>   </td>
+            <td>  </td>
+            </tr>
+
+
+			<%
+            }
+			%>
+
+
+		</table> --%>
 
 
         <h2>SNES in Dribbble Shots</h2>

@@ -5,15 +5,26 @@
    http://java.sun.com/xml/ns/j2ee/web-app_2_5.xsd"
   id="WebApp_ID" version="2.5">
 
+
+
+
   	<servlet>
-         <servlet-name>stocklist </servlet-name>
-          <servlet-class>database.DBAccess </servlet-class>
+         <servlet-name>database </servlet-name>
+          <servlet-class>database.DBManager</servlet-class>
 	</servlet>
     <servlet-mapping>
-   		  <servlet-name>stocklist</servlet-name>
-   		  <url-pattern>/stocklist</url-pattern>
+   		  <servlet-name>database</servlet-name>
+   		  <url-pattern>/database</url-pattern>
     </servlet-mapping>
 
+  	<servlet>
+         <servlet-name>showinfo </servlet-name>
+          <servlet-class>Servlet.ShowInfoServlet</servlet-class>
+	</servlet>
+    <servlet-mapping>
+   		  <servlet-name>showinfo</servlet-name>
+   		  <url-pattern>/showinfo</url-pattern>
+    </servlet-mapping>
 
 
 </web-app>
