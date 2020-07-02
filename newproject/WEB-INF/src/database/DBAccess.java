@@ -41,12 +41,6 @@ public class DBAccess {
         password = "qw2102007";
 
 
-        url = "jdbc:postgresql://localhost:5432/tomcat";
-//        url = "jdbc:postgresql://192.168.0.0/16:5432/webapp";
-        user = "postgres";
-        password = "password";
-
-
     }
 
     /**

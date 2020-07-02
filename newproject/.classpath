@@ -8,6 +8,10 @@
 	<classpathentry kind="var" path="TOMCAT_HOME/lib/annotations-api.jar"/>
 	<classpathentry kind="src" path="WEB-INF/src"/>
 	<classpathentry kind="src" output="work" path="work"/>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/Users/qcq1717/git/webapp/newproject/WEB-INF/lib/postgresql-42.2.4.jre6.jar"/>
+=======
+	<classpathentry kind="lib" path="WEB-INF/lib/postgresql-42.2.4.jre6.jar"/>
+>>>>>>> f9643e487efd1db3d67a7b844a12b0c40f776774
 	<classpathentry kind="output" path="WEB-INF/classes"/>
 </classpath>

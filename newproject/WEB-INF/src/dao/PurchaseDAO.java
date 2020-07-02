@@ -16,10 +16,10 @@ public class PurchaseDAO {
 
 		Asset aBean= new Asset();
 		aBean.setUserID("admin");
-		aBean.setNumber(10000);
+		aBean.setNumber(50000);
 		aBean.setStockCode(9434);
 
-		insert(uBean, aBean);
+		update(uBean, aBean);
 	}
 	public static int update(User uBean, Asset aBean) throws SQLException {
 

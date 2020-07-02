@@ -20,6 +20,14 @@ body {
   border-top: 1px solid #e6e7e8;
   border-bottom: 1px solid #e6e7e8;
 }
+
+.loginForm{
+  position: absolute;
+  top: 0px;
+  left:70%;
+  display: block;
+}
+
 #navigation .navlinks {
   list-style: none;
 }
