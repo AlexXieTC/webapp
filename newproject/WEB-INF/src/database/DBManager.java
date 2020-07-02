@@ -61,7 +61,7 @@ public class DBManager{
 	}
 
 	//複数の更新処理を挟む場合のようなsql実行処理
-	public static int complexUpdate(List<String> sqls) throws SQLException{
+	public static boolean complexUpdate(List<String> sqls) throws SQLException{
 
 		Connection con =null;
 		Statement smt=null;
@@ -76,12 +76,12 @@ public class DBManager{
 
 				if(result <=0) {
 					con.rollback();
-					return 0;
+					return false;
 				}
 			}
 
 			con.commit();
-			return 1;
+			return true;
 
 
 		}finally {
