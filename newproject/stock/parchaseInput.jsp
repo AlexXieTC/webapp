@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="bean.*" %>
 <%@ page import="java.sql.Date" %>
 <%--テスト用に各リクエストスコープの埋め込み --%>
@@ -11,13 +12,13 @@ request.setAttribute("stock", stock);
 
 Price price = new Price();
 price.setOpenPrice(1000);
-price.setClosingPrice(10000);
+price.setClosingPrice(2000);
 price.setVolume(10000);
 price.setDate(new Date(2020,6,2));
 request.setAttribute("price", price);
 
 User user = new User();
-user.setMoney(1000);
+user.setMoney(2000000);
 user.setId("admin");
 session.setAttribute("user", user);
 
@@ -62,12 +63,24 @@ session.setAttribute("user", user);
 			<form action ="<%=request.getContextPath() %>/purchaseConfirmation" method= "post">
 			<table>
 				<tr>
-					<th株式価格></th>
+					<th>株式価格</th>
 					<td>${requestScope.price.openPrice}円</td>
+				</tr>
+				<tr>
+					<th>購入株数</th>
+					<td>
+					<select name ="parchaseNumber">
+						<c:forEach begin ="100" end ="${sessionScope.user.money/price.openPrice }" step="100" var="i">
+						<option value="${i }">${i}</option>
+						</c:forEach>
+					</select>
+
+					</td>
 				</tr>
 			</table>
 
 			<input type="submit" value="購入確認">
+				<input type="submit" value="キャンセル">
 			</form>
 		</div>
     </div><!-- @end #main-content -->
