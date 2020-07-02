@@ -1,4 +1,4 @@
-<%@ page import="java.sql.*, database.*, java.util.*, bean.* "
+<%@ page import="java.sql.*, database.*, java.util.*, java.text.SimpleDateFormat,bean.* "
     contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -57,22 +57,23 @@
 	            <div class="sample02-inner">
 
 <					<% List<News> newsList = (List<News>)request.getAttribute("newsList");
+						SimpleDateFormat sdf1 = new SimpleDateFormat("MM月dd日");
 						News nbean0=newsList.get(0);%>
-					<p> <%=nbean0.getStockCode()%><%=nbean0.getNewsDate()%><%=nbean0.getTitle()%></p>
+					<p> <%=nbean0.getStockCode()%><%=sdf1.format(nbean0.getNewsDate())%><%=nbean0.getTitle()%></p>
 	            </div>
 
 	          </div>
 	        <div class="swiper-slide">
 	            <div class="sample02-inner">
 	             <%News nbean1=newsList.get(1);%>
-				<p> <%=nbean1.getStockCode()%><%=nbean1.getNewsDate()%><%=nbean1.getTitle()%></p>
+				<p> <%=nbean1.getStockCode()%><%=sdf1.format(nbean1.getNewsDate())%><%=nbean1.getTitle()%></p>
 	            </div>
 	          </div>
 
 	        <div class="swiper-slide">
 	            <div class="sample02-inner">
 	            <%News nbean2=newsList.get(2);%>
-				<p> <%=nbean2.getStockCode()%><%=nbean2.getNewsDate()%><%=nbean2.getTitle()%></p>
+				<p> <%=nbean2.getStockCode()%><%=sdf1.format(nbean2.getNewsDate())%><%=nbean2.getTitle()%></p>
 	            </div>
 	          </div>
 
@@ -130,6 +131,7 @@
 	<table>
 
 			<% List<Price> priceList = (List<Price>)request.getAttribute("priceList");
+            	SimpleDateFormat sdf = new SimpleDateFormat("MM月dd日");
             for(Price pbean:priceList){
 			%>
 
@@ -145,7 +147,7 @@
 			<tr>
 			<td align="right"><%=pbean.getStockCode() %> </td>
 			<td><%=pbean.getStockName() %> </td>
-            <td><%=pbean.getDate() %> </td>
+            <td><%=sdf.format(pbean.getDate()) %> </td>
             <td><%=pbean.getOpenPrice() %>   </td>
             <td><%=pbean.getClosingPrice() %> </td>
             <td><%=pbean.getVolume() %>  </td>
