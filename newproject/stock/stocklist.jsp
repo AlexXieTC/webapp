@@ -56,24 +56,25 @@
 	          <div class="swiper-slide">
 	            <div class="sample02-inner">
 
-<					<% List<News> newsList = (List<News>)request.getAttribute("newsList");
+					<% List<News> newsList = (List<News>)request.getAttribute("newsList");
 						SimpleDateFormat sdf1 = new SimpleDateFormat("MM月dd日");
 						News nbean0=newsList.get(0);%>
-					<p> <%=nbean0.getStockCode()%><%=sdf1.format(nbean0.getNewsDate())%><%=nbean0.getTitle()%></p>
+
+					<p>[<%=nbean0.getStockCode()%>]  <%=sdf1.format(nbean0.getNewsDate())%> <b> <%=nbean0.getTitle()%> </b></p>
 	            </div>
 
 	          </div>
 	        <div class="swiper-slide">
 	            <div class="sample02-inner">
 	             <%News nbean1=newsList.get(1);%>
-				<p> <%=nbean1.getStockCode()%><%=sdf1.format(nbean1.getNewsDate())%><%=nbean1.getTitle()%></p>
+				<p>[<%=nbean1.getStockCode()%>]  <%=sdf1.format(nbean1.getNewsDate())%>	<b><%=nbean1.getTitle()%></b></p>
 	            </div>
 	          </div>
 
 	        <div class="swiper-slide">
 	            <div class="sample02-inner">
 	            <%News nbean2=newsList.get(2);%>
-				<p> <%=nbean2.getStockCode()%><%=sdf1.format(nbean2.getNewsDate())%><%=nbean2.getTitle()%></p>
+				<p>[<%=nbean2.getStockCode()%>]	<%=sdf1.format(nbean2.getNewsDate())%>	<b><%=nbean2.getTitle()%></b></p>
 	            </div>
 	          </div>
 
