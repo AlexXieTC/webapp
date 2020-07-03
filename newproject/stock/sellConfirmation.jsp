@@ -5,13 +5,14 @@
 <%--テスト用に各リクエストスコープの埋め込み --%>
 <%
 
+
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
     <meta charset="utf-8" lang="ja">
   <link rel="stylesheet" href="./stock/css/top.css">
-  <title>購入フォーム</title>
+  <title>購入確認</title>
 </head>
 
 
@@ -41,8 +42,8 @@
 
     <div id="main-content">
 		<div align="center">
-		<h3>${stock.stockName}の株式を売却します</h3>
-			<form action ="<%=request.getContextPath() %>/sellConfirmation" method= "post">
+		<h3>以下の内容で${stock.stockName }の株式を売却します</h3>
+			<form action ="<%=request.getContextPath() %>/sell" method= "post">
 			<table>
 				<tr>
 					<th>株式価格</th>
@@ -50,13 +51,22 @@
 				</tr>
 				<tr>
 					<th>売却株数</th>
-					<td>
-					<input type="number" name ="sellNumber" value="${(empty sellNumber)? 100:sellNumber }" min="100" step="100" max="${asset.number }"/>株
-					</td>
+					<td>${requestScope.sellNumber}</td>
 				</tr>
+								<tr>
+					<th>売却金額</th>
+					<td>${sellNumber*price.openPrice}円</td>
+				</tr>
+				<tr>
+					<th>購入後の所持金</th>
+					<td>${user.money+(sellNumber*price.openPrice)}円</td>
+				</tr>
+
 			</table>
-			<input type="submit" name ="buttuon" value="売却確認">
-			<input type="submit" name="button" value="キャンセル">
+
+				<input type="submit" name="button" value="購入する">
+				<input type="submit" name ="button" value="修正する">
+				<input type ="hidden" name = "sellNumber" value="${sellNumber }">
 			</form>
 		</div>
     </div><!-- @end #main-content -->
