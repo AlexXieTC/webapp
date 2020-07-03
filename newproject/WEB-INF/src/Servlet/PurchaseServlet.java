@@ -26,7 +26,7 @@ public class PurchaseServlet extends HttpServlet {
 
 		String pushedButton=req.getParameter("button");
 		if(pushedButton.equals("修正する")) {
-			int purchaseNumber = Integer.parseInt(req.getParameter("parchaseNumber"));
+			int purchaseNumber = Integer.parseInt(req.getParameter("purchaseNumber"));
 			req.setAttribute("purchaseNumber", purchaseNumber);
 			req.getRequestDispatcher("/stock/purchase/purchaseInput.jsp").forward(req, resp);
 			return;

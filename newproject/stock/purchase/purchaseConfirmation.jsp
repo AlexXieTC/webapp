@@ -51,22 +51,22 @@
 				</tr>
 				<tr>
 					<th>購入株数</th>
-					<td>${requestScope.parchaseNumber}</td>
+					<td>${requestScope.purchaseNumber}</td>
 				</tr>
 								<tr>
 					<th>購入金額</th>
-					<td>${parchaseNumber*price.openPrice}円</td>
+					<td>${purchaseNumber*price.openPrice}円</td>
 				</tr>
 				<tr>
 					<th>購入後の所持金</th>
-					<td>${user.money-(parchaseNumber*price.openPrice)}円</td>
+					<td>${user.money-(purchaseNumber*price.openPrice)}円</td>
 				</tr>
 
 			</table>
 
 				<input type="submit" name="button" value="購入する">
 				<input type="submit" name ="button" value="修正する">
-				<input type ="hidden" name = "parchaseNumber" value="${parchaseNumber }">
+				<input type ="hidden" name = "purchaseNumber" value="${purchaseNumber }">
 			</form>
 		</div>
     </div><!-- @end #main-content -->

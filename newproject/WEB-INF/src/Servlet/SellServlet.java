@@ -70,7 +70,7 @@ public class SellServlet extends HttpServlet {
 		}
 
 		if (isSuccess) {
-			forwardURL = "/stock/sell/sellComplete.jp";
+			forwardURL = "/stock/sell/sellComplete.jsp";
 
 			session.setAttribute("user", updateUserBean);
 			session.removeAttribute("price");
