@@ -40,4 +40,30 @@ public class ShowInfoServlet extends HttpServlet{
 
 
 	}
+	public void doPost(HttpServletRequest request,
+			HttpServletResponse response)throws ServletException, IOException {
+
+				request.setCharacterEncoding("Shift_JIS");
+				String forwardURL=null;
+
+				try {
+					List<News> newsList=ShowInfoDAO.selectNews();
+					request.setAttribute("newsList", newsList);
+					List<Price> priceList=ShowInfoDAO.selectPrice();
+					request.setAttribute("priceList", priceList);
+					forwardURL = "/stock/stocklist.jsp";
+
+				}catch(NumberFormatException e) {
+					e.printStackTrace();
+//					forwardURL = "";
+				}catch(SQLException e) {
+					e.printStackTrace();
+//					forwardURL = "";
+				}
+
+				request.getRequestDispatcher(forwardURL).forward(request, response);
+
+
+			}
+
 }

@@ -19,13 +19,47 @@
           <li><a href="index.html">The Team</a></li>
           <li><a href="index.html">Contacts</a></li>
         </ul>
+
+
+
+<!-- 変更点7/3 -->
+		<div class ="loginForm">
+			<form method="post" action="?" class ="loginInput">
+				User ID <input type="text" name="userID" ><br>
+				Password<input type="password" name="pass">
+          		<input type="submit" formaction="<%=request.getContextPath() %>/login" value="Log in">
+          		<input type="submit" formaction="<%=request.getContextPath() %>/stock/signup.jsp" value="Sign up">
+			</form>
+        </div>
+
+
+<!-- <div class ="loginForm">の変更前-->
+
+       <!--
         <div class ="loginForm">
 			<form method="post" action="<%=request.getContextPath() %>/login" class ="loginInput">
 				User ID <input type="text" name="userID"><br>
 				Password<input type="password" name="pass">
           		<input type="submit" value="Log in">
 			</form>
+			<div class ="signupForm">
+			<form method="post" action="<%=request.getContextPath() %>/signup" class ="signupInput">
+
+          		<input type="submit" value="sign up">
+			</form>
         </div>
+        -->
+   <!--
+        <div class ="signupForm">
+			<form method="post" action="<%=request.getContextPath() %>/signup" class ="signupInput">
+
+          		<input type="submit" value="sign up">
+			</form>
+        </div>
+
+-->
+
+
       </div>
 
     </nav>

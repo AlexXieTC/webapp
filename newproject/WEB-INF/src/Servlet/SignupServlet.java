@@ -16,6 +16,12 @@ import dao.SignupDAO;
 //@WebServlet("/signup")
 public class SignupServlet extends HttpServlet{
 
+	public void doGet (HttpServletRequest request, HttpServletResponse response)
+			throws IOException, ServletException
+			{
+			this.doPost(request, response);
+			}
+
 	public void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException,IOException{
 		request.setCharacterEncoding("UTF-8");
@@ -36,7 +42,7 @@ public class SignupServlet extends HttpServlet{
 			if (updateCount < 1) {
 				forwardURL="/stock/signuperror.jsp";
 			}else {
-				forwardURL="/stock/stocklist.jsp";
+				forwardURL="/index.jsp";
 			}
 			System.out.println(forwardURL);
 		}catch(NumberFormatException e) {

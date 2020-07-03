@@ -47,10 +47,10 @@
       </div>
     </header>
 
-<h2>新規登録に失敗しました</h2>
+<h2>ログインに失敗しました</h2>
 
 <br><br>
-<a href="<%=request.getContextPath() %>/stock/signup.jsp">新規登録画面に戻る</a>
+<a href="<%=request.getContextPath() %>/index.jsp">トップ画面に戻る</a>
 
 </body>
 </html>

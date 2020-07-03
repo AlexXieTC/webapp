@@ -1,4 +1,4 @@
-<%@ page import="java.sql.*, database.DBAccess"
+<%@ page import="java.sql.*"
     contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 
     <!DOCTYPE html>

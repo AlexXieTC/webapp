@@ -10,6 +10,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import bean.User;
 import dao.LoginDAO;
@@ -17,6 +18,12 @@ import dao.LoginDAO;
 
 
 public class LoginServlet extends HttpServlet{
+
+	public void doGet (HttpServletRequest request, HttpServletResponse response)
+			throws IOException, ServletException
+			{
+			this.doPost(request, response);
+			}
 
 	public void doPost(HttpServletRequest request,HttpServletResponse response)
 			throws ServletException,IOException{
@@ -48,9 +55,13 @@ public class LoginServlet extends HttpServlet{
 //		request.getRequestDispatcher(forwardURL).forward(request, response);
 
 	if (userList.size() == 1) {
-		forwardURL="/stock/stocklist.jsp";
+		forwardURL="/showinfo";
+		ubean=userList.get(0);
+		HttpSession session=request.getSession();
+		session.setAttribute("user", ubean);
+
 	}else {
-		forwardURL="/stock/signuperror.jsp";
+		forwardURL="/stock/loginerror.jsp";
 	}
 	System.out.println(userList.size());
 //	    リストuserを取得
