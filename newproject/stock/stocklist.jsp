@@ -1,5 +1,7 @@
+
 <%@ page import="java.sql.*, database.*, java.util.*, java.text.SimpleDateFormat,bean.* "
     contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
+
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -58,7 +60,10 @@
 	          <div class="swiper-slide">
 	            <div class="sample02-inner">
 
+
 					<% List<News> newsList = (List<News>)request.getAttribute("newsList");
+
+
 						SimpleDateFormat sdf1 = new SimpleDateFormat("MM月dd日");
 						News nbean0=newsList.get(0);%>
 
@@ -72,6 +77,7 @@
 				<p>[<%=nbean1.getStockCode()%>]  <%=sdf1.format(nbean1.getNewsDate())%>	<b><%=nbean1.getTitle()%></b></p>
 	            </div>
 	          </div>
+
 
 	        <div class="swiper-slide">
 	            <div class="sample02-inner">
@@ -173,6 +179,7 @@
           </table>
         </div>
       </section>
+
 
         <h2>SNES in Dribbble Shots</h2>
         <div class="alert alert-info">

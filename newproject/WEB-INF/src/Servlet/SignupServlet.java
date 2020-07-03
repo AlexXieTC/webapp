@@ -1,10 +1,11 @@
-package database;
+package Servlet;
+
+
 
 import java.io.IOException;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,20 +13,20 @@ import javax.servlet.http.HttpServletResponse;
 import bean.User;
 import dao.SignupDAO;
 
-@WebServlet("/signup")
-public class signupServlet extends HttpServlet{
+//@WebServlet("/signup")
+public class SignupServlet extends HttpServlet{
 
 	public void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException,IOException{
-
-		request.setCharacterEncoding("Shift_JIS");
-
+		request.setCharacterEncoding("UTF-8");
+		System.out.println("出力確認");
 		String userID=request.getParameter("userID");
 		String password=request.getParameter("password");
 //		String money=request.getParameter("money");
 //		String simulationDate=request.getParameter("simulationDate");
 
 		String forwardURL=null;
+		System.out.println(userID);
 		try {
 			User ubean=new User();
 			ubean.setId(userID);
@@ -37,12 +38,14 @@ public class signupServlet extends HttpServlet{
 			}else {
 				forwardURL="/stock/stocklist.jsp";
 			}
+			System.out.println(forwardURL);
 		}catch(NumberFormatException e) {
 			e.printStackTrace();
 			forwardURL="/stock/signuperror.jsp";
 		} catch (SQLException e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
+			forwardURL="/stock/signuperror.jsp";
 		}
 
 		request.getRequestDispatcher(forwardURL).forward(request,response);
