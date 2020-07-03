@@ -28,6 +28,6 @@ public class SellConfirmationServlet extends HttpServlet {
 		//		System.out.println(req.getAtt);
 		//		System.out.println(stock.getStockName());
 
-		req.getRequestDispatcher("/stock/sellConfirmation.jsp").forward(req, resp);
+		req.getRequestDispatcher("/stock/sell/sellConfirmation.jsp").forward(req, resp);
 	}
 }

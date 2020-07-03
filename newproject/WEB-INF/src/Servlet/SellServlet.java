@@ -28,7 +28,7 @@ public class SellServlet extends HttpServlet {
 		if (pushedButton.equals("修正する")) {
 			int sellNumber = Integer.parseInt(req.getParameter("sellNumber"));
 			req.setAttribute("sellNumber", sellNumber);
-			req.getRequestDispatcher("/stock/sellInput.jsp").forward(req, resp);
+			req.getRequestDispatcher("/stock/sell/sellInput.jsp").forward(req, resp);
 			return;
 		}
 
@@ -70,7 +70,7 @@ public class SellServlet extends HttpServlet {
 		}
 
 		if (isSuccess) {
-			forwardURL = "/index.jp";
+			forwardURL = "/stock/sell/sellComplete.jp";
 
 			session.setAttribute("user", updateUserBean);
 			session.removeAttribute("price");

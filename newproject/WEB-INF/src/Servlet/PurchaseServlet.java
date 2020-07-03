@@ -28,7 +28,7 @@ public class PurchaseServlet extends HttpServlet {
 		if(pushedButton.equals("修正する")) {
 			int purchaseNumber = Integer.parseInt(req.getParameter("parchaseNumber"));
 			req.setAttribute("purchaseNumber", purchaseNumber);
-			req.getRequestDispatcher("/stock/purchaseInput.jsp").forward(req, resp);
+			req.getRequestDispatcher("/stock/purchase/purchaseInput.jsp").forward(req, resp);
 			return;
 		}
 
@@ -46,7 +46,7 @@ public class PurchaseServlet extends HttpServlet {
 		} catch (CloneNotSupportedException e1) {
 			e1.printStackTrace();
 		}
-		int purchaseNumber = Integer.parseInt(req.getParameter("parchaseNumber"));
+		int purchaseNumber = Integer.parseInt(req.getParameter("purchaseNumber"));
 		updateUserBean.setMoney(updateUserBean.getMoney() - (purchaseNumber * pBean.getOpenPrice()));
 
 		//既にAssetがあるかどうか確認
@@ -83,7 +83,7 @@ public class PurchaseServlet extends HttpServlet {
 		}
 
 		if (isSuccess) {
-			forwardURL = "/index.jp";
+			forwardURL = "/stock/purchase/purchaseComplete.jsp";
 
 			session.setAttribute("user", updateUserBean);
 			session.removeAttribute("price");
