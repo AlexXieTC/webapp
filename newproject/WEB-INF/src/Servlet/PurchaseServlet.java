@@ -92,7 +92,6 @@ public class PurchaseServlet extends HttpServlet {
 
 			System.out.println("更新処理完了");
 
-			//sell処理と使いまわすのならメッセージを追加するべき？
 
 		}
 

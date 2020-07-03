@@ -22,8 +22,8 @@ public class PurchaseConfirmationServlet extends HttpServlet {
 		}
 
 
-		int parchaseNumber = Integer.parseInt(req.getParameter("parchaseNumber"));
-		req.setAttribute("parchaseNumber", parchaseNumber);
+		int purchaseNumber = Integer.parseInt(req.getParameter("purchaseNumber"));
+		req.setAttribute("purchaseNumber", purchaseNumber);
 
 		//		System.out.println(req.getAtt);
 		//		System.out.println(stock.getStockName());
