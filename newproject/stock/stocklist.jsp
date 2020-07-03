@@ -15,11 +15,13 @@
 	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/style.css">
 	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/sample.css">
 	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/sample02.css">
+	 	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/table1.css">
 
 	 <script src="<%=request.getContextPath()%>/stock/js/highlight.js"></script>
 	 <script src="<%=request.getContextPath()%>/stock/js/highlightjs-line-numbers.min.js"></script>
 	 <script src="<%=request.getContextPath()%>/stock/js/swiper.min.js"></script>
 	 <script src="<%=request.getContextPath()%>/stock/js/script.js"></script>
+	 <script src="<%=request.getContextPath()%>/stock/js/table1.js"></script>
 
 
 
@@ -128,23 +130,34 @@
 
         <hr>
 
+	<section>
+        <!--for demo wrap-->
+        <!-- <h1>Fixed Table header</h1> -->
+        <div class="tbl-header">
+          <table cellpadding="0" cellspacing="0" border="0">
 
-	<table>
+          	<thead>
+              <tr>
+                <th>銘柄コード</th>
+                <th>銘柄名</th>
+                <th>日付</th>
+                <th>始値</th>
+                <th>終値</th>
+                <th>出来高</th>
+              </tr>
+            </thead>
 
-			<% List<Price> priceList = (List<Price>)request.getAttribute("priceList");
+            <% List<Price> priceList = (List<Price>)request.getAttribute("priceList");
             	SimpleDateFormat sdf = new SimpleDateFormat("MM月dd日");
             for(Price pbean:priceList){
 			%>
 
-			<tr bgcolor="000800">
-			<th><font color="white">銘柄コード</font></th>
-			<th><font color="white">銘柄名</font></th>
-		    <th><font color="white">日付</font></th>
-		    <th><font color="white">始値</font></th>
-		    <th><font color="white">終値</font></th>
-		    <th><font color="white">出来高</font></th>
+          </table>
+        </div>
+        <div class="tbl-content">
+          <table cellpadding="0" cellspacing="0" border="0">
 
-
+		 <tbody>
 			<tr>
 			<td align="right"><%=pbean.getStockCode() %> </td>
 			<td><%=pbean.getStockName() %> </td>
@@ -153,15 +166,13 @@
             <td><%=pbean.getClosingPrice() %> </td>
             <td><%=pbean.getVolume() %>  </td>
             </tr>
-
-
 			<%
             }
 			%>
-
-
-		</table>
-
+            </tbody>
+          </table>
+        </div>
+      </section>
 
         <h2>SNES in Dribbble Shots</h2>
         <div class="alert alert-info">
