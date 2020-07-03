@@ -25,8 +25,8 @@
 <!-- 変更点7/3 -->
 		<div class ="loginForm">
 			<form method="post" action="?" class ="loginInput">
-				User ID <input type="text" name="userID" ><br>
-				Password<input type="password" name="pass">
+				User ID <input type="text" name="userID" maxlength='20' pattern="^[0-9A-Za-z]+$"><br>
+				Password<input type="password" name="pass" maxlength='20'>
           		<input type="submit" formaction="<%=request.getContextPath() %>/login" value="Log in">
           		<input type="submit" formaction="<%=request.getContextPath() %>/stock/signup.jsp" value="Sign up">
 			</form>

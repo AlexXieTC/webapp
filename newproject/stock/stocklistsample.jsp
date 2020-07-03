@@ -83,7 +83,7 @@ db.close();
         </ul>
 
 		<div class ="AfterloginForm">
-		<form action="<%=request.getContextPath()%>/logout" method="Post">
+		<form action="<%=request.getContextPath()%>/stock/logout.jsp" method="Post">
 				ユーザーID：adm1
 				日付：2020-07-03
 				所持金：1000000 円

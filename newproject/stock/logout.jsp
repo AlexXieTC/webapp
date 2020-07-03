@@ -47,7 +47,7 @@
       </div>
     </header>
 
-<h2>ログインに失敗しました</h2>
+<h2>ログアウトしました</h2>
 
 <br><br>
 <a href="<%=request.getContextPath() %>/index.jsp">トップ画面に戻る</a>
