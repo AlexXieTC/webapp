@@ -26,9 +26,9 @@ public class PurchaseServlet extends HttpServlet {
 
 		String pushedButton=req.getParameter("button");
 		if(pushedButton.equals("修正する")) {
-			int parchaseNumber = Integer.parseInt(req.getParameter("parchaseNumber"));
-			req.setAttribute("parchaseNumber", parchaseNumber);
-			req.getRequestDispatcher(forwardURL).forward(req, resp);
+			int purchaseNumber = Integer.parseInt(req.getParameter("parchaseNumber"));
+			req.setAttribute("purchaseNumber", purchaseNumber);
+			req.getRequestDispatcher("/stock/purchaseInput.jsp").forward(req, resp);
 			return;
 		}
 
@@ -46,8 +46,8 @@ public class PurchaseServlet extends HttpServlet {
 		} catch (CloneNotSupportedException e1) {
 			e1.printStackTrace();
 		}
-		int parchaseNumber = Integer.parseInt(req.getParameter("parchaseNumber"));
-		updateUserBean.setMoney(updateUserBean.getMoney() - (parchaseNumber * pBean.getOpenPrice()));
+		int purchaseNumber = Integer.parseInt(req.getParameter("parchaseNumber"));
+		updateUserBean.setMoney(updateUserBean.getMoney() - (purchaseNumber * pBean.getOpenPrice()));
 
 		//既にAssetがあるかどうか確認
 		Asset aBean = (Asset) session.getAttribute("asset");
@@ -58,7 +58,7 @@ public class PurchaseServlet extends HttpServlet {
 			aBean = new Asset();
 			aBean.setStockCode(sBean.getStockCode());
 			aBean.setUserID(uBean.getId());
-			aBean.setNumber(parchaseNumber);
+			aBean.setNumber(purchaseNumber);
 
 		} else {
 			try {
@@ -66,7 +66,7 @@ public class PurchaseServlet extends HttpServlet {
 			} catch (CloneNotSupportedException e) {
 				e.printStackTrace();
 			}
-			updateAssetBean.setNumber(updateAssetBean.getNumber() + parchaseNumber);
+			updateAssetBean.setNumber(updateAssetBean.getNumber() + purchaseNumber);
 		}
 
 		boolean isSuccess = false;

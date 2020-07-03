@@ -1,7 +1,6 @@
 package Servlet;
 
 import java.io.IOException;
-import java.util.Enumeration;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,14 +16,11 @@ public class PurchaseConfirmationServlet extends HttpServlet {
 
 		req.setCharacterEncoding("UTF-8");
 		String pushedButton = req.getParameter("button");
-		if(pushedButton.equals("キャンセル")) {
+		if(pushedButton!=null &&pushedButton.equals("キャンセル")) {
 			req.getRequestDispatcher("/showinfo").forward(req, resp);
 			return;
 		}
 
-
-
-		Enumeration names = req.getParameterNames();
 
 		int parchaseNumber = Integer.parseInt(req.getParameter("parchaseNumber"));
 		req.setAttribute("parchaseNumber", parchaseNumber);

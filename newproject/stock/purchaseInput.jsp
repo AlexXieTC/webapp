@@ -52,7 +52,7 @@
 				<tr>
 					<th>購入株数</th>
 					<td>
-					<input type="number" name ="parchaseNumber" value="100" min="100" step="100" max="${user.money/price.openPrice }"/>株
+					<input type="number" name ="parchaseNumber" value="${(empty purchaseNumber)? 100:purchaseNumber }" min="100" step="100" max="${user.money/price.openPrice }"/>株
 					</td>
 				</tr>
 			</table>
