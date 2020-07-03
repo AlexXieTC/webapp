@@ -41,24 +41,22 @@
 
     <div id="main-content">
 		<div align="center">
-		<h3>${stock.stockName}の株式を購入します</h3>
-			<form action ="<%=request.getContextPath() %>/purchaseConfirmation" method= "post">
+		<h3>${stock.stockName}の株式を売却します</h3>
+			<form action ="<%=request.getContextPath() %>/sellConfirmation" method= "post">
 			<table>
 				<tr>
 					<th>株式価格</th>
 					<td>${price.openPrice}円</td>
 				</tr>
 				<tr>
-					<th>購入株数</th>
+					<th>売却株数</th>
 					<td>
-					<input type="number" name ="parchaseNumber" value="${(empty purchaseNumber)? 100:purchaseNumber }" min="100" step="100" max="${user.money/price.openPrice }"/>株
+					<input type="number" name ="parchaseNumber" value="${(empty sellNumber)? 100:sellNumber }" min="100" step="100" max="${asset.number }"/>株
 					</td>
 				</tr>
 			</table>
-			<input type="hidden" name="stock" value=${stock}>
-			<input type="hidden" name="price" value=${price}>
-			<input type="submit" name ="buttuon" value="購入確認">
-				<input type="submit" name="button" value="キャンセル">
+			<input type="submit" name ="buttuon" value="売却確認">
+			<input type="submit" name="button" value="キャンセル">
 			</form>
 		</div>
     </div><!-- @end #main-content -->

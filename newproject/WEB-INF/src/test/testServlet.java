@@ -51,6 +51,6 @@ public class testServlet extends HttpServlet {
 
 
 
-		req.getRequestDispatcher("/stock/purchaseInput.jsp").forward(req, resp);
+		req.getRequestDispatcher("/stock/sellInput.jsp").forward(req, resp);
 	}
 }
