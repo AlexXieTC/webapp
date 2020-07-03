@@ -44,9 +44,9 @@
     <header id="heading">
       <div class="container text-center">
         <h1>QUICK証券</h1>
+        <br><br><br><br><br><br><br><br>
         <h4>But this is just a sample demo layout, don't get too excited!</h4>
 
-        <p><a href="index.html" class="btn btn-large btn-inverse">Check out our features</a></p>
       </div>
     </header>
 
@@ -150,6 +150,8 @@
                 <th>始値</th>
                 <th>終値</th>
                 <th>出来高</th>
+                <th>買い注文</th>
+                <th>売り注文</th>
               </tr>
             </thead>
 
@@ -171,6 +173,8 @@
             <td><%=pbean.getOpenPrice() %>   </td>
             <td><%=pbean.getClosingPrice() %> </td>
             <td><%=pbean.getVolume() %>  </td>
+            <td><input type="button"value="BUY" /></td>
+            <td><input type="button"value="SELL"/></td>
             </tr>
 			<%
             }
