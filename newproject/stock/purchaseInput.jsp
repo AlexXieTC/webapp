@@ -5,23 +5,6 @@
 <%@ page import="java.sql.Date" %>
 <%--テスト用に各リクエストスコープの埋め込み --%>
 <%
-Stock stock = new Stock();
-stock.setStockCode(7234);
-stock.setStockName("トヨタ自動車(株)");
-session.setAttribute("stock", stock);
-
-Price price = new Price();
-price.setOpenPrice(1000);
-price.setClosingPrice(2000);
-price.setVolume(10000);
-price.setDate(new Date(2020,6,2));
-session.setAttribute("price", price);
-
-User user = new User();
-user.setMoney(2000000);
-user.setId("admin");
-session.setAttribute("user", user);
-
 
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
