@@ -21,7 +21,7 @@ public class SellDAO {
 
 		update(uBean, aBean);
 	}
-	public static int update(User uBean, Asset aBean) throws SQLException {
+	public static boolean update(User uBean, Asset aBean) throws SQLException {
 
 		String updateUser = "UPDATE userinformation SET money ="
 				+ uBean.getMoney()+" WHERE user_id = \'"

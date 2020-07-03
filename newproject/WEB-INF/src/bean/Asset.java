@@ -1,6 +1,6 @@
 package bean;
 
-public class Asset {
+public class Asset implements Cloneable{
 
 		private String userID;
 		private int stockCode;
@@ -41,6 +41,8 @@ public class Asset {
 			this.number = number;
 		}
 
-
+		public Asset clone() throws CloneNotSupportedException {
+			return (Asset)super.clone();
+		}
 
 }
