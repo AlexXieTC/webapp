@@ -2,7 +2,7 @@ package bean;
 
 import java.sql.Date;
 
-public class User {
+public class User  implements Cloneable{
 	private String userID;
 	private String password;
 	private int money;
@@ -45,5 +45,8 @@ public class User {
 	}
 	public void setSimulationDate(Date simulationDate) {
 		this.simulationDate = simulationDate;
+	}
+	public User clone() throws CloneNotSupportedException{
+		return (User)super.clone();
 	}
 }

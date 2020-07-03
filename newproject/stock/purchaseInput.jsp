@@ -8,14 +8,14 @@
 Stock stock = new Stock();
 stock.setStockCode(7234);
 stock.setStockName("トヨタ自動車(株)");
-request.setAttribute("stock", stock);
+session.setAttribute("stock", stock);
 
 Price price = new Price();
 price.setOpenPrice(1000);
 price.setClosingPrice(2000);
 price.setVolume(10000);
 price.setDate(new Date(2020,6,2));
-request.setAttribute("price", price);
+session.setAttribute("price", price);
 
 User user = new User();
 user.setMoney(2000000);
@@ -59,12 +59,12 @@ session.setAttribute("user", user);
 
     <div id="main-content">
 		<div align="center">
-		<h3>${requestScope.stock.stockName }の株式を購入します</h3>
+		<h3>${stock.stockName}の株式を購入します</h3>
 			<form action ="<%=request.getContextPath() %>/purchaseConfirmation" method= "post">
 			<table>
 				<tr>
 					<th>株式価格</th>
-					<td>${requestScope.price.openPrice}円</td>
+					<td>${price.openPrice}円</td>
 				</tr>
 				<tr>
 					<th>購入株数</th>
@@ -73,9 +73,10 @@ session.setAttribute("user", user);
 					</td>
 				</tr>
 			</table>
-
-			<input type="submit" value="購入確認">
-				<input type="submit" value="キャンセル">
+			<input type="hidden" name="stock" value=${stock}>
+			<input type="hidden" name="price" value=${price}>
+			<input type="submit" name ="buttuon" value="購入確認">
+				<input type="submit" name="button" value="キャンセル">
 			</form>
 		</div>
     </div><!-- @end #main-content -->

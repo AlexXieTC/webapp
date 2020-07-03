@@ -13,6 +13,6 @@ public class testServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO 自動生成されたメソッド・スタブ
-		req.getRequestDispatcher("/stock/parchaseInput.jsp").forward(req, resp);
+		req.getRequestDispatcher("/stock/purchaseInput.jsp").forward(req, resp);
 	}
 }
