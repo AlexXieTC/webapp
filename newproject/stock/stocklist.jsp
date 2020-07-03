@@ -24,10 +24,9 @@
 	 <script src="<%=request.getContextPath()%>/stock/js/swiper.min.js"></script>
 	 <script src="<%=request.getContextPath()%>/stock/js/script.js"></script>
 	 <script src="<%=request.getContextPath()%>/stock/js/table1.js"></script>
-
-
-
 </head>
+
+
 <body>
  <nav id="navigation">
       <div class="container">
@@ -49,7 +48,6 @@
 
       </div>
     </header>
-
 
 
 	<div class="l-wrapper">
@@ -85,7 +83,6 @@
 				<p>[<%=nbean2.getStockCode()%>]	<%=sdf1.format(nbean2.getNewsDate())%>	<b><%=nbean2.getTitle()%></b></p>
 	            </div>
 	          </div>
-
 
 	        </div>
 
@@ -154,13 +151,13 @@
                 <th>売り注文</th>
               </tr>
             </thead>
-
+		          </table>
             <% List<Price> priceList = (List<Price>)request.getAttribute("priceList");
             	SimpleDateFormat sdf = new SimpleDateFormat("MM月dd日");
             for(Price pbean:priceList){
 			%>
 
-          </table>
+
         </div>
         <div class="tbl-content">
           <table cellpadding="0" cellspacing="0" border="0">
