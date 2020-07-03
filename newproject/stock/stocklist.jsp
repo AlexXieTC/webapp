@@ -2,51 +2,6 @@
 <%@ page import="java.sql.*, database.*, java.util.*, java.text.SimpleDateFormat,bean.* "
     contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 
-<%--
-// 内容: データベースにアクセスする
-// MyDBAccess のインスタンスを生成する
-DBAccess db = new DBAccess();
-// データベースへのアクセス
-db.open();
-// メンバーを取得
-ResultSet rs = db.getResultSet("select * from price where date = now()::date");
-// メンバー一覧表示用のテーブル
-String tableHTML = "<table border=1>";
-tableHTML += "<tr bgcolor=\"000080\"><td><font color=\"white\">銘柄コード</font></td>"
-    + "<td><font color=\"white\">日付</font></td>"
-    + "<td><font color=\"white\">始値</font></td>"
-    + "<td><font color=\"white\">終値</font></td>"
-    + "<td><font color=\"white\">出来高</font></td>";
-// 取得された各結果に対しての処理
-while(rs.next()) {
-    int stockcode = rs.getInt("stock_code");
-    Date date = rs.getDate("date");
-    int openprice = rs.getInt("open_price");
-    int closeprice = rs.getInt("closing_price");
-    int volume = rs.getInt("volume");
-//    // 文字コードを EUC_JP からUnicode へ変換
-//    japan_name = new String(name.getBytes("8859_1"), "EUC_JP");
-//    kana = new String(kana.getBytes("8859_1"), "EUC_JP");
-    // テーブル用HTMLを作成
-    tableHTML += "<tr><td align=\"right\">" + stockcode + "</td>"
-              + "<td>" + date + "</td><td>" + openprice + "</td>"
-              + "<td>" + closeprice + "</td>"
-              +"<td>" + volume + "</td></tr>";
-}
-tableHTML += "</table>";
-rs = db.getResultSet("select * from news where date = now()::date");
-String pHTML="<p>";
-while(rs.next()) {
-    int stockcode = rs.getInt("stock_code");
-    Date date = rs.getDate("date");
-    String title=rs.getString("news_title");
-    pHTML+="<"+stockcode+">"+"["+title+"]"+date;
-}
-pHTML+="</p>";
-// データベースへのコネクションを閉じる
-db.close();
---%>
-
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -62,15 +17,16 @@ db.close();
 	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/style.css">
 	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/sample.css">
 	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/sample02.css">
+	 	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/table1.css">
 
 	 <script src="<%=request.getContextPath()%>/stock/js/highlight.js"></script>
 	 <script src="<%=request.getContextPath()%>/stock/js/highlightjs-line-numbers.min.js"></script>
 	 <script src="<%=request.getContextPath()%>/stock/js/swiper.min.js"></script>
 	 <script src="<%=request.getContextPath()%>/stock/js/script.js"></script>
-
-
-
+	 <script src="<%=request.getContextPath()%>/stock/js/table1.js"></script>
 </head>
+
+
 <body>
  <nav id="navigation">
       <div class="container">
@@ -87,12 +43,11 @@ db.close();
     <header id="heading">
       <div class="container text-center">
         <h1>QUICK証券</h1>
+        <br><br><br><br><br><br><br><br>
         <h4>But this is just a sample demo layout, don't get too excited!</h4>
 
-        <p><a href="index.html" class="btn btn-large btn-inverse">Check out our features</a></p>
       </div>
     </header>
-
 
 
 	<div class="l-wrapper">
@@ -104,17 +59,20 @@ db.close();
 	            <div class="sample02-inner">
 
 
-<					<% List<News> newsList = (List<News>)request.getAttribute("newsList");
+					<% List<News> newsList = (List<News>)request.getAttribute("newsList");
+
+
 						SimpleDateFormat sdf1 = new SimpleDateFormat("MM月dd日");
 						News nbean0=newsList.get(0);%>
-					<p> <%=nbean0.getStockCode()%><%=sdf1.format(nbean0.getNewsDate())%><%=nbean0.getTitle()%></p>
+
+					<p>[<%=nbean0.getStockCode()%>]  <%=sdf1.format(nbean0.getNewsDate())%> <b> <%=nbean0.getTitle()%> </b></p>
 	            </div>
 
 	          </div>
 	        <div class="swiper-slide">
 	            <div class="sample02-inner">
 	             <%News nbean1=newsList.get(1);%>
-				<p> <%=nbean1.getStockCode()%><%=sdf1.format(nbean1.getNewsDate())%><%=nbean1.getTitle()%></p>
+				<p>[<%=nbean1.getStockCode()%>]  <%=sdf1.format(nbean1.getNewsDate())%>	<b><%=nbean1.getTitle()%></b></p>
 	            </div>
 	          </div>
 
@@ -122,10 +80,9 @@ db.close();
 	        <div class="swiper-slide">
 	            <div class="sample02-inner">
 	            <%News nbean2=newsList.get(2);%>
-				<p> <%=nbean2.getStockCode()%><%=sdf1.format(nbean2.getNewsDate())%><%=nbean2.getTitle()%></p>
+				<p>[<%=nbean2.getStockCode()%>]	<%=sdf1.format(nbean2.getNewsDate())%>	<b><%=nbean2.getTitle()%></b></p>
 	            </div>
 	          </div>
-
 
 	        </div>
 
@@ -176,23 +133,36 @@ db.close();
 
         <hr>
 
+	<section>
+        <!--for demo wrap-->
+        <!-- <h1>Fixed Table header</h1> -->
+        <div class="tbl-header">
+          <table cellpadding="0" cellspacing="0" border="0">
 
-	<table>
-
-			<% List<Price> priceList = (List<Price>)request.getAttribute("priceList");
+          	<thead>
+              <tr>
+                <th>銘柄コード</th>
+                <th>銘柄名</th>
+                <th>日付</th>
+                <th>始値</th>
+                <th>終値</th>
+                <th>出来高</th>
+                <th>買い注文</th>
+                <th>売り注文</th>
+              </tr>
+            </thead>
+		          </table>
+            <% List<Price> priceList = (List<Price>)request.getAttribute("priceList");
             	SimpleDateFormat sdf = new SimpleDateFormat("MM月dd日");
             for(Price pbean:priceList){
 			%>
 
-			<tr bgcolor="000800">
-			<th><font color="white">銘柄コード</font></th>
-			<th><font color="white">銘柄名</font></th>
-		    <th><font color="white">日付</font></th>
-		    <th><font color="white">始値</font></th>
-		    <th><font color="white">終値</font></th>
-		    <th><font color="white">出来高</font></th>
 
+        </div>
+        <div class="tbl-content">
+          <table cellpadding="0" cellspacing="0" border="0">
 
+		 <tbody>
 			<tr>
 			<td align="right"><%=pbean.getStockCode() %> </td>
 			<td><%=pbean.getStockName() %> </td>
@@ -200,16 +170,16 @@ db.close();
             <td><%=pbean.getOpenPrice() %>   </td>
             <td><%=pbean.getClosingPrice() %> </td>
             <td><%=pbean.getVolume() %>  </td>
+            <td><input type="button"value="BUY" /></td>
+            <td><input type="button"value="SELL"/></td>
             </tr>
-
-
 			<%
             }
 			%>
-
-
-		</table>
-
+            </tbody>
+          </table>
+        </div>
+      </section>
 
 
         <h2>SNES in Dribbble Shots</h2>
