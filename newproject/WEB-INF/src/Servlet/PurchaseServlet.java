@@ -18,65 +18,72 @@ import bean.User;
 @WebServlet("/purchase")
 public class PurchaseServlet extends HttpServlet {
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO 自動生成されたメソッド・スタブ
+		req.setCharacterEncoding("UTF-8");
 
-		String forwardURL ="/stock/error.jsp";
-		HttpSession session =req.getSession();
+		String forwardURL = "/stock/error.jsp";
 
+		String pushedButton=req.getParameter("button");
+		if(pushedButton.equals("修正する")) {
+			int parchaseNumber = Integer.parseInt(req.getParameter("parchaseNumber"));
+			req.setAttribute("parchaseNumber", parchaseNumber);
+			req.getRequestDispatcher(forwardURL).forward(req, resp);
+			return;
+		}
+
+		HttpSession session = req.getSession();
 
 		//SessionScopeから更新後の情報を持つbeanを取得
-		User uBean = (User)session.getAttribute("user");
-		Price pBean =(Price)session.getAttribute("price");
-		Stock sBean = (Stock)session.getAttribute("stock");
+		User uBean = (User) session.getAttribute("user");
+		Price pBean = (Price) session.getAttribute("price");
+		Stock sBean = (Stock) session.getAttribute("stock");
 
 		//更新後の情報を持つuserBeanの作成
-		User updateUserBean=null;
+		User updateUserBean = null;
 		try {
 			updateUserBean = uBean.clone();
 		} catch (CloneNotSupportedException e1) {
 			e1.printStackTrace();
 		}
 		int parchaseNumber = Integer.parseInt(req.getParameter("parchaseNumber"));
-		updateUserBean.setMoney(updateUserBean.getMoney()-(parchaseNumber*pBean.getOpenPrice()));
-
+		updateUserBean.setMoney(updateUserBean.getMoney() - (parchaseNumber * pBean.getOpenPrice()));
 
 		//既にAssetがあるかどうか確認
-		Asset aBean = (Asset)session.getAttribute("asset");
-		Asset updateAssetBean=null;
-		boolean isInsert = (aBean ==null);
+		Asset aBean = (Asset) session.getAttribute("asset");
+		Asset updateAssetBean = null;
+		boolean isInsert = (aBean == null);
 		//挿入用AssetBeanの生成
-		if(isInsert) {
+		if (isInsert) {
 			aBean = new Asset();
 			aBean.setStockCode(sBean.getStockCode());
 			aBean.setUserID(uBean.getId());
 			aBean.setNumber(parchaseNumber);
 
-
-		}else {
+		} else {
 			try {
 				updateAssetBean = aBean.clone();
 			} catch (CloneNotSupportedException e) {
 				e.printStackTrace();
 			}
-			updateAssetBean.setNumber(updateAssetBean.getNumber()+parchaseNumber);
+			updateAssetBean.setNumber(updateAssetBean.getNumber() + parchaseNumber);
 		}
 
-
-		boolean isSuccess =false;
+		boolean isSuccess = false;
 		try {
 
-			if(isInsert) isSuccess = dao.PurchaseDAO.insert(updateUserBean, aBean);
-			else isSuccess = dao.PurchaseDAO.update(updateUserBean, updateAssetBean);
+			if (isInsert)
+				isSuccess = dao.PurchaseDAO.insert(updateUserBean, aBean);
+			else
+				isSuccess = dao.PurchaseDAO.update(updateUserBean, updateAssetBean);
 
 		} catch (SQLException e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
 
-
-		if(isSuccess) {
-			forwardURL ="/index.jp";
+		if (isSuccess) {
+			forwardURL = "/index.jp";
 
 			session.setAttribute("user", updateUserBean);
 			session.removeAttribute("price");
@@ -90,8 +97,6 @@ public class PurchaseServlet extends HttpServlet {
 		}
 
 		req.getRequestDispatcher(forwardURL).forward(req, resp);
-
-
 
 	}
 }

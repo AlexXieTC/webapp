@@ -65,8 +65,8 @@
 
 			</table>
 
-				<input type="submit" value="購入確認">
-				<input type="submit" value="キャンセル">
+				<input type="submit" name="button" value="購入する">
+				<input type="submit" name ="button" value="修正する">
 				<input type ="hidden" name = "parchaseNumber" value="${parchaseNumber }">
 			</form>
 		</div>
