@@ -115,7 +115,7 @@ db.close();
           <ul class="thumbnails">
             <li class="span4">
               <a href="https://www.nikkei.com/" class="thumbnail" target="_blank">
-              <img src="../img/nikkei.jpg" alt="snes controller dribbble shot">
+              <img src="./stock/img/nikkeilogo.jpg" alt="snes controller dribbble shot">
               </a>
             </li>
             <li class="span4">
