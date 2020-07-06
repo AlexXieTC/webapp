@@ -2,7 +2,7 @@ package test;
 
 import java.io.IOException;
 import java.sql.Date;
-import java.util.GregorianCalendar;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,8 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import bean.Asset;
-import bean.Stock;
+import bean.Price;
 import bean.User;
+import dao.PurchaseDAO;
 
 //買い注文、売り注文であるか判別し、適切なページにフォワーディング
 //銘柄にまつわる情報をsessionに格納
@@ -34,6 +35,7 @@ public class testServlet extends HttpServlet {
 		// TODO 自動生成されたメソッド・スタブ
 
 		String forwardURL=null;
+		String errorURL="error";
 		String button=req.getParameter("button");
 		if(button.equals("BUY"))forwardURL= "stock/purchase/purchaseInput.jsp";
 		else forwardURL = "/stock/sell/sellInput.jsp";
@@ -44,29 +46,29 @@ public class testServlet extends HttpServlet {
 		User user = new User();
 		user.setMoney(1600000);
 		user.setId("admin");
-		user.setSimulationDate(Date.valueOf(s));
-		java.util.Date date =new GregorianCalendar(30, 6, 1);
+		user.setSimulationDate(Date.valueOf("2020-6-1"));
 		session.setAttribute("user", user);
 
-		Stock stock = new Stock();
-		stock.setStockCode(7203);
-		stock.setStockName("トヨタ自動車(株)");
-		session.setAttribute("stock", stock);
 
+		int stock_code = Integer.parseInt(req.getParameter("stock_code"));
 
+		Price price=null;
+		Asset asset = null;
+		try {
+			price = PurchaseDAO.selectPrice(stock_code, user.getSimulationDate());
+			asset = PurchaseDAO.selectAsset(stock_code, user.getId());
 
-
-		Asset asset = new Asset();
-		asset.setNumber(500);
-		asset.setStockCode(stock.getStockCode());
-		asset.setUserID(user.getId());
-		session.setAttribute("asset", asset);
-
-
-
-
+		} catch (SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+		if(price ==null)forwardURL =errorURL;
+		else {
+			session.setAttribute("price", price);
+			session.setAttribute("asset", asset);
+		}
 
 //		req.getRequestDispatcher("/stock/purchase/purchaseInput.jsp").forward(req, resp);
-		req.getRequestDispatcher("/stock/sell/sellInput.jsp").forward(req, resp);
+		req.getRequestDispatcher(forwardURL).forward(req, resp);
 	}
 }
