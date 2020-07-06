@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import bean.User;
 
-@WebServlet("/renewdateconfirmation")
+@WebServlet("/renewconfirmation")
 public class RenewDateConfirmation extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
