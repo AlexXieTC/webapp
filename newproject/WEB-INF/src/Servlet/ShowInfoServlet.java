@@ -51,7 +51,7 @@ public class ShowInfoServlet extends HttpServlet{
 					request.setAttribute("newsList", newsList);
 					List<Price> priceList=ShowInfoDAO.selectPrice();
 					request.setAttribute("priceList", priceList);
-					forwardURL = "/stock/stocklist.jsp";
+					forwardURL = "/stock/stocklistsample.jsp";
 
 				}catch(NumberFormatException e) {
 					e.printStackTrace();
