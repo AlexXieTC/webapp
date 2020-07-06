@@ -41,7 +41,7 @@
 
     <div id="main-content">
 		<div align="center">
-		<h3>${stock.stockName}の株式を売却します</h3>
+		<h3>${price.stockName}の株式を売却します</h3>
 			<form action ="<%=request.getContextPath() %>/sellConfirmation" method= "post">
 			<table>
 				<tr>

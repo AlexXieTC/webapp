@@ -152,13 +152,14 @@
               </tr>
             </thead>
 		          </table>
+		                </div>
             <% List<Price> priceList = (List<Price>)request.getAttribute("priceList");
             	SimpleDateFormat sdf = new SimpleDateFormat("MM月dd日");
             for(Price pbean:priceList){
 			%>
 
 
-        </div>
+
         <div class="tbl-content">
           <table cellpadding="0" cellspacing="0" border="0">
 
@@ -170,10 +171,11 @@
             <td><%=pbean.getOpenPrice() %>   </td>
             <td><%=pbean.getClosingPrice() %> </td>
             <td><%=pbean.getVolume() %>  </td>
-            <form aciton = "<%=request.getContextPath() %>/buysellaction" method="post">
-            <input type="hidden" value =<%=pbean.getStockCode() %> name="stock_name">
-	            <td><input type="button"value="BUY" /></td>
-	            <td><input type="button"value="SELL"/></td>
+            <form action="<%=request.getContextPath() %>/buysellaction" method="post">
+            	<input type="hidden" value =<%=pbean.getStockCode() %> name="stock_code">
+	            <td><input type="submit"value="BUY"  name="button"/></td>
+	            <td><input type="submit"value="SELL" name="button"/></td>
+       	        <td><a href="<%= request.getContextPath()%>/buysellaction">リンク</a></td>
             </form>
             </tr>
 			<%

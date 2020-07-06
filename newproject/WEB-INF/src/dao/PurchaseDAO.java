@@ -73,16 +73,18 @@ public class PurchaseDAO {
 
 
 		List<Price> priceList = DBManager.findAll(selectPrice,new PriceMapping());
-		if(priceList !=null  || priceList.size()==0)return null;
+		System.out.println(priceList.size());
+		if(priceList ==null  || priceList.size()==0)return null;
 		else return priceList.get(0);
 	}
 
 	public static Asset selectAsset(int stock_code,String userID) throws SQLException {
-		String selectAsset ="SELECT * FROM asset"
-				+"WHERE user_id =\'"+userID+"'"
-				+"AND stock_code ="+stock_code;
+		String selectAsset ="SELECT * FROM asset "
+				+"WHERE user_id = \'"+userID+"'"
+				+" AND stock_code ="+stock_code;
+		System.out.println(selectAsset);
 		List<Asset> assetList =DBManager.findAll(selectAsset, new AssetMapping());
-		if(assetList != null || assetList.size()==0)return null;
+		if(assetList == null || assetList.size()==0)return null;
 		else return assetList.get(0);
 	}
 }

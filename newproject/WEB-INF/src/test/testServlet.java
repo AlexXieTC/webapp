@@ -30,13 +30,19 @@ public class testServlet extends HttpServlet {
 //		session.setAttribute("user", user);
 		System.out.println(user.getSimulationDate());
 	}
-	@Override
+
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO 自動生成されたメソッド・スタブ
+		doPost(req, resp);
+	}
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// TODO 自動生成されたメソッド・スタブ
+		req.setCharacterEncoding("UTF-8");
 
 		String forwardURL=null;
 		String errorURL="error";
 		String button=req.getParameter("button");
+		System.out.println(button);
 		if(button.equals("BUY"))forwardURL= "stock/purchase/purchaseInput.jsp";
 		else forwardURL = "/stock/sell/sellInput.jsp";
 
@@ -49,7 +55,7 @@ public class testServlet extends HttpServlet {
 		user.setSimulationDate(Date.valueOf("2020-6-1"));
 		session.setAttribute("user", user);
 
-
+		System.out.println(req.getParameter("stock_code"));
 		int stock_code = Integer.parseInt(req.getParameter("stock_code"));
 
 		Price price=null;
@@ -62,6 +68,7 @@ public class testServlet extends HttpServlet {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
+		System.out.println(price);
 		if(price ==null)forwardURL =errorURL;
 		else {
 			session.setAttribute("price", price);

@@ -41,7 +41,7 @@
 
     <div id="main-content">
 		<div align="center">
-		<h3>${stock.stockName}の株式を購入します</h3>
+		<h3>${price.stockName}の株式を購入します</h3>
 			<form action ="<%=request.getContextPath() %>/purchaseConfirmation" method= "post">
 			<table>
 				<tr>
@@ -55,8 +55,6 @@
 					</td>
 				</tr>
 			</table>
-			<input type="hidden" name="stock" value=${stock}>
-			<input type="hidden" name="price" value=${price}>
 			<input type="submit" name ="buttuon" value="購入確認">
 				<input type="submit" name="button" value="キャンセル">
 			</form>
