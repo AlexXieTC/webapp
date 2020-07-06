@@ -46,5 +46,15 @@
     </servlet-mapping>
 
 
+  	<servlet>
+         <servlet-name>logoutS </servlet-name>
+          <servlet-class>Servlet.LogoutServlet </servlet-class>
+	</servlet>
+    <servlet-mapping>
+   		  <servlet-name>logoutS</servlet-name>
+   		  <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+
+
 
 </web-app>
