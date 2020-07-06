@@ -115,17 +115,17 @@ db.close();
           <ul class="thumbnails">
             <li class="span4">
               <a href="https://www.nikkei.com/" class="thumbnail" target="_blank">
-              <img src="./stock/img/nikkeilogo.jpg" alt="snes controller dribbble shot">
+              <img src="./stock/img/nikkeilogo.jpg" alt="日本経済新聞ホームページ">
               </a>
             </li>
             <li class="span4">
-              <a href="http://dribbble.com/shots/525128-Micons-Series-2-SNES" class="thumbnail" target="_blank">
-              <img src="https://i.imgur.com/uQLkghZ.png" alt="minicon series2 snes console">
+              <a href="https://moneyworld.jp/" class="thumbnail" target="_blank">
+              <img src="./stock/img/moneyworld.png" alt="QUICK Money World">
               </a>
             </li>
             <li class="span4">
-              <a href="http://dribbble.com/shots/633186-The-Game" class="thumbnail" target="_blank">
-              <img src="https://i.imgur.com/vLg6MDV.png" alt="snes video game cartridge shot">
+              <a href="https://froggy.smbcnikko.co.jp/" class="thumbnail" target="_blank">
+              <img src="./stock/img/froggy.jpg" alt="日興フロッギー">
               </a>
             </li>
           </ul>
@@ -134,13 +134,13 @@ db.close();
         <div class="row-fluid">
           <ul class="thumbnails">
             <li class="span6">
-              <a href="http://dribbble.com/shots/758735-Oh-Oh-Please-Amaze-Me-Detail-IV" class="thumbnail" target="_blank">
-              <img src="https://i.imgur.com/SS8Kiln.png" alt="dribbble shots super nintendo">
+              <a href="https://www.daiwa.jp/ja/dd/beginner/" class="thumbnail" target="_blank">
+              <img src="./stock/img/daiwalogo.jpg" alt="大和証券">
               </a>
             </li>
             <li class="span6">
-              <a href="http://dribbble.com/shots/436565-Jaku-Console-Wars" class="thumbnail" target="_blank">
-              <img src="https://i.imgur.com/y3M2d7p.png" align="dribbble console wars super nintendo design">
+              <a href="https://minkabu.jp/beginner/" class="thumbnail" target="_blank">
+              <img src="./stock/img/minkabulogo.png" align="dribbble console wars super nintendo design">
               </a>
             </li>
           </ul>
