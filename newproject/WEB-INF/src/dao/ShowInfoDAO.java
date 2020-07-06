@@ -14,6 +14,12 @@ import resultmapping.StockMapping;
 import resultmapping.UserMapping;
 
 public class ShowInfoDAO {
+	public static void main(String[] args) {
+		String sql="SELECT * FROM PRICE,USERINFORMATION,STOCK"
+				+ " WHERE PRICE.DATE=USERINFORMATION.SIMULATION_DATE"
+				+" AND PRICE.STOCK_CODE=STOCK.STOCK_CODE";
+		System.out.println(sql);
+	}
 	public static List<News> selectNews()throws SQLException {
 		String sql="SELECT * FROM NEWS,USERINFORMATION"
 				+ " WHERE NEWS.DATE=USERINFORMATION.SIMULATION_DATE";

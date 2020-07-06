@@ -7,6 +7,12 @@ public class Price {
 	private Date date;
 	private int openPrice;
 	private String stockName;
+	private int closingPrice;
+	private int volume;
+
+	public Price() {
+
+	}
 
 
 	public int getStockCode() {
@@ -57,11 +63,5 @@ public class Price {
 		this.stockName = stockName;
 	}
 
-	private int closingPrice;
-	private int volume;
-
-	public Price() {
-
-	}
 
 }

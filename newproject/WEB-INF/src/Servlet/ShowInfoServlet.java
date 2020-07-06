@@ -19,7 +19,7 @@ public class ShowInfoServlet extends HttpServlet{
 	HttpServletResponse response)throws ServletException, IOException {
 
 		request.setCharacterEncoding("Shift_JIS");
-		String forwardURL=null;
+		String forwardURL="/stock/stocklist.jsp";
 
 		try {
 			List<News> newsList=ShowInfoDAO.selectNews();

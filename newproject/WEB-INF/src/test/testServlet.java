@@ -2,6 +2,7 @@ package test;
 
 import java.io.IOException;
 import java.sql.Date;
+import java.util.GregorianCalendar;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,35 +12,49 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import bean.Asset;
-import bean.Price;
 import bean.Stock;
 import bean.User;
 
-@WebServlet("/test")
+//買い注文、売り注文であるか判別し、適切なページにフォワーディング
+//銘柄にまつわる情報をsessionに格納
+
+@WebServlet("/buysellaction")
 public class testServlet extends HttpServlet {
+	public static void main(String[] args) {
+		//暫定的にsession生成
+		User user = new User();
+		user.setMoney(1600000);
+		user.setId("admin");
+		user.setSimulationDate(Date.valueOf("2020-6-1"));
+//		session.setAttribute("user", user);
+		System.out.println(user.getSimulationDate());
+	}
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO 自動生成されたメソッド・スタブ
 
+		String forwardURL=null;
+		String button=req.getParameter("button");
+		if(button.equals("BUY"))forwardURL= "stock/purchase/purchaseInput.jsp";
+		else forwardURL = "/stock/sell/sellInput.jsp";
+
 		HttpSession session = req.getSession();
 
+		//暫定的にsession生成
+		User user = new User();
+		user.setMoney(1600000);
+		user.setId("admin");
+		user.setSimulationDate(Date.valueOf(s));
+		java.util.Date date =new GregorianCalendar(30, 6, 1);
+		session.setAttribute("user", user);
 
 		Stock stock = new Stock();
 		stock.setStockCode(7203);
 		stock.setStockName("トヨタ自動車(株)");
 		session.setAttribute("stock", stock);
 
-		Price price = new Price();
-		price.setOpenPrice(1000);
-		price.setClosingPrice(2000);
-		price.setVolume(10000);
-		price.setDate(new Date(2020,6,2));
-		session.setAttribute("price", price);
 
-		User user = new User();
-		user.setMoney(1600000);
-		user.setId("admin");
-		session.setAttribute("user", user);
+
 
 		Asset asset = new Asset();
 		asset.setNumber(500);

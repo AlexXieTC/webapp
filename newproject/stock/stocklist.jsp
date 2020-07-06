@@ -170,8 +170,11 @@
             <td><%=pbean.getOpenPrice() %>   </td>
             <td><%=pbean.getClosingPrice() %> </td>
             <td><%=pbean.getVolume() %>  </td>
-            <td><input type="button"value="BUY" /></td>
-            <td><input type="button"value="SELL"/></td>
+            <form aciton = "<%=request.getContextPath() %>/buysellaction" method="post">
+            <input type="hidden" value =<%=pbean.getStockCode() %> name="stock_name">
+	            <td><input type="button"value="BUY" /></td>
+	            <td><input type="button"value="SELL"/></td>
+            </form>
             </tr>
 			<%
             }
