@@ -47,9 +47,10 @@
       </div>
     </header>
 
-<h2>新規登録に失敗しました</h2>
+<h3 >すでにIDが使用されています。</h3><br>
+<h3>別のIDを設定してください。</h3>
 
-<br><br>
+<br>
 <a href="<%=request.getContextPath() %>/stock/signup.jsp">新規登録画面に戻る</a>
 
 </body>

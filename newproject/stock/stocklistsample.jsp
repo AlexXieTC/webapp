@@ -83,7 +83,7 @@ db.close();
         </ul>
 
 		<div class ="AfterloginForm">
-		<form action="<%=request.getContextPath()%>/stock/logout.jsp" method="Post">
+		<form action="<%=request.getContextPath()%>/logout" method="Post">
 				ユーザーID：adm1
 				日付：2020-07-03
 				所持金：1000000 円
@@ -104,6 +104,51 @@ db.close();
         <p><a href="index.html" class="btn btn-large btn-inverse">Check out our features</a></p>
       </div>
     </header>
+
+
+<h2>参考サイト</h2>
+        <div class="alert alert-info">
+          <strong>Note:</strong>投資初心者向けの参考サイトを掲載しています。
+        </div>
+
+        <div class="row-fluid">
+          <ul class="thumbnails">
+            <li class="span4">
+              <a href="https://www.nikkei.com/" class="thumbnail" target="_blank">
+              <img src="../img/nikkei.jpg" alt="snes controller dribbble shot">
+              </a>
+            </li>
+            <li class="span4">
+              <a href="http://dribbble.com/shots/525128-Micons-Series-2-SNES" class="thumbnail" target="_blank">
+              <img src="https://i.imgur.com/uQLkghZ.png" alt="minicon series2 snes console">
+              </a>
+            </li>
+            <li class="span4">
+              <a href="http://dribbble.com/shots/633186-The-Game" class="thumbnail" target="_blank">
+              <img src="https://i.imgur.com/vLg6MDV.png" alt="snes video game cartridge shot">
+              </a>
+            </li>
+          </ul>
+        </div><!-- @end .row-fluid -->
+
+        <div class="row-fluid">
+          <ul class="thumbnails">
+            <li class="span6">
+              <a href="http://dribbble.com/shots/758735-Oh-Oh-Please-Amaze-Me-Detail-IV" class="thumbnail" target="_blank">
+              <img src="https://i.imgur.com/SS8Kiln.png" alt="dribbble shots super nintendo">
+              </a>
+            </li>
+            <li class="span6">
+              <a href="http://dribbble.com/shots/436565-Jaku-Console-Wars" class="thumbnail" target="_blank">
+              <img src="https://i.imgur.com/y3M2d7p.png" align="dribbble console wars super nintendo design">
+              </a>
+            </li>
+          </ul>
+        </div><!-- @end .row-fluid -->
+
+        <hr>
+      </div><!-- @end .container -->
+    </div><!-- @end #main-content -->
 
 
 

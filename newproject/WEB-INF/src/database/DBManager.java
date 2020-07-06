@@ -16,9 +16,9 @@ public class DBManager{
 		System.out.println();
 	}
 	//接続するデータベース名
-	private static final String DB="tomcat";
+	private static final String DB="webapp";
 	//各ユーザのパスワード
-	private static final String  PASS ="0w0mjgmaj";
+	private static final String  PASS ="kanazawa24ki";
 
 	public static Connection getConnection() throws SQLException{
 		try {
