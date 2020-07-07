@@ -1,0 +1,55 @@
+package bean;
+
+import java.sql.Date;
+
+public class History {
+	private int stockCode;
+	private String stockName;
+	private String userID;
+	private Date simulationDate;
+	private int number;
+
+	public History() {
+
+	}
+
+	public int getStockCode() {
+		return stockCode;
+	}
+
+	public void setStockCode(int stockCode) {
+		this.stockCode = stockCode;
+	}
+
+	public String getStockName() {
+		return stockName;
+	}
+
+	public void setStockName(String stockName) {
+		this.stockName = stockName;
+	}
+
+	public String getId() {
+		return userID;
+	}
+
+	public void setId(String userID) {
+		this.userID = userID;
+	}
+
+	public Date getSimulationDate() {
+		return simulationDate;
+	}
+
+	public void setSimulationDate(Date simulationDate) {
+		this.simulationDate = simulationDate;
+	}
+
+	public int getNumber() {
+		return number;
+	}
+
+	public void setNumber(int number) {
+		this.number = number;
+	}
+}
