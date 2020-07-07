@@ -15,7 +15,11 @@ import resultmapping.PriceMapping;
 import resultmapping.StockMapping;
 import resultmapping.UserMapping;
 
+
 public class ShowInfoDAO {
+
+	User ubean= new User();
+
 	public static void main(String[] args) {
 		String sql="SELECT * FROM PRICE,USERINFORMATION,STOCK"
 				+ " WHERE PRICE.DATE=USERINFORMATION.SIMULATION_DATE"
@@ -27,10 +31,13 @@ public class ShowInfoDAO {
 				+ " WHERE NEWS.DATE=USERINFORMATION.SIMULATION_DATE";
 		return DBManager.findAll(sql, new NewsMapping());
 	}
-	public static List<Price> selectPrice()throws SQLException {
+	public static List<Price> selectPrice(User ubean)throws SQLException {
 		String sql="SELECT * FROM PRICE,USERINFORMATION,STOCK"
 				+ " WHERE PRICE.DATE=USERINFORMATION.SIMULATION_DATE"
-				+" AND PRICE.STOCK_CODE=STOCK.STOCK_CODE";
+				+" AND PRICE.STOCK_CODE=STOCK.STOCK_CODE"
+				+" AND USERINFORMATION.USER_ID='"+ubean.getId()+"'"
+				;
+		System.out.println(sql);
 		return DBManager.findAll(sql, new PriceMapping());
 	}
 	public static List<User> selectUser()throws SQLException {
@@ -42,7 +49,9 @@ public class ShowInfoDAO {
 		return DBManager.findAll(sql, new StockMapping());
 	}
 	public static List<History> selectHistory()throws SQLException {
-		String sql="SELECT * FROM HISTORY";
+		String sql="SELECT * FROM HISTORY,PRICE"
+				+" WHERE HISTORY.DATE=PRICE.DATE "
+				+" AND HISTORY.STOCK_CODE=PRICE.STOCK_CODE";
 		return DBManager.findAll(sql, new HistoryMapping());
 	}
 }

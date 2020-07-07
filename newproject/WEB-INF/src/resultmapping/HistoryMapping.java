@@ -13,9 +13,10 @@ public class HistoryMapping implements ResultSetBeanMapping<History>{
 		History history = new History();
 		history.setStockName(rs.getString("stock_name"));
 		history.setStockCode(rs.getInt("stock_code"));
-		history.setSimulationDate(rs.getDate("simulation_date"));
+		history.setSimulationDate(rs.getDate("date"));
 		history.setId(rs.getString("user_id"));
 		history.setNumber(rs.getInt("number"));
+		history.setClosingPrice(rs.getInt("closing_price"));
 
 		return history;
 	}

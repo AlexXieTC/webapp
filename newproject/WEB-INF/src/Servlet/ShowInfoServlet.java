@@ -8,9 +8,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import bean.News;
 import bean.Price;
+import bean.User;
 import dao.ShowInfoDAO;
 
 
@@ -20,11 +22,14 @@ public class ShowInfoServlet extends HttpServlet{
 
 		request.setCharacterEncoding("Shift_JIS");
 		String forwardURL="/stock/stocklist.jsp";
+		HttpSession session =request.getSession();
+		User ubean=(User)session.getAttribute("user");
 
 		try {
 			List<News> newsList=ShowInfoDAO.selectNews();
 			request.setAttribute("newsList", newsList);
-			List<Price> priceList=ShowInfoDAO.selectPrice();
+
+			List<Price> priceList=ShowInfoDAO.selectPrice(ubean);
 			request.setAttribute("priceList", priceList);
 			forwardURL = "/stock/stocklistsample.jsp";
 
@@ -46,10 +51,13 @@ public class ShowInfoServlet extends HttpServlet{
 				request.setCharacterEncoding("Shift_JIS");
 				String forwardURL=null;
 
+				HttpSession session =request.getSession();
+				User ubean=(User)session.getAttribute("user");
+
 				try {
 					List<News> newsList=ShowInfoDAO.selectNews();
 					request.setAttribute("newsList", newsList);
-					List<Price> priceList=ShowInfoDAO.selectPrice();
+					List<Price> priceList=ShowInfoDAO.selectPrice(ubean);
 					request.setAttribute("priceList", priceList);
 					forwardURL = "/stock/stocklist.jsp";
 

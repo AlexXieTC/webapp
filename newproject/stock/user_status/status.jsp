@@ -63,6 +63,7 @@
                 <th>銘柄コード</th>
                 <th>銘柄名</th>
                 <th>所持数</th>
+                <th>株資産</th>
                 <th>日付</th>
               </tr>
             </thead>
@@ -84,7 +85,7 @@
 			<td><%=hbean.getStockCode() %> </td>
             <td><%=hbean.getStockName() %>   </td>
             <td><%=hbean.getNumber() %> </td>
-
+            <td><%=hbean.getNumber()*hbean.getClosingPrice() %> </td>
             <td><%=sdf.format(hbean.getSimulationDate()) %> </td>
 
 

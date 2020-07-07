@@ -8,6 +8,15 @@ public class History {
 	private String userID;
 	private Date simulationDate;
 	private int number;
+	private int closingPrice;
+
+	public int getClosingPrice() {
+		return closingPrice;
+	}
+
+	public void setClosingPrice(int closingPrice) {
+		this.closingPrice = closingPrice;
+	}
 
 	public History() {
 
