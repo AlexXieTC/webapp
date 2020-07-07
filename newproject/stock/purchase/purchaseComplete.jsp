@@ -46,7 +46,7 @@
 		<h3>購入処理に成功しました</h3>
 		<br>
 		<form action="<%=request.getContextPath() %>/showinfo" method="post">
-			<input type="subbmit" value="トップへ戻る">
+			<input type="submit" value="トップへ戻る">
 		</form>
 	</div>
 

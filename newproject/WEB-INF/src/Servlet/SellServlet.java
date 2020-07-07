@@ -12,7 +12,6 @@ import javax.servlet.http.HttpSession;
 
 import bean.Asset;
 import bean.Price;
-import bean.Stock;
 import bean.User;
 
 @WebServlet("/sell")
@@ -37,7 +36,7 @@ public class SellServlet extends HttpServlet {
 		//SessionScopeから更新後の情報を持つbeanを取得
 		User uBean = (User) session.getAttribute("user");
 		Price pBean = (Price) session.getAttribute("price");
-		Stock sBean = (Stock) session.getAttribute("stock");
+//		Stock sBean = (Stock) session.getAttribute("stock");
 
 		//更新後の情報を持つuserBeanの作成
 		User updateUserBean = null;
@@ -62,7 +61,7 @@ public class SellServlet extends HttpServlet {
 		boolean isSuccess = false;
 		try {
 
-			isSuccess = dao.SellDAO.update(updateUserBean, updateAssetBean);
+			isSuccess = dao.PurchaseDAO.update(updateUserBean, updateAssetBean,pBean.getStockName(),-sellNumber);
 
 		} catch (SQLException e) {
 			// TODO 自動生成された catch ブロック

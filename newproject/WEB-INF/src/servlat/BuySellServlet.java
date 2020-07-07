@@ -1,4 +1,4 @@
-package test;
+package servlat;
 
 import java.io.IOException;
 import java.sql.Date;
@@ -20,7 +20,7 @@ import dao.PurchaseDAO;
 //銘柄にまつわる情報をsessionに格納
 
 @WebServlet("/buysellaction")
-public class testServlet extends HttpServlet {
+public class BuySellServlet extends HttpServlet {
 	public static void main(String[] args) {
 		//暫定的にsession生成
 		User user = new User();
@@ -49,11 +49,12 @@ public class testServlet extends HttpServlet {
 		HttpSession session = req.getSession();
 
 		//暫定的にsession生成
-		User user = new User();
-		user.setMoney(1600000);
-		user.setId("admin");
-		user.setSimulationDate(Date.valueOf("2020-6-1"));
-		session.setAttribute("user", user);
+//		User user = new User();
+//		user.setMoney(1600000);
+//		user.setId("admin");
+//		user.setSimulationDate(Date.valueOf("2020-6-1"));
+//		session.setAttribute("user", user);
+		User user =(User)session.getAttribute("user");
 
 		System.out.println(req.getParameter("stock_code"));
 		int stock_code = Integer.parseInt(req.getParameter("stock_code"));
