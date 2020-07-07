@@ -175,7 +175,6 @@
             	<input type="hidden" value =<%=pbean.getStockCode() %> name="stock_code">
 	            <td><input type="submit"value="BUY"  name="button"/></td>
 	            <td><input type="submit"value="SELL" name="button"/></td>
-       	        <td><a href="<%= request.getContextPath()%>/buysellaction">リンク</a></td>
             </form>
             </tr>
 			<%
