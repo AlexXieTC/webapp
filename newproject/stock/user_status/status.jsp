@@ -59,21 +59,18 @@
 
           	<thead>
               <tr>
+                <th>ユーザーID</th>
                 <th>銘柄コード</th>
                 <th>銘柄名</th>
+                <th>所持数</th>
                 <th>日付</th>
-                <th>始値</th>
-                <th>終値</th>
-                <th>出来高</th>
-                <th>買い注文</th>
-                <th>売り注文</th>
               </tr>
             </thead>
 		          </table>
 		                </div>
-            <% List<Price> priceList = (List<Price>)request.getAttribute("priceList");
+            <% List<History> historyList = (List<History>)request.getAttribute("historyList");
             	SimpleDateFormat sdf = new SimpleDateFormat("MM月dd日");
-            for(Price pbean:priceList){
+            for(History hbean:historyList){
 			%>
 
 
@@ -83,18 +80,14 @@
 
 		 <tbody>
 			<tr>
-			<td align="right"><%=pbean.getStockCode() %> </td>
-			<td><%=pbean.getStockName() %> </td>
-            <td><%=sdf.format(pbean.getDate()) %> </td>
-            <td><%=pbean.getOpenPrice() %>   </td>
-            <td><%=pbean.getClosingPrice() %> </td>
-            <td><%=pbean.getVolume() %>  </td>
-            <form action="<%=request.getContextPath() %>/buysellaction" method="post">
-            	<input type="hidden" value =<%=pbean.getStockCode() %> name="stock_code">
-	            <td><input type="submit"value="BUY"  name="button"/></td>
-	            <td><input type="submit"value="SELL" name="button"/></td>
-       	        <td><a href="<%= request.getContextPath()%>/buysellaction">リンク</a></td>
-            </form>
+			<td align="right"><%=hbean.getId() %> </td>
+			<td><%=hbean.getStockCode() %> </td>
+            <td><%=hbean.getStockName() %>   </td>
+            <td><%=hbean.getNumber() %> </td>
+
+            <td><%=sdf.format(hbean.getSimulationDate()) %> </td>
+
+
             </tr>
 			<%
             }
