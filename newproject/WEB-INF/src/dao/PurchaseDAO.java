@@ -33,7 +33,7 @@ public class PurchaseDAO {
 		Price p =selectPrice(stock_code, user.getSimulationDate());
 		System.out.println(p.getStockCode());
 	}
-	public static boolean update(User uBean, Asset aBean) throws SQLException {
+	public static boolean update(User uBean, Asset aBean,String stockName,int number) throws SQLException {
 
 		String updateUser = "UPDATE userinformation SET money ="
 				+ uBean.getMoney()+" WHERE user_id = \'"
@@ -42,13 +42,21 @@ public class PurchaseDAO {
 				+aBean.getNumber()+" WHERE user_id=\'"+aBean.getUserID()
 				+"' AND stock_code = "+aBean.getStockCode();
 
+		String insertHistory="INSERT INTO history "
+				+"Values(\'"+uBean.getSimulationDate()+"', "
+				+"'"+uBean.getId()+"', "
+				+aBean.getStockCode()+", "
+				+"'"+stockName+"', "
+				+number+")";
+
 		List<String> sqls = new ArrayList<String>();
 		sqls.add(updateAsset);
 		sqls.add(updateUser);
+		sqls.add(insertHistory);
 		return DBManager.complexUpdate(sqls);
 	}
 
-	public static boolean insert(User uBean, Asset aBean) throws SQLException {
+	public static boolean insert(User uBean, Asset aBean,String stockName,int number) throws SQLException {
 
 		String updateUser = "UPDATE userinformation SET money ="
 				+ uBean.getMoney()+" WHERE user_id = \'"
@@ -57,9 +65,17 @@ public class PurchaseDAO {
 				aBean.getUserID()+"\', "+aBean.getStockCode()+", "
 				+aBean.getNumber()+")";
 
+		String insertHistory="INSERT INTO history "
+				+"Values(\'"+uBean.getSimulationDate()+"', "
+				+"'"+uBean.getId()+"', "
+				+aBean.getStockCode()+", "
+				+"'"+stockName+"', "
+				+number+")";
+
 		List<String> sqls = new ArrayList<String>();
 		sqls.add(insertAsset);
 		sqls.add(updateUser);
+		sqls.add(insertHistory);
 		return DBManager.complexUpdate(sqls);
 	}
 

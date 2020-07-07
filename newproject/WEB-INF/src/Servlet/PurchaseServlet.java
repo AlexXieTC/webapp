@@ -12,7 +12,6 @@ import javax.servlet.http.HttpSession;
 
 import bean.Asset;
 import bean.Price;
-import bean.Stock;
 import bean.User;
 
 @WebServlet("/purchase")
@@ -37,7 +36,7 @@ public class PurchaseServlet extends HttpServlet {
 		//SessionScopeから更新後の情報を持つbeanを取得
 		User uBean = (User) session.getAttribute("user");
 		Price pBean = (Price) session.getAttribute("price");
-		Stock sBean = (Stock) session.getAttribute("stock");
+//		Stock sBean = (Stock) session.getAttribute("stock");
 
 		//更新後の情報を持つuserBeanの作成
 		User updateUserBean = null;
@@ -56,7 +55,7 @@ public class PurchaseServlet extends HttpServlet {
 		//挿入用AssetBeanの生成
 		if (isInsert) {
 			aBean = new Asset();
-			aBean.setStockCode(sBean.getStockCode());
+			aBean.setStockCode(pBean.getStockCode());
 			aBean.setUserID(uBean.getId());
 			aBean.setNumber(purchaseNumber);
 
@@ -73,9 +72,9 @@ public class PurchaseServlet extends HttpServlet {
 		try {
 
 			if (isInsert)
-				isSuccess = dao.PurchaseDAO.insert(updateUserBean, aBean);
+				isSuccess = dao.PurchaseDAO.insert(updateUserBean, aBean,pBean.getStockName(),purchaseNumber);
 			else
-				isSuccess = dao.PurchaseDAO.update(updateUserBean, updateAssetBean);
+				isSuccess = dao.PurchaseDAO.update(updateUserBean, updateAssetBean,pBean.getStockName(),purchaseNumber);
 
 		} catch (SQLException e) {
 			// TODO 自動生成された catch ブロック
