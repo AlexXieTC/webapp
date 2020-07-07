@@ -55,13 +55,6 @@
    		  <url-pattern>/logout</url-pattern>
     </servlet-mapping>
 
-  	<servlet>
-         <servlet-name>statusS </servlet-name>
-          <servlet-class>Servlet.StatusServlet </servlet-class>
-	</servlet>
-    <servlet-mapping>
-   		  <servlet-name>statusS</servlet-name>
-   		  <url-pattern>/status</url-pattern>
-    </servlet-mapping>
+
 
 </web-app>
