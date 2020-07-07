@@ -3,11 +3,13 @@ package dao;
 import java.sql.SQLException;
 import java.util.List;
 
+import bean.History;
 import bean.News;
 import bean.Price;
 import bean.Stock;
 import bean.User;
 import database.DBManager;
+import resultmapping.HistoryMapping;
 import resultmapping.NewsMapping;
 import resultmapping.PriceMapping;
 import resultmapping.StockMapping;
@@ -38,5 +40,9 @@ public class ShowInfoDAO {
 	public static List<Stock> selectStock()throws SQLException {
 		String sql="SELECT * FROM STOCK";
 		return DBManager.findAll(sql, new StockMapping());
+	}
+	public static List<History> selectHistory()throws SQLException {
+		String sql="SELECT * FROM HISTORY";
+		return DBManager.findAll(sql, new HistoryMapping());
 	}
 }
