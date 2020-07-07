@@ -143,11 +143,14 @@ body {
   #navigation .navlinks li {
     margin-right: 1px;
   }
+
   #navigation .navlinks li a {
     padding: 0 5px;
     font-size: 12px;
   }
 }
+
+
 
 /*!
  * Bootstrap Responsive v2.3.1

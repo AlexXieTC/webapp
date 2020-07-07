@@ -8,6 +8,10 @@
 <head>
 
 	<title>QUICK証券</title>
+<%
+	User user=(User)session.getAttribute("user");
+%>
+
 
 	<meta charset="Shift_JIS" lang="ja">
 
@@ -37,6 +41,16 @@
           <li><a href="index.html">The Team</a></li>
           <li><a href="index.html">Contacts</a></li>
         </ul>
+
+        <div class ="AfterloginForm">
+		<form action="<%=request.getContextPath()%>/logout" method="Post">
+
+				ユーザーID：<%=user.getId() %>
+				日付：<%=user.getSimulationDate() %>
+			    所持金：<%=user.getMoney() %>円
+          		<input  type="submit" onclick="location.href='<%=request.getContextPath() %>/signup'" value="Log out">
+		</form>
+        </div>
       </div>
     </nav>
 
