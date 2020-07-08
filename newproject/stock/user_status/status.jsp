@@ -18,7 +18,7 @@
 	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/style.css">
 	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/sample.css">
 	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/sample02.css">
-	 	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/table1.css">
+	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/status.css">
 
 	 <script src="<%=request.getContextPath()%>/stock/js/highlight.js"></script>
 	 <script src="<%=request.getContextPath()%>/stock/js/highlightjs-line-numbers.min.js"></script>
@@ -45,21 +45,36 @@
 
     <header id="heading">
       <div class="container text-center">
-        <h1>QUICK証券</h1>
-        <h4>But this is just a sample demo layout, don't get too excited!</h4>
+        <h1 class="title">QUICK証券</h1>
 
       </div>
     </header>
 
 <section>
+	<div class="wrapper">
         <!--for demo wrap-->
-        <!-- <h1>Fixed Table header</h1> -->
-        <div class="tbl-header">
-          <table cellpadding="0" cellspacing="0" border="0">
+        <h1>Status Page</h1>
+        <table class="rtable rtable--flip" >
+		  <thead>
+		    <tr>
+		      <th>ユーザーID</th>
+		      <th>口座残高</th>
+
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr>
+		      <td>admin</td>
+		      <td>1000000</td>
+		    </tr>
+
+		  </tbody>
+		</table>
+
+          <table class="rtable" cellpadding="0" cellspacing="0" border="0">
 
           	<thead>
               <tr>
-                <th>ユーザーID</th>
                 <th>銘柄コード</th>
                 <th>銘柄名</th>
                 <th>所持数</th>
@@ -67,27 +82,20 @@
                 <th>日付</th>
               </tr>
             </thead>
-		          </table>
-		                </div>
+
+
             <% List<History> historyList = (List<History>)request.getAttribute("historyList");
             	SimpleDateFormat sdf = new SimpleDateFormat("MM月dd日");
             for(History hbean:historyList){
 			%>
 
-
-
-        <div class="tbl-content">
-          <table cellpadding="0" cellspacing="0" border="0">
-
 		 <tbody>
 			<tr>
-			<td align="right"><%=hbean.getId() %> </td>
 			<td><%=hbean.getStockCode() %> </td>
             <td><%=hbean.getStockName() %>   </td>
             <td><%=hbean.getNumber() %> </td>
             <td><%=hbean.getNumber()*hbean.getClosingPrice() %> </td>
             <td><%=sdf.format(hbean.getSimulationDate()) %> </td>
-
 
             </tr>
 			<%
@@ -95,7 +103,7 @@
 			%>
             </tbody>
           </table>
-        </div>
+         </div>
       </section>
 
 
