@@ -167,62 +167,6 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 
       <%@ include file="../stocklistfooter.jsp" %>
 
-<%--
-        <h2>SNES in Dribbble Shots</h2>
-        <div class="alert alert-info">
-          <strong>Note:</strong> Each shot is linked to the original source.
-        </div>
-
-        <div class="row-fluid">
-          <ul class="thumbnails">
-            <li class="span4">
-              <a href="http://dribbble.com/shots/39065-snes-controller" class="thumbnail" target="_blank">
-              <img src="https://i.imgur.com/Q4bxBmd.png" alt="snes controller dribbble shot">
-              </a>
-            </li>
-            <li class="span4">
-              <a href="http://dribbble.com/shots/525128-Micons-Series-2-SNES" class="thumbnail" target="_blank">
-              <img src="https://i.imgur.com/uQLkghZ.png" alt="minicon series2 snes console">
-              </a>
-            </li>
-            <li class="span4">
-              <a href="http://dribbble.com/shots/633186-The-Game" class="thumbnail" target="_blank">
-              <img src="https://i.imgur.com/vLg6MDV.png" alt="snes video game cartridge shot">
-              </a>
-            </li>
-          </ul>
-        </div><!-- @end .row-fluid -->
-
-        <div class="row-fluid">
-          <ul class="thumbnails">
-            <li class="span6">
-              <a href="http://dribbble.com/shots/758735-Oh-Oh-Please-Amaze-Me-Detail-IV" class="thumbnail" target="_blank">
-              <img src="https://i.imgur.com/SS8Kiln.png" alt="dribbble shots super nintendo">
-              </a>
-            </li>
-            <li class="span6">
-              <a href="http://dribbble.com/shots/436565-Jaku-Console-Wars" class="thumbnail" target="_blank">
-              <img src="https://i.imgur.com/y3M2d7p.png" align="dribbble console wars super nintendo design">
-              </a>
-            </li>
-          </ul>
-        </div><!-- @end .row-fluid -->
-
-        <hr>
-      </div><!-- @end .container -->
-    </div><!-- @end #main-content -->
-
-
-
-    <div id="footer">
-      <div class="container">
-        <p>Simple layout design for <a href="http://blog.teamtreehouse.com/">Treehouse Blog</a>.</p>
-        <p>Feel free to download and use these codes for any basic template layout.</p>
-        <p><small>Website code structured with <a href="https://twitter.github.io/bootstrap/">Twitter Bootstrap</a>. Background image credits to <a href="http://www.flickr.com/photos/fjolnir/2342246699/">Fjölnir Ásgeirsson</a>. Sample content via <a href="http://bluthipsum.com/">Bluth Ipsum</a>.</small></p>
-      </div>
-    </div>
-    --%>
-
 
 </p>
 </body>

@@ -1,5 +1,10 @@
+<<<<<<< Updated upstream
 /Servlet/
 /bean/
 /dao/
 /database/
 /resultmapping/
+=======
+/database/
+/Servlet/
+>>>>>>> Stashed changes

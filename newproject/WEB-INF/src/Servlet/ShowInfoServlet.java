@@ -31,7 +31,7 @@ public class ShowInfoServlet extends HttpServlet{
 
 			List<Price> priceList=ShowInfoDAO.selectPrice(ubean);
 			request.setAttribute("priceList", priceList);
-			forwardURL = "/stock/stocklistsample.jsp";
+			forwardURL = "/stock/stocklist.jsp";
 
 		}catch(NumberFormatException e) {
 			e.printStackTrace();

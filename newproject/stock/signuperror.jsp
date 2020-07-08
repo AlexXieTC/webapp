@@ -46,7 +46,7 @@
         <p><a href="index.html" class="btn btn-large btn-inverse">Check out our features</a></p>
       </div>
     </header>
-
+<div align="center">
 <h3 >すでにIDが使用されています。</h3><br>
 <h3>別のIDを設定してください。</h3>
 
@@ -54,5 +54,6 @@
 <a href="<%=request.getContextPath() %>/stock/signup.jsp">新規登録画面に戻る</a><br>
 <a href="<%=request.getContextPath() %>/index.jsp">トップページに戻る</a>
 
+</div>
 </body>
 </html>
