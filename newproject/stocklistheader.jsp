@@ -43,7 +43,8 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 				ユーザーID：<%=user.getId() %>
 				日付：<%=user.getSimulationDate() %>
 			    所持金：<%=user.getMoney() %>円
-          		<input  type="submit" onclick="location.href='<%=request.getContextPath() %>/signup'" value="Log out">
+          		<input  type="submit" value="Log out">
+          		<%--　メモ onclick="location.href='<%=request.getContextPath() %>/signup'"--%>
 		</form>
         </div>
       </div>

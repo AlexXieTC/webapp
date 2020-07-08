@@ -51,7 +51,8 @@
 <h3>別のIDを設定してください。</h3>
 
 <br>
-<a href="<%=request.getContextPath() %>/stock/signup.jsp">新規登録画面に戻る</a>
+<a href="<%=request.getContextPath() %>/stock/signup.jsp">新規登録画面に戻る</a><br>
+<a href="<%=request.getContextPath() %>/index.jsp">トップページに戻る</a>
 
 </body>
 </html>
