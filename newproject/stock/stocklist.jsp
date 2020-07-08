@@ -1,19 +1,12 @@
-
 <%@ page import="java.sql.*, database.*, java.util.*, java.text.SimpleDateFormat,bean.* "
-    contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+   <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 
 	<title>QUICK証券</title>
-<%
-	User user=(User)session.getAttribute("user");
-%>
 
-
-	<meta charset="Shift_JIS" lang="ja">
 
 	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/top.css">
 	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/highlight.js.css">
@@ -31,40 +24,12 @@
 </head>
 
 
+
 <body>
- <nav id="navigation">
-      <div class="container">
-        <ul class="navlinks">
-          <li><a href="index.html">Homepage</a></li>
-          <li><a href="<%=request.getContextPath()%>/status"/>User Status</a></li>
-          <li><a href="index.html">Projects</a></li>
-          <li><a href="index.html">The Team</a></li>
-          <li><a href="index.html">Contacts</a></li>
-          <li><form action="<%=request.getContextPath() %>/renewconfirmation" method="post">
-          <input type="submit" value="次の日に進む"/>
-          </form></li>
-        </ul>
 
-        <div class ="AfterloginForm">
-		<form action="<%=request.getContextPath()%>/logout" method="Post">
 
-				ユーザーID：<%=user.getId() %>
-				日付：<%=user.getSimulationDate() %>
-			    所持金：<%=user.getMoney() %>円
-          		<input  type="submit" onclick="location.href='<%=request.getContextPath() %>/signup'" value="Log out">
-		</form>
-        </div>
-      </div>
-    </nav>
 
-    <header id="heading">
-      <div class="container text-center">
-        <h1>QUICK証券</h1>
-        <br><br><br><br><br><br><br><br>
-        <h4>But this is just a sample demo layout, don't get too excited!</h4>
-
-      </div>
-    </header>
+<%@ include file="/stocklistheader.jsp" %>
 
 
 	<div class="l-wrapper">
@@ -215,60 +180,7 @@
 
       </section>
 
-
-        <h2>SNES in Dribbble Shots</h2>
-        <div class="alert alert-info">
-          <strong>Note:</strong> Each shot is linked to the original source.
-        </div>
-
-        <div class="row-fluid">
-          <ul class="thumbnails">
-            <li class="span4">
-              <a href="http://dribbble.com/shots/39065-snes-controller" class="thumbnail" target="_blank">
-              <img src="https://i.imgur.com/Q4bxBmd.png" alt="snes controller dribbble shot">
-              </a>
-            </li>
-            <li class="span4">
-              <a href="http://dribbble.com/shots/525128-Micons-Series-2-SNES" class="thumbnail" target="_blank">
-              <img src="https://i.imgur.com/uQLkghZ.png" alt="minicon series2 snes console">
-              </a>
-            </li>
-            <li class="span4">
-              <a href="http://dribbble.com/shots/633186-The-Game" class="thumbnail" target="_blank">
-              <img src="https://i.imgur.com/vLg6MDV.png" alt="snes video game cartridge shot">
-              </a>
-            </li>
-          </ul>
-        </div><!-- @end .row-fluid -->
-
-        <div class="row-fluid">
-          <ul class="thumbnails">
-            <li class="span6">
-              <a href="http://dribbble.com/shots/758735-Oh-Oh-Please-Amaze-Me-Detail-IV" class="thumbnail" target="_blank">
-              <img src="https://i.imgur.com/SS8Kiln.png" alt="dribbble shots super nintendo">
-              </a>
-            </li>
-            <li class="span6">
-              <a href="http://dribbble.com/shots/436565-Jaku-Console-Wars" class="thumbnail" target="_blank">
-              <img src="https://i.imgur.com/y3M2d7p.png" align="dribbble console wars super nintendo design">
-              </a>
-            </li>
-          </ul>
-        </div><!-- @end .row-fluid -->
-
-        <hr>
-      </div><!-- @end .container -->
-    </div><!-- @end #main-content -->
-
-
-
-    <div id="footer">
-      <div class="container">
-        <p>Simple layout design for <a href="http://blog.teamtreehouse.com/">Treehouse Blog</a>.</p>
-        <p>Feel free to download and use these codes for any basic template layout.</p>
-        <p><small>Website code structured with <a href="https://twitter.github.io/bootstrap/">Twitter Bootstrap</a>. Background image credits to <a href="http://www.flickr.com/photos/fjolnir/2342246699/">Fjölnir Ásgeirsson</a>. Sample content via <a href="http://bluthipsum.com/">Bluth Ipsum</a>.</small></p>
-      </div>
-    </div>
+      <%@ include file="../stocklistfooter.jsp" %>
 
 
 </p>

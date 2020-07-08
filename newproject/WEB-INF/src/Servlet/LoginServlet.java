@@ -54,11 +54,18 @@ public class LoginServlet extends HttpServlet{
 
 //		request.getRequestDispatcher(forwardURL).forward(request, response);
 
+//		userListに値が入っていれば、以下の動作を実行。
 	if (userList.size() == 1) {
-		forwardURL="/showinfo";
-		ubean=userList.get(0);
-		HttpSession session=request.getSession();
-		session.setAttribute("user", ubean);
+//		未入力の場合、エラー画面に遷移させる。
+		if(userID =="") {
+			forwardURL="/stock/loginerror.jsp";
+
+		}else {
+			forwardURL="/showinfo";
+			ubean=userList.get(0);
+			HttpSession session=request.getSession();
+			session.setAttribute("user", ubean);
+		}
 
 	}else {
 		forwardURL="/stock/loginerror.jsp";

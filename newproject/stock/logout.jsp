@@ -46,11 +46,11 @@
         <p><a href="index.html" class="btn btn-large btn-inverse">Check out our features</a></p>
       </div>
     </header>
-
+<div align="center">
 <h2>ログアウトしました</h2>
 
 <br><br>
 <a href="<%=request.getContextPath() %>/index.jsp">トップ画面に戻る</a>
-
+</div>
 </body>
 </html>
