@@ -40,6 +40,9 @@
           <li><a href="index.html">Projects</a></li>
           <li><a href="index.html">The Team</a></li>
           <li><a href="index.html">Contacts</a></li>
+                    <li><form action="<%=request.getContextPath() %>/renewconfirmation" method="post">
+          <input type="submit" value="次の日に進む"/>
+          </form></li>
         </ul>
 
         <div class ="AfterloginForm">
