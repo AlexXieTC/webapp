@@ -1,4 +1,4 @@
-package servlat;
+package Servlet;
 
 import java.io.IOException;
 import java.sql.Date;

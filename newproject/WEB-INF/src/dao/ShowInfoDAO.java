@@ -48,10 +48,14 @@ public class ShowInfoDAO {
 		String sql="SELECT * FROM STOCK";
 		return DBManager.findAll(sql, new StockMapping());
 	}
-	public static List<History> selectHistory()throws SQLException {
-		String sql="SELECT * FROM HISTORY,PRICE"
+	public static List<History> selectHistory(User ubean)throws SQLException {
+		String sql="SELECT * FROM HISTORY,PRICE,USERINFORMATION"
 				+" WHERE HISTORY.DATE=PRICE.DATE "
-				+" AND HISTORY.STOCK_CODE=PRICE.STOCK_CODE";
+				+" AND HISTORY.STOCK_CODE=PRICE.STOCK_CODE"
+				+ " AND USERINFORMATION.USER_ID='"+ubean.getId()+"'"
+				+ " AND HISTORY.USER_ID='"+ubean.getId()+"'"
+				;
+		System.out.println(sql);
 		return DBManager.findAll(sql, new HistoryMapping());
 	}
 }

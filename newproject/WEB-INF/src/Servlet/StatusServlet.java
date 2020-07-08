@@ -8,8 +8,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import bean.History;
+import bean.User;
 import dao.ShowInfoDAO;
 
 public class StatusServlet extends HttpServlet{
@@ -19,9 +21,11 @@ public class StatusServlet extends HttpServlet{
 
 				request.setCharacterEncoding("Shift_JIS");
 				String forwardURL=null;
+				HttpSession session =request.getSession();
+				User ubean=(User)session.getAttribute("user");
 
 				try {
-					List<History> historyList=ShowInfoDAO.selectHistory();
+					List<History> historyList=ShowInfoDAO.selectHistory(ubean);
 					request.setAttribute("historyList", historyList);
 					forwardURL = "/stock/user_status/status.jsp";
 
@@ -42,9 +46,11 @@ public class StatusServlet extends HttpServlet{
 
 				request.setCharacterEncoding("Shift_JIS");
 				String forwardURL=null;
+				HttpSession session =request.getSession();
+				User ubean=(User)session.getAttribute("user");
 
 				try {
-					List<History> historyList=ShowInfoDAO.selectHistory();
+					List<History> historyList=ShowInfoDAO.selectHistory(ubean);
 					request.setAttribute("historyList", historyList);
 					forwardURL = "/stock/user_status/status.jsp";
 

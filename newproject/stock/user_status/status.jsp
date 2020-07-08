@@ -62,13 +62,33 @@
 
 		    </tr>
 		  </thead>
-		  <tbody>
-		    <tr>
-		      <td>admin</td>
-		      <td>1000000</td>
-		    </tr>
+ <%--     <% List<History> historyList = (List<History>)request.getAttribute("historyList");
 
-		  </tbody>
+            for(History hbean:historyList){
+			%>
+
+		 <tbody>
+			<tr>
+			<td><%=hbean.getId() %> </td>
+            <td><%=hbean.getMoney() %>   </td>
+
+            </tr>
+			<%
+            }
+			%>
+            </tbody> --%>
+			<%
+				User user=(User)session.getAttribute("user");
+			%>
+
+           <form action="<%=request.getContextPath()%>/logout" method="Post">
+				<tbody>
+				<tr>
+				<td><%=user.getId() %>
+				<td><%=user.getMoney() %>円 </td>
+
+	          	</tbody>
+			</form>
 		</table>
 
           <table class="rtable" cellpadding="0" cellspacing="0" border="0">
@@ -84,7 +104,7 @@
             </thead>
 
 
-            <% List<History> historyList = (List<History>)request.getAttribute("historyList");
+            <%List<History> historyList = (List<History>)request.getAttribute("historyList");
             	SimpleDateFormat sdf = new SimpleDateFormat("MM月dd日");
             for(History hbean:historyList){
 			%>

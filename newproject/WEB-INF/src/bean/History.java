@@ -9,6 +9,15 @@ public class History {
 	private Date simulationDate;
 	private int number;
 	private int closingPrice;
+	private int money;
+
+	public int getMoney() {
+		return money;
+	}
+
+	public void setMoney(int money) {
+		this.money = money;
+	}
 
 	public int getClosingPrice() {
 		return closingPrice;
