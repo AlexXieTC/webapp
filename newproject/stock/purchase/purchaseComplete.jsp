@@ -1,14 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="utf-8" lang="ja">
+
 <link rel="stylesheet" href="./stock/css/top.css">
-<title>テンプレ作成</title>
-</head>
+<title>購入処理完了</title>
+<%@ include file="../../stocklistheader.jsp" %>
 
-
+<%--
 <body>
 	<nav id="navigation">
 	<div class="container">
@@ -41,6 +41,9 @@
 		</p>
 	</div>
 	</header>
+--%>
+
+
 
 	<div align="center">
 		<h3>購入処理に成功しました</h3>
