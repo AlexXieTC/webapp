@@ -20,7 +20,7 @@ public class ShowInfoServlet extends HttpServlet{
 	public void doGet(HttpServletRequest request,
 	HttpServletResponse response)throws ServletException, IOException {
 
-		request.setCharacterEncoding("Shift_JIS");
+		request.setCharacterEncoding("UTF-8");
 		String forwardURL="/stock/stocklist.jsp";
 		HttpSession session =request.getSession();
 		User ubean=(User)session.getAttribute("user");

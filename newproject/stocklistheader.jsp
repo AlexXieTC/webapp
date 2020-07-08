@@ -1,12 +1,12 @@
 <%@ page import="java.sql.*, database.*, java.util.*, java.text.SimpleDateFormat,bean.* "
-    contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
+contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-<head>
+<%
+	User user=(User)session.getAttribute("user");
+%>
 
-	<title>QUICK証券</title>
+
 
 	<meta charset="Shift_JIS" lang="ja">
 
@@ -16,15 +16,16 @@
 	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/style.css">
 	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/sample.css">
 	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/sample02.css">
+	 	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/table1.css">
 
 	 <script src="<%=request.getContextPath()%>/stock/js/highlight.js"></script>
 	 <script src="<%=request.getContextPath()%>/stock/js/highlightjs-line-numbers.min.js"></script>
 	 <script src="<%=request.getContextPath()%>/stock/js/swiper.min.js"></script>
 	 <script src="<%=request.getContextPath()%>/stock/js/script.js"></script>
-
-
-
+	 <script src="<%=request.getContextPath()%>/stock/js/table1.js"></script>
 </head>
+
+
 <body>
  <nav id="navigation">
       <div class="container">
@@ -35,24 +36,25 @@
           <li><a href="index.html">The Team</a></li>
           <li><a href="index.html">Contacts</a></li>
         </ul>
+
+        <div class ="AfterloginForm">
+		<form action="<%=request.getContextPath()%>/logout" method="Post">
+
+				ユーザーID：<%=user.getId() %>
+				日付：<%=user.getSimulationDate() %>
+			    所持金：<%=user.getMoney() %>円
+          		<input  type="submit" value="Log out">
+          		<%--　メモ onclick="location.href='<%=request.getContextPath() %>/signup'"--%>
+		</form>
+        </div>
       </div>
     </nav>
 
     <header id="heading">
       <div class="container text-center">
         <h1>QUICK証券</h1>
+        <br><br><br><br><br><br><br><br>
         <h4>But this is just a sample demo layout, don't get too excited!</h4>
 
-        <p><a href="index.html" class="btn btn-large btn-inverse">Check out our features</a></p>
       </div>
     </header>
-
-<h3 >すでにIDが使用されています。</h3><br>
-<h3>別のIDを設定してください。</h3>
-
-<br>
-<a href="<%=request.getContextPath() %>/stock/signup.jsp">新規登録画面に戻る</a><br>
-<a href="<%=request.getContextPath() %>/index.jsp">トップページに戻る</a>
-
-</body>
-</html>

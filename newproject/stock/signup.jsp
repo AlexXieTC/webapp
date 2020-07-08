@@ -68,6 +68,8 @@
                 </div>
               </form>
               </form>
+              <br>
+              <a href="<%=request.getContextPath() %>/index.jsp">トップページに戻る</a>
             </div>
           </div>
         </div>
