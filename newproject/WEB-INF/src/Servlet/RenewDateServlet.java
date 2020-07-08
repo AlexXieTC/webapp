@@ -22,8 +22,9 @@ public class RenewDateServlet extends HttpServlet {
 	public static void main(String[] args) {
 		RenewDateServlet d = new RenewDateServlet();
 		Calendar c = Calendar.getInstance();
-		c.setTime(Date.valueOf("2020-5-1"));
-		d.addDate(c);
+		c.setTime(Date.valueOf("2020-5-12"));
+//		d.addDate(c);
+		d.returnDate(c);
 		System.out.println(new Date(c.getTimeInMillis()));
 	}
 	@Override
@@ -38,6 +39,7 @@ public class RenewDateServlet extends HttpServlet {
 		c.setTime(user.getSimulationDate());
 		this.addDate(c);
 		user.setSimulationDate(new Date(c.getTimeInMillis()));
+
 
 		boolean isUpdate =false;
 		try {
@@ -68,6 +70,26 @@ public class RenewDateServlet extends HttpServlet {
 		AJD ajd = new AJD(c);
 		if(Holiday.getHoliday(ajd)!=null) {
 			addDate(c);
+		}
+	}
+	public void returnDate(Calendar c) {
+		// 土日ならさらに日付を進ませる
+		c.add(Calendar.DATE, -1);
+		switch (c.get(Calendar.DAY_OF_WEEK)) {
+		case Calendar.SUNDAY:
+			c.add(Calendar.DATE, -2);
+			break;
+		case Calendar.SATURDAY: // Calendar.SATURDAY:7
+			c.add(Calendar.DATE, -1);
+			break;
+		default:
+			break;
+		}
+		//祝日の判定
+		//外部パッケージを指定
+		AJD ajd = new AJD(c);
+		if(Holiday.getHoliday(ajd)!=null) {
+			returnDate(c);
 		}
 	}
 }

@@ -40,7 +40,7 @@
           <li><a href="index.html">Projects</a></li>
           <li><a href="index.html">The Team</a></li>
           <li><a href="index.html">Contacts</a></li>
-                    <li><form action="<%=request.getContextPath() %>/renewconfirmation" method="post">
+          <li><form action="<%=request.getContextPath() %>/renewconfirmation" method="post">
           <input type="submit" value="次の日に進む"/>
           </form></li>
         </ul>
@@ -164,6 +164,7 @@
                 <th>始値</th>
                 <th>終値</th>
                 <th>出来高</th>
+                <th>前日比</th>
                 <th>買い注文</th>
                 <th>売り注文</th>
               </tr>
@@ -171,8 +172,14 @@
 		          </table>
 		                </div>
             <% List<Price> priceList = (List<Price>)request.getAttribute("priceList");
+
+        		List<Price> dateList = (List<Price>)request.getAttribute("dateList");
+
             	SimpleDateFormat sdf = new SimpleDateFormat("MM月dd日");
-            for(Price pbean:priceList){
+
+            for(int i =0;i<dateList.size();i++){
+            	 Price pbean = priceList.get(i);
+            	 Price yesterdaybean=  dateList.get(i);
 			%>
 
 
@@ -188,18 +195,24 @@
             <td><%=pbean.getOpenPrice() %>   </td>
             <td><%=pbean.getClosingPrice() %> </td>
             <td><%=pbean.getVolume() %>  </td>
-            <form action="<%=request.getContextPath() %>/buysellaction" method="post">
+            <td><%=yesterdaybean.getClosingPrice()-(pbean.getOpenPrice()) %> </td>
+
+			<form action="<%=request.getContextPath() %>/buysellaction" method="post">
             	<input type="hidden" value =<%=pbean.getStockCode() %> name="stock_code">
 	            <td><input type="submit"value="BUY"  name="button"/></td>
 	            <td><input type="submit"value="SELL" name="button"/></td>
             </form>
             </tr>
+            </tbody>
+
+
 			<%
             }
 			%>
-            </tbody>
-          </table>
-        </div>
+
+			</table>
+			</div>
+
       </section>
 
 

@@ -1,7 +1,9 @@
 package Servlet;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.sql.SQLException;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -31,6 +33,17 @@ public class ShowInfoServlet extends HttpServlet{
 
 			List<Price> priceList=ShowInfoDAO.selectPrice(ubean);
 			request.setAttribute("priceList", priceList);
+
+			User user = (User) session.getAttribute("user");
+			Calendar c = Calendar.getInstance();
+			c.setTime(user.getSimulationDate());
+			RenewDateServlet d = new RenewDateServlet();
+			d.returnDate(c);
+			user.setSimulationDate(new Date(c.getTimeInMillis()));
+
+			List<Price> dateList=ShowInfoDAO.selectDate(ubean);
+			request.setAttribute("dateList", dateList);
+
 			forwardURL = "/stock/stocklistsample.jsp";
 
 		}catch(NumberFormatException e) {
@@ -59,6 +72,18 @@ public class ShowInfoServlet extends HttpServlet{
 					request.setAttribute("newsList", newsList);
 					List<Price> priceList=ShowInfoDAO.selectPrice(ubean);
 					request.setAttribute("priceList", priceList);
+
+
+					User user = (User) session.getAttribute("user");
+					Calendar c = Calendar.getInstance();
+					c.setTime(user.getSimulationDate());
+					RenewDateServlet d = new RenewDateServlet();
+					d.returnDate(c);
+					user.setSimulationDate(new Date(c.getTimeInMillis()));
+
+					List<Price> dateList=ShowInfoDAO.selectDate(ubean);
+					request.setAttribute("dateList", dateList);
+
 					forwardURL = "/stock/stocklist.jsp";
 
 				}catch(NumberFormatException e) {
@@ -68,6 +93,10 @@ public class ShowInfoServlet extends HttpServlet{
 					e.printStackTrace();
 //					forwardURL = "";
 				}
+
+
+
+
 
 				request.getRequestDispatcher(forwardURL).forward(request, response);
 

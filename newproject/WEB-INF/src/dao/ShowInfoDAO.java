@@ -24,7 +24,6 @@ public class ShowInfoDAO {
 		String sql="SELECT * FROM PRICE,USERINFORMATION,STOCK"
 				+ " WHERE PRICE.DATE=USERINFORMATION.SIMULATION_DATE"
 				+" AND PRICE.STOCK_CODE=STOCK.STOCK_CODE";
-		System.out.println(sql);
 	}
 	public static List<News> selectNews()throws SQLException {
 		String sql="SELECT * FROM NEWS,USERINFORMATION"
@@ -35,9 +34,9 @@ public class ShowInfoDAO {
 		String sql="SELECT * FROM PRICE,USERINFORMATION,STOCK"
 				+ " WHERE PRICE.DATE=USERINFORMATION.SIMULATION_DATE"
 				+" AND PRICE.STOCK_CODE=STOCK.STOCK_CODE"
+				+" AND STOCK.STOCK_CODE<9999"
 				+" AND USERINFORMATION.USER_ID='"+ubean.getId()+"'"
 				;
-		System.out.println(sql);
 		return DBManager.findAll(sql, new PriceMapping());
 	}
 	public static List<User> selectUser()throws SQLException {
@@ -55,7 +54,16 @@ public class ShowInfoDAO {
 				+ " AND USERINFORMATION.USER_ID='"+ubean.getId()+"'"
 				+ " AND HISTORY.USER_ID='"+ubean.getId()+"'"
 				;
-		System.out.println(sql);
 		return DBManager.findAll(sql, new HistoryMapping());
+	}
+	public static List<Price> selectDate(User ubean)throws SQLException {
+		String sql="SELECT * FROM PRICE,USERINFORMATION,STOCK"
+				+ " WHERE PRICE.DATE='"+ubean.getSimulationDate()+"'"
+				+" AND USERINFORMATION.USER_ID='"+ubean.getId()+"'"
+				+" AND STOCK.STOCK_CODE<9999"
+				+" AND PRICE.STOCK_CODE=STOCK.STOCK_CODE"
+				;
+		System.out.println(sql);
+		return DBManager.findAll(sql,new PriceMapping());
 	}
 }
