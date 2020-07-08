@@ -27,28 +27,9 @@
 	 <script src="<%=request.getContextPath()%>/stock/js/table1.js"></script>
 </head>
 
+<%@ include file="../stocklistheader.jsp" %>
 
 <body>
-    <nav id="navigation">
-      <div class="container">
-        <ul class="navlinks">
-          <li><a href="index.html">Homepage</a></li>
-          <li><a href="index.html">About Us</a></li>
-          <li><a href="index.html">Projects</a></li>
-          <li><a href="index.html">The Team</a></li>
-          <li><a href="index.html">Contacts</a></li>
-        </ul>
-
-      </div>
-
-    </nav>
-
-    <header id="heading">
-      <div class="container text-center">
-        <h1 class="title">QUICK証券</h1>
-
-      </div>
-    </header>
 
 <section>
 	<div class="wrapper">
@@ -62,23 +43,9 @@
 
 		    </tr>
 		  </thead>
- <%--     <% List<History> historyList = (List<History>)request.getAttribute("historyList");
 
-            for(History hbean:historyList){
-			%>
-
-		 <tbody>
-			<tr>
-			<td><%=hbean.getId() %> </td>
-            <td><%=hbean.getMoney() %>   </td>
-
-            </tr>
 			<%
-            }
-			%>
-            </tbody> --%>
-			<%
-				User user=(User)session.getAttribute("user");
+				user=(User)session.getAttribute("user");
 			%>
 
            <form action="<%=request.getContextPath()%>/logout" method="Post">

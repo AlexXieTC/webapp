@@ -17,6 +17,7 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/sample.css">
 	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/sample02.css">
 	 	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/table1.css">
+	 	  <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/status.css">
 
 	 <script src="<%=request.getContextPath()%>/stock/js/highlight.js"></script>
 	 <script src="<%=request.getContextPath()%>/stock/js/highlightjs-line-numbers.min.js"></script>
@@ -30,8 +31,8 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
  <nav id="navigation">
       <div class="container">
         <ul class="navlinks">
-          <li><a href="index.html">Homepage</a></li>
-          <li><a href="index.html">About Us</a></li>
+          <li><a href="<%=request.getContextPath()%>/showinfo">Homepage</a></li>
+          <li><a href="<%=request.getContextPath()%>/status">User Status</a></li>
           <li><a href="index.html">Projects</a></li>
           <li><a href="index.html">The Team</a></li>
           <li><a href="index.html">Contacts</a></li>

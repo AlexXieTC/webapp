@@ -23,13 +23,12 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 	 <script src="<%=request.getContextPath()%>/stock/js/table1.js"></script>
 </head>
 
+<%@ include file="stocklistheader.jsp" %>
 
 
-<body>
 
 
-
-<%@ include file="/stocklistheader.jsp" %>
+	<body>
 
 
 	<div class="l-wrapper">
@@ -180,7 +179,7 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 
       </section>
 
-      <%@ include file="../stocklistfooter.jsp" %>
+      <%@ include file="stocklistfooter.jsp" %>
 
 
 </p>

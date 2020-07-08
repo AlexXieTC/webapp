@@ -18,7 +18,7 @@ public class DBManager{
 	//接続するデータベース名
 	private static final String DB="webapp";
 	//各ユーザのパスワード
-	private static final String  PASS ="kanazawa24ki";
+	private static final String  PASS ="qw2102007";
 
 
 	public static Connection getConnection() throws SQLException{
