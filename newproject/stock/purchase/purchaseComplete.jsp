@@ -9,7 +9,7 @@
 
 <title>購入処理完了</title>
 <link rel="stylesheet" href="./stock/css/top.css">
-<%@ include file="../../stocklistheader.jsp" %>
+<%@ include file="../stocklistheader.jsp" %>
 
 
 

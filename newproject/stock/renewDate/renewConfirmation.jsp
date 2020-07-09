@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*, database.*, java.util.*, java.text.SimpleDateFormat,bean.* "
+contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 <%@ page import="bean.*" %>
 <%@ page import="java.sql.Date" %>
 <%--テスト用に各リクエストスコープの埋め込み --%>
@@ -10,36 +10,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <meta charset="utf-8" lang="ja">
+
   <link rel="stylesheet" href="./stock/css/top.css">
   <title>日付更新確認</title>
-</head>
 
-
-<body>
-    <nav id="navigation">
-      <div class="container">
-        <ul class="navlinks">
-          <li><a href="index.html">Homepage</a></li>
-          <li><a href="index.html">About Us</a></li>
-          <li><a href="index.html">Projects</a></li>
-          <li><a href="index.html">The Team</a></li>
-          <li><a href="index.html">Contacts</a></li>
-        </ul>
-
-      </div>
-
-    </nav>
-
-    <header id="heading">
-      <div class="container text-center">
-        <h1>Super Nintendo Rocks</h1>
-        <h4>But this is just a sample demo layout, don't get too excited!</h4>
-
-        <p><a href="index.html" class="btn btn-large btn-inverse">Check out our features</a></p>
-      </div>
-    </header>
-
+<%@ include file="../stocklistheader.jsp" %>
+ </head>
     <div id="main-content">
 		<div align="center">
 		<h3>次の日に進みます。よろしいですか？</h3>
