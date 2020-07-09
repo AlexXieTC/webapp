@@ -18,7 +18,7 @@ public class SignupDAO {
 //						VALUES("+"'"+user.getId() +"',"+"'"+ user.getPassword()+"',"+ 1000000,"'"+2020/06/01"'"+)";
 
 		String sql="INSERT INTO userinformation" +"(user_id,password,money,simulation_date) VALUES(" +
-			"'"+user.getId()+"',"+"'"+user.getPassword()+"',1000000,'2020/06/01')";
+			"'"+user.getId()+"',"+"'"+user.getPassword()+"',5000000,'2020/06/01')";
 
 		System.out.println(sql);
 		return DBManager.simpleUpdate(sql);

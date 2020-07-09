@@ -28,15 +28,26 @@ public class SignupServlet extends HttpServlet{
 		System.out.println("出力確認");
 		String userID=request.getParameter("userID");
 		String password=request.getParameter("password");
-//		String money=request.getParameter("money");
-//		String simulationDate=request.getParameter("simulationDate");
 
 		String forwardURL=null;
+		//空文字か判定して、空文字だったらエラーページに遷移
+		if(userID.equals("")) {
+			forwardURL="/stock/signuperrorblank.jsp";
+		}else if(password.equals("")){
+			forwardURL="/stock/signuperrorblank.jsp";
+		}else if(userID.equals("") && password.equals("")){
+			forwardURL="/stock/signuperrorblank.jsp";
+		}
+		forwardURL="/stock/signuperror.jsp";
+
+
 		System.out.println(userID);
 		try {
 			User ubean=new User();
 			ubean.setId(userID);
 			ubean.setPassword(password);
+
+
 			int updateCount=SignupDAO.insert(ubean);
 
 			if (updateCount < 1) {

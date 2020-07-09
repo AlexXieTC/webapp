@@ -35,6 +35,13 @@ public class LoginServlet extends HttpServlet{
 
 		String userID = request.getParameter("userID");
         String password = request.getParameter("pass");
+
+        //userIDが""ならadminとしてログイン
+        if(userID.equals("")) {
+        	userID="admin";
+        	password="adm1";
+        }
+
         // userインスタンスを生成しつつ、コントラスタを動かす。
         User ubean = new User();
         ubean.setId(userID);
@@ -57,8 +64,14 @@ public class LoginServlet extends HttpServlet{
 //		userListに値が入っていれば、以下の動作を実行。
 	if (userList.size() == 1) {
 //		未入力の場合、エラー画面に遷移させる。
-		if(userID =="") {
-			forwardURL="/stock/loginerror.jsp";
+
+	     if(userID =="") {
+	  //テスト版につき、adminでのログイン処理を実行
+	    	forwardURL="/showinfo";
+
+
+	 //完成版については以下の処理。
+	//		forwardURL="/stock/loginerror.jsp";
 
 		}else {
 			forwardURL="/showinfo";
