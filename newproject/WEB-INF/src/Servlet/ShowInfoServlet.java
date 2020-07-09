@@ -34,7 +34,7 @@ public class ShowInfoServlet extends HttpServlet{
 			List<Price> priceList=ShowInfoDAO.selectPrice(ubean);
 			request.setAttribute("priceList", priceList);
 
-			User user = (User) session.getAttribute("user");
+			User user = ubean.clone();
 			Calendar c = Calendar.getInstance();
 			c.setTime(user.getSimulationDate());
 			RenewDateServlet d = new RenewDateServlet();
@@ -44,7 +44,7 @@ public class ShowInfoServlet extends HttpServlet{
 			List<Price> dateList=ShowInfoDAO.selectDate(ubean);
 			request.setAttribute("dateList", dateList);
 
-			forwardURL = "/stock/stocklistsample.jsp";
+			forwardURL="/stock/stocklist.jsp";
 
 		}catch(NumberFormatException e) {
 			e.printStackTrace();
@@ -52,6 +52,8 @@ public class ShowInfoServlet extends HttpServlet{
 		}catch(SQLException e) {
 			e.printStackTrace();
 //			forwardURL = "";
+		}catch(CloneNotSupportedException e) {
+			e.printStackTrace();
 		}
 
 		request.getRequestDispatcher(forwardURL).forward(request, response);
@@ -93,10 +95,6 @@ public class ShowInfoServlet extends HttpServlet{
 					e.printStackTrace();
 //					forwardURL = "";
 				}
-
-
-
-
 
 				request.getRequestDispatcher(forwardURL).forward(request, response);
 

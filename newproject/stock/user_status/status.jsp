@@ -1,33 +1,11 @@
 <%@ page import="java.sql.*, database.*, java.util.*, java.text.SimpleDateFormat,bean.* "
     contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
-<%--テスト用に各リクエストスコープの埋め込み --%>
-<%
 
-%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-
-	<title>QUICK証券</title>
-
-	<meta charset="Shift_JIS" lang="ja">
-
-	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/top.css">
-	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/highlight.js.css">
-	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/swiper.min.css">
-	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/style.css">
-	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/sample.css">
-	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/sample02.css">
-	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/status.css">
-
-	 <script src="<%=request.getContextPath()%>/stock/js/highlight.js"></script>
-	 <script src="<%=request.getContextPath()%>/stock/js/highlightjs-line-numbers.min.js"></script>
-	 <script src="<%=request.getContextPath()%>/stock/js/swiper.min.js"></script>
-	 <script src="<%=request.getContextPath()%>/stock/js/script.js"></script>
-	 <script src="<%=request.getContextPath()%>/stock/js/table1.js"></script>
-</head>
 
 <%@ include file="../stocklistheader.jsp" %>
+
+
+  <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/status.css">
 
 <body>
 

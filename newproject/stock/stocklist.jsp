@@ -1,30 +1,12 @@
 <%@ page import="java.sql.*, database.*, java.util.*, java.text.SimpleDateFormat,bean.* "
 contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 
-   <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-<head>
-
-	<title>QUICK証券</title>
-
-
-	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/top.css">
-	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/highlight.js.css">
-	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/swiper.min.css">
-	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/style.css">
-	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/sample.css">
-	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/sample02.css">
-	 	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/table1.css">
-
-	 <script src="<%=request.getContextPath()%>/stock/js/highlight.js"></script>
-	 <script src="<%=request.getContextPath()%>/stock/js/highlightjs-line-numbers.min.js"></script>
-	 <script src="<%=request.getContextPath()%>/stock/js/swiper.min.js"></script>
-	 <script src="<%=request.getContextPath()%>/stock/js/script.js"></script>
-	 <script src="<%=request.getContextPath()%>/stock/js/table1.js"></script>
-</head>
 
 <%@ include file="stocklistheader.jsp" %>
 
+<link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/table1.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/colorChange.css">
+<script src="<%=request.getContextPath()%>/stock/js/colorChange.js"></script>
 
 
 
@@ -159,7 +141,7 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
             <td><%=pbean.getOpenPrice() %>   </td>
             <td><%=pbean.getClosingPrice() %> </td>
             <td><%=pbean.getVolume() %>  </td>
-            <td><%=yesterdaybean.getClosingPrice()-(pbean.getOpenPrice()) %> </td>
+            <td name="num"><%=yesterdaybean.getClosingPrice()-(pbean.getOpenPrice()) %> </td>
 
 			<form action="<%=request.getContextPath() %>/buysellaction" method="post">
             	<input type="hidden" value =<%=pbean.getStockCode() %> name="stock_code">

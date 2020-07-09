@@ -20,6 +20,9 @@ public class ShowInfoDAO {
 
 	User ubean= new User();
 
+
+
+
 	public static void main(String[] args) {
 		String sql="SELECT * FROM PRICE,USERINFORMATION,STOCK"
 				+ " WHERE PRICE.DATE=USERINFORMATION.SIMULATION_DATE"
@@ -56,10 +59,10 @@ public class ShowInfoDAO {
 				;
 		return DBManager.findAll(sql, new HistoryMapping());
 	}
-	public static List<Price> selectDate(User ubean)throws SQLException {
+	public static List<Price> selectDate(User ubeanClone)throws SQLException {
 		String sql="SELECT * FROM PRICE,USERINFORMATION,STOCK"
-				+ " WHERE PRICE.DATE='"+ubean.getSimulationDate()+"'"
-				+" AND USERINFORMATION.USER_ID='"+ubean.getId()+"'"
+				+ " WHERE PRICE.DATE='"+ubeanClone.getSimulationDate()+"'"
+				+" AND USERINFORMATION.USER_ID='"+ubeanClone.getId()+"'"
 				+" AND STOCK.STOCK_CODE<9999"
 				+" AND PRICE.STOCK_CODE=STOCK.STOCK_CODE"
 				;

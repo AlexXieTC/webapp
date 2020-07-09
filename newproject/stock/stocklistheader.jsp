@@ -16,8 +16,8 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/style.css">
 	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/sample.css">
 	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/sample02.css">
-	 	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/table1.css">
-	 	  <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/status.css">
+
+
 
 	 <script src="<%=request.getContextPath()%>/stock/js/highlight.js"></script>
 	 <script src="<%=request.getContextPath()%>/stock/js/highlightjs-line-numbers.min.js"></script>
