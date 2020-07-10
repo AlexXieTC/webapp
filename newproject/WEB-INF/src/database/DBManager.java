@@ -17,8 +17,10 @@ public class DBManager{
 	}
 	//接続するデータベース名
 	private static final String DB="webapp";
+	//接続ユーザ名
+	private static final String USER ="admin";
 	//各ユーザのパスワード
-	private static final String  PASS ="kanazawa24ki";
+	private static final String  PASS ="adm1";
 
 
 	public static Connection getConnection() throws SQLException{
@@ -26,7 +28,7 @@ public class DBManager{
 			Class.forName("org.postgresql.Driver");
 			Connection con=DriverManager.getConnection(
 			"jdbc:postgresql://localhost:5432/"+DB,
-			"postgres",PASS);
+			USER,PASS);
 			return con;
 		}catch(ClassNotFoundException e) {
 			throw new SQLException(e);
