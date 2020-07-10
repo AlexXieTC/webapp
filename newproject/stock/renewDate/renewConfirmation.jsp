@@ -18,7 +18,7 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
  </head>
     <div id="main-content">
 		<div align="center">
-		<h3>次の日に進みます。よろしいですか？</h3>
+		<h3>${(empty alertMessage)? "次の日に進みます。":"最終結果に進みます"}よろしいですか？</h3>
 		<h5>前の日付には戻れません</h5>
 
 			<form action="<%= request.getContextPath() %>/renewdate " method="post">

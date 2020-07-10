@@ -33,6 +33,13 @@ public class RenewDateServlet extends HttpServlet {
 		String forwardURL ="/showinfo";
 		HttpSession session = req.getSession();
 
+		//最終日付かどうか判定
+		String alertMessage =(String)session.getAttribute("alertMessage");
+		if(alertMessage!=null) {
+
+		}
+
+
 		//
 		User user = (User) session.getAttribute("user");
 		Calendar c = Calendar.getInstance();
