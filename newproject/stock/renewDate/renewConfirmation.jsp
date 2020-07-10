@@ -18,11 +18,12 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
  </head>
     <div id="main-content">
 		<div align="center">
-		<h3>次の日に進みます。よろしいですか？</h3>
+		<h3>${(empty alertMessage)? "次の日に進みます":"最終結果に進みます"}。よろしいですか？</h3>
 		<h5>前の日付には戻れません</h5>
 
 			<form action="<%= request.getContextPath() %>/renewdate " method="post">
-				<input type="submit" name="button" value="次の日付に進む">
+				<input type="submit" name="button" value
+				=${(empty alertMessage)? "次の日に進む":"最終結果に進む"}>
 				<input type="submit" name ="button" value="戻る">
 				<input type ="hidden" name = "sellNumber" value="${sellNumber }">
 			</form>
