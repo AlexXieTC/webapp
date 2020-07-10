@@ -31,13 +31,13 @@ public class SignupServlet extends HttpServlet{
 
 		String forwardURL=null;
 		//空文字か判定して、空文字だったらエラーページに遷移
-		if(userID.equals("")) {
+		if(userID.equals("") || password.equals("")){
 			forwardURL="/stock/signuperrorblank.jsp";
-		}else if(password.equals("")){
-			forwardURL="/stock/signuperrorblank.jsp";
-		}else if(userID.equals("") && password.equals("")){
-			forwardURL="/stock/signuperrorblank.jsp";
+			request.getRequestDispatcher(forwardURL).forward(request,response);
+			return;
 		}
+
+
 		forwardURL="/stock/signuperror.jsp";
 
 
