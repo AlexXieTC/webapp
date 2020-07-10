@@ -64,6 +64,20 @@ td{
 
 }
 
+.rtable,
+.rtable--flip thead {
+  // optional - enable iOS momentum scrolling
+  -webkit-overflow-scrolling: touch;
+
+  // scrolling shadows
+  background: radial-gradient(left, ellipse, rgba(0,0,0, .2) 0%, rgba(0,0,0, 0) 75%) 0 center,
+              radial-gradient(right, ellipse, rgba(0,0,0, .2) 0%, rgba(0,0,0, 0) 75%) 100% center;
+  background-size: 10px 100%, 10px 100%;
+  background-attachment: scroll, scroll;
+  background-repeat: no-repeat;
+
+}
+
 
 
 // change these gradients from white to your background colour if it differs
@@ -107,6 +121,7 @@ td{
   display: flex;
   flex-shrink: 0;
   min-width: min-content;
+
 }
 
 .rtable--flip tbody {

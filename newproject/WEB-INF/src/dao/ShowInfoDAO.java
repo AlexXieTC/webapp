@@ -39,6 +39,7 @@ public class ShowInfoDAO {
 				+" AND PRICE.STOCK_CODE=STOCK.STOCK_CODE"
 				+" AND STOCK.STOCK_CODE<9999"
 				+" AND USERINFORMATION.USER_ID='"+ubean.getId()+"'"
+				+" ORDER BY STOCK.STOCK_CODE"
 				;
 		return DBManager.findAll(sql, new PriceMapping());
 	}
@@ -64,7 +65,7 @@ public class ShowInfoDAO {
 				+ " WHERE PRICE.DATE='"+ubeanClone.getSimulationDate()+"'"
 				+" AND USERINFORMATION.USER_ID='"+ubeanClone.getId()+"'"
 				+" AND STOCK.STOCK_CODE<9999"
-				+" AND PRICE.STOCK_CODE=STOCK.STOCK_CODE"
+				+" AND PRICE.STOCK_CODE=STOCK.STOCK_CODE ORDER BY STOCK.STOCK_CODE"
 				;
 		System.out.println(sql);
 		return DBManager.findAll(sql,new PriceMapping());
