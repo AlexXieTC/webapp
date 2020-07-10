@@ -37,14 +37,11 @@ public class BuySellServlet extends HttpServlet {
 	}
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO 自動生成されたメソッド・スタブ
-		req.setCharacterEncoding("UTF-8");
 
 		String forwardURL=null;
 		String errorURL="error";
 		String button=req.getParameter("button");
 		System.out.println(button);
-		if(button.equals("BUY"))forwardURL= "stock/purchase/purchaseInput.jsp";
-		else forwardURL = "/stock/sell/sellInput.jsp";
 
 		HttpSession session = req.getSession();
 
@@ -69,6 +66,25 @@ public class BuySellServlet extends HttpServlet {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
+
+
+
+
+		if(button.equals("BUY")) {
+			if(price.getOpenPrice()*100>user.getMoney()) {
+				forwardURL="/stock/purchase/purchaseerror.jsp";
+			}else {
+
+				forwardURL="stock/purchase/purchaseInput.jsp";
+			}
+		}else {
+			if(asset.getNumber()<100) {
+				forwardURL="/stock/sell/sellerror.jsp";
+			}else
+			forwardURL = "/stock/sell/sellInput.jsp";
+		}
+
+
 		System.out.println(price);
 		if(price ==null)forwardURL =errorURL;
 		else {
