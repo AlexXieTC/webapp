@@ -22,4 +22,9 @@ public class RenewDateConfirmation extends HttpServlet {
 
 		req.getRequestDispatcher("/stock/renewDate/renewConfirmation.jsp").forward(req, resp);
 	}
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// TODO 自動生成されたメソッド・スタブ
+		doPost(req, resp);
+	}
 }

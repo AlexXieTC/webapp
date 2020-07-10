@@ -5,7 +5,7 @@
 <head>
 <link rel="stylesheet" href="./stock/css/top.css">
 <title>売却処理完了</title>
- <%@ include file="../../stocklistheader.jsp" %>
+ <%@ include file="../stocklistheader.jsp" %>
 
 
 	<div align="center">

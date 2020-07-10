@@ -12,7 +12,7 @@
 
   <link rel="stylesheet" href="./stock/css/top.css">
   <title>購入フォーム</title>
-  <%@ include file="../../stocklistheader.jsp" %>
+  <%@ include file="../stocklistheader.jsp" %>
 
 
     <div id="main-content">

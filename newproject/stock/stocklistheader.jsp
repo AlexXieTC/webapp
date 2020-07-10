@@ -35,7 +35,7 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
           <li><a href="<%=request.getContextPath()%>/status">User Status</a></li>
           <li><a href="index.html">Projects</a></li>
           <li><a href="index.html">The Team</a></li>
-          <li><a href="index.html">Contacts</a></li>
+          <li><a href="<%=request.getContextPath()%>/renewconfirmation">renewDate</a></li>
         </ul>
 
         <div class ="AfterloginForm">
