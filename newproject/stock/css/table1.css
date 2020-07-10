@@ -2,12 +2,12 @@
 h1{
 	margin-top: 65px;
     font-size: 30px;
-    color: #fff;
     text-transform: uppercase;
     font-weight: 300;
     text-align: center;
     margin-bottom: 15px;
     float: left;
+    color: #1d97bf;
   }
   table{
     width:100%;

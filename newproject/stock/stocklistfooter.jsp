@@ -10,19 +10,19 @@
           <ul class="thumbnails">
             <li class="span4">
               <a href="https://www.nikkei.com/" class="thumbnail" target="_blank">
-              <img src="./stock/img/nikkeilogo.jpg" alt="日本経済新聞">
+              <img src="<%=request.getContextPath()%>/stock/img/nikkeilogo.jpg" alt="日本経済新聞">
               </a>
             </li>
             <li class="span4">
               <a href="https://moneyworld.jp/" class="thumbnail" target="_blank">
-              <img src="./stock/img/moneyworld01.png" alt="QUICK Money World">
+              <img src="<%=request.getContextPath()%>/stock/img/moneyworld01.png" alt="QUICK Money World">
               </a>
             </li>
 
 
             <li class="span4">
               <a href="https://froggy.smbcnikko.co.jp/" class="thumbnail" target="_blank">
-              <img src="./stock/img/froggy.jpg" alt="日興フロッギー">
+              <img src="<%=request.getContextPath()%>/stock/img/froggy.jpg" alt="日興フロッギー">
               </a>
             </li>
           </ul>
@@ -32,19 +32,19 @@
           <ul class="thumbnails">
            <li class="span4">
               <a href="https://www.nomura.co.jp/hajimete/" class="thumbnail" target="_blank">
-              <img src="./stock/img/nomuralogo02.png" alt="野村証券">
+              <img src="<%=request.getContextPath()%>/stock/img/nomuralogo02.png" alt="野村証券">
               </a>
             </li>
             <li class="span4">
               <a href="https://www.daiwa.jp/ja/dd/beginner/" class="thumbnail" target="_blank">
-              <img src="./stock/img/daiwalogo01.jpg" alt="大和証券">
+              <img src="<%=request.getContextPath()%>/stock/img/daiwalogo01.jpg" alt="大和証券">
               </a>
             </li>
 
 
             <li class="span4">
               <a href="https://minkabu.jp/beginner/" class="thumbnail" target="_blank">
-              <img src="./stock/img/minkabulogo01.png" alt="みんかぶ">
+              <img src="<%=request.getContextPath()%>/stock/img/minkabulogo01.png" alt="みんかぶ">
 
              <!--   align="dribbble console wars super nintendo design-->
               </a>
@@ -59,7 +59,7 @@
       <footer id="main-footer" class="py-2">
             <div class="container footer-container">
               <div>
-                <img src="./stock/img/quick.jpg" alt="QUICK">
+                <img src="<%=request.getContextPath()%>/stock/img/quick.jpg" alt="QUICK">
 
               </div>
               <div>

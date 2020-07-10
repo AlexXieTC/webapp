@@ -4,7 +4,6 @@
 
 <%@ include file="../stocklistheader.jsp" %>
 
-
   <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/status.css">
 
 <body>
@@ -16,8 +15,8 @@
         <table class="rtable rtable--flip" >
 		  <thead>
 		    <tr>
-		      <th style="height:39px">ユーザーID</th>
-		      <th style="height:40px">口座残高</th>
+		      <th style="height:32px">ユーザーID</th>
+		      <th style="height:33px">口座残高</th>
 
 		    </tr>
 		  </thead>
@@ -72,12 +71,6 @@
       </section>
 
 
-    <div id="footer">
-      <div class="container">
-        <p>Simple layout design for <a href="http://blog.teamtreehouse.com/">Treehouse Blog</a>.</p>
-        <p>Feel free to download and use these codes for any basic template layout.</p>
-        <p><small>Website code structured with <a href="https://twitter.github.io/bootstrap/">Twitter Bootstrap</a>. Background image credits to <a href="http://www.flickr.com/photos/fjolnir/2342246699/">Fjölnir Ásgeirsson</a>. Sample content via <a href="http://bluthipsum.com/">Bluth Ipsum</a>.</small></p>
-      </div>
-    </div>
+ <%@ include file="../stocklistfooter.jsp" %>
 </body>
 </html>

@@ -64,6 +64,13 @@
    		  <url-pattern>/status</url-pattern>
     </servlet-mapping>
 
-
+	      	<servlet>
+         <servlet-name>newsS </servlet-name>
+          <servlet-class>Servlet.NewsServlet </servlet-class>
+	</servlet>
+    <servlet-mapping>
+   		  <servlet-name>newsS</servlet-name>
+   		  <url-pattern>/news</url-pattern>
+    </servlet-mapping>
 
 </web-app>

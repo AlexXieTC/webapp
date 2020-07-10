@@ -4,7 +4,6 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 
 <%@ include file="stocklistheader.jsp" %>
 
-<link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/table1.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/colorChange.css">
 <script src="<%=request.getContextPath()%>/stock/js/colorChange.js"></script>
 
@@ -163,7 +162,5 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 
       <%@ include file="stocklistfooter.jsp" %>
 
-
-</p>
 </body>
 </html>
