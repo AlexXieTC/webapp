@@ -56,10 +56,39 @@
       </div><!-- @end .container -->
     </div><!-- @end #main-content -->
 
-    <div id="footer">
-      <div class="container">
-        <p>Simple layout design for <a href="http://blog.teamtreehouse.com/">Treehouse Blog</a>.</p>
-        <p>Feel free to download and use these codes for any basic template layout.</p>
-        <p><small>Website code structured with <a href="https://twitter.github.io/bootstrap/">Twitter Bootstrap</a>. Background image credits to <a href="http://www.flickr.com/photos/fjolnir/2342246699/">Fjölnir Ásgeirsson</a>. Sample content via <a href="http://bluthipsum.com/">Bluth Ipsum</a>.</small></p>
-      </div>
+      <footer id="main-footer" class="py-2">
+            <div class="container footer-container">
+              <div>
+                <img src="./stock/img/quick.jpg" alt="QUICK">
+
+              </div>
+              <div>
+                <h3>Email Newsletter</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <form>
+                  <input type="email" placeholder="Enter Email...">
+                  <input type="submit" value="Subscribe" class="btn btn-primary">
+                </form>
+              </div>
+              <div>
+                <h3>Site Links</h3>
+                <ul class="list">
+                  <li><a href="#">Help & Support</a></li>
+                  <li><a href="#">Privacy Policy</a></li>
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">Contact</a></li>
+                </ul>
+              </div>
+              <div>
+                <h2>Join Our Team</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, nesciunt!</p>
+                <a href="#" class="btn btn-secondary">Join Now</a>
+              </div>
+              <div>
+                <p>
+                  Copyright &copy; 2020, All Rights Reserved
+                </p>
+              </div>
+            </div>
+          </footer>
     </div>

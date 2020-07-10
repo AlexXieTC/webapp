@@ -16,7 +16,8 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/style.css">
 	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/sample.css">
 	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/sample02.css">
-
+	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/newspage.css">
+	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/mobile.css">
 
 
 	 <script src="<%=request.getContextPath()%>/stock/js/highlight.js"></script>

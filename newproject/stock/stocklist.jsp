@@ -141,7 +141,7 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
             <td><%=pbean.getOpenPrice() %>   </td>
             <td><%=pbean.getClosingPrice() %> </td>
             <td><%=pbean.getVolume() %>  </td>
-            <td name="num"><%=yesterdaybean.getClosingPrice()-(pbean.getClosingPrice()) %> </td>
+            <td name="num"><%=yesterdaybean.getClosingPrice()-(pbean.getOpenPrice()) %> </td>
 
 			<form action="<%=request.getContextPath() %>/buysellaction" method="post">
             	<input type="hidden" value =<%=pbean.getStockCode() %> name="stock_code">
