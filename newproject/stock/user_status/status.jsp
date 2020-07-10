@@ -16,8 +16,8 @@
         <table class="rtable rtable--flip" >
 		  <thead>
 		    <tr>
-		      <th>ユーザーID</th>
-		      <th>口座残高</th>
+		      <th style="height:39px">ユーザーID</th>
+		      <th style="height:40px">口座残高</th>
 
 		    </tr>
 		  </thead>
@@ -27,12 +27,12 @@
 			%>
 
            <form action="<%=request.getContextPath()%>/logout" method="Post">
-				<tbody>
+			 <tbody>
 				<tr>
 				<td><%=user.getId() %>
 				<td><%=user.getMoney() %>円 </td>
 
-	          	</tbody>
+	          </tbody>
 			</form>
 		</table>
 
