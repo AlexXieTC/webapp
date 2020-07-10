@@ -45,7 +45,7 @@ public class ShowInfoServlet extends HttpServlet{
 			request.setAttribute("dateList", dateList);
 
 			//最終日付の確認
-			Date finalDate =Date.valueOf("2020-6-5");
+			Date finalDate =Date.valueOf("2020-6-15");
 			if(finalDate.equals(ubean.getSimulationDate())) {
 				String alertMessage = "本日が行動可能最終日です";
 				session.setAttribute("alertMessage", alertMessage);

@@ -30,14 +30,10 @@ public class RenewDateServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO 自動生成されたメソッド・スタブ
-		String forwardURL ="/showinfo";
+		String forwardURL =null;
 		HttpSession session = req.getSession();
 
-		//最終日付かどうか判定
-		String alertMessage =(String)session.getAttribute("alertMessage");
-		if(alertMessage!=null) {
 
-		}
 
 
 		//
@@ -55,7 +51,13 @@ public class RenewDateServlet extends HttpServlet {
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
-		if(!isUpdate)forwardURL=null;
+
+		if(isUpdate)forwardURL="/showinfo";
+		//最終日付かどうか判定
+		String alertMessage =(String)session.getAttribute("alertMessage");
+		if(isUpdate && alertMessage!=null) {
+			forwardURL="/showresult";
+		}
 		req.getRequestDispatcher(forwardURL).forward(req, resp);
 	}
 
