@@ -20,7 +20,10 @@ public class DBManager{
 	//接続ユーザ名
 	private static final String USER ="admin";
 	//各ユーザのパスワード
+
 	private static final String  PASS ="adm1";
+
+
 
 
 	public static Connection getConnection() throws SQLException{
