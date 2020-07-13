@@ -6,7 +6,7 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 	User user=(User)session.getAttribute("user");
 %>
 
-
+<head>
 
 	<meta charset="Shift_JIS" lang="ja">
 
