@@ -54,10 +54,16 @@
 }
 
 .rtable th {
-  font-size: 11px;
+  font-size: 13px;
 	 flex-shrink: 0;
   text-transform: uppercase;
   background: #f2f0e6;
+}
+th{
+	width:200;
+}
+td{
+	width:200;
 }
 
 .rtable th,

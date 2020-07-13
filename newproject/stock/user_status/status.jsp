@@ -35,7 +35,7 @@
 			</form>
 		</table>
 
-          <table class="rtable" cellpadding="0" cellspacing="0" border="0"  style="margin:10px 0" width="100%" >
+          <table class="rtable" cellpadding="0" cellspacing="0" border="0"  style="margin:10px 0;width="100%;"  >
 
           	<thead>
               <tr>
