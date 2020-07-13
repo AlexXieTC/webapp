@@ -4,7 +4,6 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 
 <%@ include file="stocklistheader.jsp" %>
 
-<link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/table1.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/colorChange.css">
 <script src="<%=request.getContextPath()%>/stock/js/colorChange.js"></script>
 
@@ -142,7 +141,7 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
             <td><%=pbean.getOpenPrice() %>   </td>
             <td><%=pbean.getClosingPrice() %> </td>
             <td><%=pbean.getVolume() %>  </td>
-            <td name="num"><%=yesterdaybean.getClosingPrice()-(pbean.getClosingPrice()) %> </td>
+            <td name="num"><%=yesterdaybean.getClosingPrice()-(pbean.getOpenPrice()) %> </td>
 
 			<form action="<%=request.getContextPath() %>/buysellaction" method="post">
             	<input type="hidden" value =<%=pbean.getStockCode() %> name="stock_code">
@@ -164,7 +163,5 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 
       <%@ include file="stocklistfooter.jsp" %>
 
-
-</p>
 </body>
 </html>

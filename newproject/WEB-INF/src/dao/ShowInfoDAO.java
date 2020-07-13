@@ -21,8 +21,6 @@ public class ShowInfoDAO {
 	User ubean= new User();
 
 
-
-
 	public static void main(String[] args) {
 		String sql="SELECT * FROM PRICE,USERINFORMATION,STOCK"
 				+ " WHERE PRICE.DATE=USERINFORMATION.SIMULATION_DATE"
@@ -70,4 +68,5 @@ public class ShowInfoDAO {
 		System.out.println(sql);
 		return DBManager.findAll(sql,new PriceMapping());
 	}
+
 }
