@@ -15,83 +15,78 @@ import javax.servlet.http.HttpSession;
 import bean.User;
 import dao.LoginDAO;
 
+public class LoginServlet extends HttpServlet {
 
+	public void doGet(HttpServletRequest request, HttpServletResponse response)throws IOException, ServletException {
+		this.doPost(request, response);
+	}
 
-public class LoginServlet extends HttpServlet{
-
-	public void doGet (HttpServletRequest request, HttpServletResponse response)
-			throws IOException, ServletException
-			{
-			this.doPost(request, response);
-			}
-
-	public void doPost(HttpServletRequest request,HttpServletResponse response)
-			throws ServletException,IOException{
+	public void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
 		request.setCharacterEncoding("UTF-8");
 
 		Enumeration d = request.getParameterNames();
-		while(d.hasMoreElements())System.out.println((String)d.nextElement());
+		while (d.hasMoreElements())
+			System.out.println((String) d.nextElement());
 
 		String userID = request.getParameter("userID");
-        String password = request.getParameter("pass");
+		String password = request.getParameter("pass");
 
-        //userIDが""ならadminとしてログイン
-        if(userID.equals("")) {
-        	userID="admin";
-        	password="adm1";
-        }
+		//userIDが""ならadminとしてログイン
+		if (userID.equals("")) {
+			userID = "admin";
+			password = "adm1";
+		}
 
-        // userインスタンスを生成しつつ、コントラスタを動かす。
-        User ubean = new User();
-        ubean.setId(userID);
-        ubean.setPassword(password);
+		// userインスタンスを生成しつつ、コントラスタを動かす。
+		User ubean = new User();
+		ubean.setId(userID);
+		ubean.setPassword(password);
 
-		String forwardURL=null;
-		List<User> userList=new ArrayList<User>();
+		String forwardURL = null;
+		List<User> userList = new ArrayList<User>();
 		try {
-			userList=LoginDAO.getLoginUser(ubean);
-//			request.setAttribute("userList",userList);
-//			forwardURL="/database/selectresult.jsp";
+			userList = LoginDAO.getLoginUser(ubean);
+			//			request.setAttribute("userList",userList);
+			//			forwardURL="/database/selectresult.jsp";
 
-		}catch(SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
-//			forwardURL="/database/selecterror.jsp";
+			//			forwardURL="/database/selecterror.jsp";
 		}
 
-//		request.getRequestDispatcher(forwardURL).forward(request, response);
+		//		request.getRequestDispatcher(forwardURL).forward(request, response);
 
-//		userListに値が入っていれば、以下の動作を実行。
-	if (userList.size() == 1) {
-//		未入力の場合、エラー画面に遷移させる。
+		//		userListに値が入っていれば、以下の動作を実行。
+		if (userList.size() == 1) {
+			//		未入力の場合、エラー画面に遷移させる。
 
-	     if(userID =="") {
-	  //テスト版につき、adminでのログイン処理を実行
-	    	forwardURL="/showinfo";
+			if (userID == "") {
+				//テスト版につき、adminでのログイン処理を実行
+				forwardURL = "/showinfo";
 
+				//完成版については以下の処理。
+				//		forwardURL="/stock/loginerror.jsp";
 
-	 //完成版については以下の処理。
-	//		forwardURL="/stock/loginerror.jsp";
+			} else {
+				forwardURL = "/showinfo";
+				ubean = userList.get(0);
+				HttpSession session = request.getSession();
+				session.setAttribute("user", ubean);
+			}
 
-		}else {
-			forwardURL="/showinfo";
-			ubean=userList.get(0);
-			HttpSession session=request.getSession();
-			session.setAttribute("user", ubean);
+		} else {
+			forwardURL = "/stock/loginerror.jsp";
 		}
-
-	}else {
-		forwardURL="/stock/loginerror.jsp";
-	}
-	System.out.println(userList.size());
-//	    リストuserを取得
-//	    条件分岐
-//	    if　リストの要素数が０
-//	    リストの要素数１→成功
-//	    取得したuser情報をセッションに格納　アトリビュート名sesssion
-//	    urlをforward
+		System.out.println(userList.size());
+		//	    リストuserを取得
+		//	    条件分岐
+		//	    if　リストの要素数が０
+		//	    リストの要素数１→成功
+		//	    取得したuser情報をセッションに格納　アトリビュート名sesssion
+		//	    urlをforward
 		request.getRequestDispatcher(forwardURL).forward(request, response);
 
-
-}
+	}
 }

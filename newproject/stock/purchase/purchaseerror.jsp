@@ -1,32 +1,30 @@
+
 <%@ page import="java.sql.*, database.*, java.util.*, java.text.SimpleDateFormat,bean.* "
-contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
+    contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 <%@ page import="bean.*" %>
 <%@ page import="java.sql.Date" %>
-<%--テスト用に各リクエストスコープの埋め込み --%>
-<%
 
-
-%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 
+  <title>購入エラー</title>
   <link rel="stylesheet" href="./stock/css/top.css">
-  <title>日付更新確認</title>
+  <%@ include file="../stocklistheader.jsp" %>
 
-<%@ include file="../stocklistheader.jsp" %>
- </head>
+
+<%-- ここから本文 --%>
+
+
     <div id="main-content">
 		<div align="center">
-		<h3>${(empty alertMessage)? "次の日に進みます":"最終結果に進みます"}。よろしいですか？</h3>
-		<h5>前の日付には戻れません</h5>
+		<h3>購入することが出来ません。</h3>
+		<h4>所持金を確認してください。</h4>
 
-			<form action="<%= request.getContextPath() %>/renewdate " method="post">
-				<input type="submit" name="button" value
-				=${(empty alertMessage)? "次の日に進む":"最終結果に進む"}>
-				<input type="submit" name ="button" value="戻る">
-				<input type ="hidden" name = "sellNumber" value="${sellNumber }">
-			</form>
+
+		<br><br>
+<a href="<%=request.getContextPath() %>/showinfo">戻る</a>
+
 		</div>
     </div><!-- @end #main-content -->
 
