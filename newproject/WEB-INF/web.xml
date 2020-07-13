@@ -73,4 +73,13 @@
    		  <url-pattern>/news</url-pattern>
     </servlet-mapping>
 
+    	      	<servlet>
+         <servlet-name>newstextS </servlet-name>
+          <servlet-class>Servlet.NewsTextServlet </servlet-class>
+	</servlet>
+    <servlet-mapping>
+   		  <servlet-name>newstextS</servlet-name>
+   		  <url-pattern>/article</url-pattern>
+    </servlet-mapping>
+
 </web-app>

@@ -24,64 +24,64 @@
                 <article class="card">
                     <img src="<%=request.getContextPath()%>/stock/img/ent1.jpg" alt="">
                     <div>
-                        <div class="category category-ent">Enertainment</div>
+                        <div class="category category-ent">経済・金融</div>
                         <h3>
-                            <a href="article.html"><%=sdf1.format(nbean0.getNewsDate())%><%=nbean0.getTitle()%></a>
+                            <a href="<%=request.getContextPath()%>/article"><%=sdf1.format(nbean0.getNewsDate())%><%=nbean0.getTitle()%></a>
                         </h3>
-                        <p><%=nbean0.getText().substring(0,100) %>...<a href="article.html" >read more<a></p>
+                        <p><%=nbean0.getText().substring(0,100) %>...<a href="<%=request.getContextPath()%>/article" class="btn btn-primary">Read More</a></p>
                     </div>
                 </article>
                 <%News nbean1=newsList.get(1);%>
                 <article class="card bg-dark">
-                    <div class="category category-sports">Sports</div>
+                    <div class="category category-sports">フィンテック</div>
                         <h3>
                             <a href="article.html"><%=sdf1.format(nbean1.getNewsDate())%><%=nbean1.getTitle()%></a>
                         </h3>
-                        <p><%=nbean1.getText().substring(0,100) %>...<a href="article.html" >read more<a></p>
+                        <p><%=nbean1.getText().substring(0,100) %>...<a href="#" class="btn btn-primary">Read More</a></p>
                 </article>
                   <%News nbean2=newsList.get(2);%>
                 <article class="card">
                     <img src="<%=request.getContextPath()%>/stock/img/tech1.jpg" alt="">
-                    <div class="category category-tech">Technology</div>
+                    <div class="category category-tech">技術</div>
                         <h3>
                             <a href="article.html"><%=sdf1.format(nbean2.getNewsDate())%><%=nbean2.getTitle()%></a>
                         </h3>
-                        <p><%=nbean2.getText().substring(0,100) %>...<a href="article.html" >read more<a></p>
+                        <p><%=nbean2.getText().substring(0,100) %>...<a href="#" class="btn btn-primary">Read More</a></p>
                 </article>
                   <%News nbean3=newsList.get(3);%>
                 <article class="card">
-                    <div class="category category-sports">Sports</div>
+                    <div class="category category-sports">フィンテック</div>
                         <h3>
                             <a href="article.html"><%=sdf1.format(nbean3.getNewsDate())%><%=nbean3.getTitle()%></a>
                         </h3>
-                        <p><%=nbean3.getText().substring(0,100) %>...<a href="article.html" >read more<a></p>
+                        <p><%=nbean3.getText().substring(0,100) %>...<a href="#" class="btn btn-primary">Read More</a></p>
                     <img src="<%=request.getContextPath()%>/stock/img/sports1.jpg" alt="sports">
                 </article>
                   <%News nbean4=newsList.get(4);%>
                     <article class="card">
                     <img src="<%=request.getContextPath()%>/stock/img/tech2.jpg" alt="">
-                    <div class="category category-tech">Technology</div>
+                    <div class="category category-tech">技術</div>
                          <h3>
                             <a href="article.html"><%=sdf1.format(nbean4.getNewsDate())%><%=nbean4.getTitle()%></a>
                         </h3>
-                        <p><%=nbean4.getText().substring(0,100) %>...<a href="article.html" >read more<a></p>
+                        <p><%=nbean4.getText().substring(0,100) %>...<a href="#" class="btn btn-primary">Read More</a></p>
                     </article>
                       <%News nbean5=newsList.get(5);%>
                     <article class="card bg-primary">
-                        <div class="category category-sports">Sports</div>
+                        <div class="category category-sports">フィンテック</div>
                         <h3>
                             <a href="article.html"><%=sdf1.format(nbean5.getNewsDate())%><%=nbean5.getTitle()%></a>
                         </h3>
-                        <p><%=nbean5.getText().substring(0,100) %>...<a href="article.html" >read more<a></p>
+                        <p><%=nbean5.getText().substring(0,100) %>...<a href="#" class="btn btn-primary">Read More</a></p>
                     </article>
                       <%News nbean6=newsList.get(6);%>
                     <article class="card">
                         <div>
-                            <div class="category category-ent">Enertainment</div>
+                            <div class="category category-ent">経済・金融</div>
                          <h3>
                             <a href="article.html"><%=sdf1.format(nbean6.getNewsDate())%><%=nbean6.getTitle()%></a>
                         </h3>
-                        <p><%=nbean6.getText().substring(0,100) %>...<a href="article.html" >read more<a></p>
+                        <p><%=nbean6.getText().substring(0,100) %>...<a href="#" class="btn btn-primary">Read More</a></p>
                         </div>
                         <img src="<%=request.getContextPath()%>/stock/img/ent2.jpg" alt="">
                         </article>

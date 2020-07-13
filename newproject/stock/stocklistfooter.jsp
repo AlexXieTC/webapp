@@ -64,7 +64,7 @@
               </div>
               <div>
                 <h3>Email Newsletter</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <p> For high-value global market information.</p>
                 <form>
                   <input type="email" placeholder="Enter Email...">
                   <input type="submit" value="Subscribe" class="btn btn-primary">
@@ -81,7 +81,8 @@
               </div>
               <div>
                 <h2>Join Our Team</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, nesciunt!</p>
+                <p>Providing valuable Japanese financial information services
+				as a member of Nikkei, Japan's largest business media。</p>
                 <a href="#" class="btn btn-secondary">Join Now</a>
               </div>
               <div>

@@ -1,3 +1,4 @@
+
 .rtable {
   /*!
   // IE needs inline-block to position scrolling shadows otherwise use:
@@ -54,7 +55,7 @@
 
 .rtable th {
   font-size: 11px;
-
+	 flex-shrink: 0;
   text-transform: uppercase;
   background: #f2f0e6;
 }
@@ -67,12 +68,14 @@
 
 .rtable--flip {
   display: flex;
+  flex-shrink: 0;
   overflow: hidden;
   background: none;
 }
 
 .rtable--flip thead {
   display: flex;
+   flex-shrink: 0;
   flex-shrink: 0;
   min-width: min-content;
 
@@ -80,6 +83,7 @@
 
 .rtable--flip tbody {
   display: flex;
+   flex-shrink: 0;
   position: relative;
   overflow-x: auto;
   overflow-y: hidden;
@@ -87,6 +91,7 @@
 
 .rtable--flip tr {
   display: flex;
+   flex-shrink: 0;
   flex-direction: column;
   min-width: min-content;
   flex-shrink: 0;

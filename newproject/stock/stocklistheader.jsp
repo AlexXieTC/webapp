@@ -39,7 +39,7 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
           <li><a href="<%=request.getContextPath()%>/showinfo">Homepage</a></li>
           <li><a href="<%=request.getContextPath()%>/status">User Status</a></li>
           <li><a href="<%=request.getContextPath()%>/news">News</a></li>
-          <li><a href="index.html">The Team</a></li>
+          <li><a href="<%=request.getContextPath()%>/stock/team/about.jsp">The Team</a></li>
           <li><a class="current" href="<%=request.getContextPath()%>/renewconfirmation">renewDate</a></li>
         </ul>
 
@@ -60,12 +60,8 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
         <div class="container">
             <div class="showcase-container">
                 <div class="showcase-content">
-                    <div class="category category-sports">
-                        フィンテック
-                    </div>
                     <h1> QUICK証券</h1>
-                    <h4>But this is just a sample demo layout, don't get too excited!</h4>
-                    <a href="#" class="btn btn-primary">Read More</a>
+                  <!--   <h4>But this is just a sample demo layout, don't get too excited!</h4> -->
                 </div>
             </div>
         </div>

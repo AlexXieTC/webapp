@@ -12,7 +12,7 @@
 	<div class="wrapper">
         <!--for demo wrap-->
         <h1>Status Page</h1>
-        <table class="rtable rtable--flip" >
+        <table class="rtable rtable--flip" width="50%">
 		  <thead>
 		    <tr>
 		      <th style="height:32px">ユーザーID</th>
@@ -26,7 +26,7 @@
 			%>
 
            <form action="<%=request.getContextPath()%>/logout" method="Post">
-			 <tbody>
+			 <tbody bgcolor="#fff" >
 				<tr>
 				<td><%=user.getId() %>
 				<td><%=user.getMoney() %>円 </td>
@@ -35,7 +35,7 @@
 			</form>
 		</table>
 
-          <table class="rtable" cellpadding="0" cellspacing="0" border="0">
+          <table class="rtable" cellpadding="0" cellspacing="0" border="0"  style="margin:10px 0" width="100%" >
 
           	<thead>
               <tr>
@@ -54,7 +54,7 @@
 			%>
 
 		 <tbody>
-			<tr>
+			<tr bgcolor="#fff">
 			<td><%=hbean.getStockCode() %> </td>
             <td><%=hbean.getStockName() %>   </td>
             <td><%=hbean.getNumber() %> </td>
