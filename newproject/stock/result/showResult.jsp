@@ -18,7 +18,7 @@
 				</tr>
 				<tr>
 					<th>順位</th>
-					<td>${rank+1}
+					<td>${rank+1}位
 					</td>
 				</tr>
 			</table>
