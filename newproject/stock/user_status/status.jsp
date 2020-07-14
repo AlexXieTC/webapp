@@ -17,7 +17,7 @@
 		    <tr>
 		      <th style="height:33px">ユーザーID</th>
 		      <th style="height:34px">口座残高</th>
-
+			  <th style="height:33px">株資産残高</th>
 		    </tr>
 		  </thead>
 
@@ -30,7 +30,7 @@
 				<tr>
 				<td><%=user.getId() %>
 				<td><%=user.getMoney() %>円 </td>
-
+				<td>${stockAsset}円 </td>
 	          </tbody>
 			</form>
 		</table>

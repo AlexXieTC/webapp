@@ -36,11 +36,11 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
       <div class="container">
         <img src="<%=request.getContextPath()%>/stock/img/quicklogo.jpeg" alt="QUICK" class="logo">
         <ul class="navlinks">
-          <li style="margin:0px 30px;"><a href="<%=request.getContextPath()%>/showinfo">Homepage</a></li>
-          <li style="margin:0px 30px;"><a href="<%=request.getContextPath()%>/status">User Status</a></li>
-          <li style="margin:0px 30px;"><a href="<%=request.getContextPath()%>/news">News</a></li>
-          <li style="margin:0px 30px;"><a href="<%=request.getContextPath()%>/stock/team/about.jsp">The Team</a></li>
-          <li style="margin:0px 30px;"><a class="current" href="<%=request.getContextPath()%>/renewconfirmation">renewDate</a></li>
+          <li style="margin:0px 30px;"><a href="#">Homepage</a></li>
+          <li style="margin:0px 30px;"><a href="#">User Status</a></li>
+          <li style="margin:0px 30px;"><a href="#">News</a></li>
+          <li style="margin:0px 30px;"><a href="#">The Team</a></li>
+          <li style="margin:0px 30px;"><a class="current" href="#">renewDate</a></li>
         </ul>
 
 	　<div class ="loginForm">

@@ -11,8 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import bean.History;
+import bean.Score;
 import bean.User;
 import dao.ShowInfoDAO;
+import dao.ShowResultDAO;
 
 public class StatusServlet extends HttpServlet{
 
@@ -52,6 +54,12 @@ public class StatusServlet extends HttpServlet{
 				try {
 					List<History> historyList=ShowInfoDAO.selectHistory(ubean);
 					request.setAttribute("historyList", historyList);
+
+					long stockAsset = ShowResultDAO.getStockAssets(ubean);
+					request.setAttribute("stockAsset", stockAsset);
+					Score score = new Score();
+					score.setTotalAsset(stockAsset);
+
 					forwardURL = "/stock/user_status/status.jsp";
 
 				}catch(NumberFormatException e) {

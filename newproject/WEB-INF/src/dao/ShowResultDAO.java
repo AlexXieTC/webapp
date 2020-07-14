@@ -40,6 +40,22 @@ public class ShowResultDAO {
 		return totalAsset+user.getMoney();
 
 	}
+	public static long getStockAssets(User user) throws SQLException {
+		List<Price> priceList = ShowInfoDAO.selectPrice(user);
+		Map<Integer,Integer> assetMap=ShowResultDAO.selectWhereUserID(user);
+
+		long stockAsset=0;
+		for(Price price:priceList) {
+			int stockCode = price.getStockCode();
+			if(assetMap.containsKey(stockCode)) {
+				int value = price.getOpenPrice()*assetMap.get(stockCode);
+				stockAsset+=value;
+			}
+		}
+		return stockAsset;
+
+	}
+
 	public static boolean insertScore(Score score) throws SQLException {
 		String sql ="INSERT INTO score VALUES(\'"
 				+score.getUserID()+"', \'"
