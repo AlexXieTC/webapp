@@ -9,8 +9,8 @@
 <head>
 
   <title>購入フォーム</title>
-  <link rel="stylesheet" href="./stock/css/top.css">
   <%@ include file="../stocklistheader.jsp" %>
+	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/purchase.css">
 
 
 <%-- ここから本文 --%>
@@ -20,7 +20,7 @@
 		<div align="center">
 		<h3>${price.stockName}の株式を購入します</h3>
 			<form action ="<%=request.getContextPath() %>/purchaseConfirmation" method= "post">
-			<table>
+			<table style="width:500px">
 				<tr>
 					<th>株式価格</th>
 					<td>${price.openPrice}円</td>
@@ -32,8 +32,8 @@
 					</td>
 				</tr>
 			</table>
-			<input type="submit" name ="buttuon" value="購入確認">
-				<input type="submit" name="button" value="キャンセル">
+			<input type="submit" name ="buttuon" class="btn btn-primary" style="cursor:pointer" value="購入確認">
+				<input type="submit" name="button" class="btn btn-default" style="cursor:pointer"value="キャンセル">
 			</form>
 		</div>
     </div><!-- @end #main-content -->

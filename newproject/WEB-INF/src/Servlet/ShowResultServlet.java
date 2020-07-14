@@ -46,4 +46,33 @@ public class ShowResultServlet extends HttpServlet {
 
 		req.getRequestDispatcher(url).forward(req, resp);
 	}
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// TODO 自動生成されたメソッド・スタブ
+		//AssetListを取得する
+		//PriceListを取得
+		String url ="/stock/result/showResult.jsp";
+		HttpSession session = req.getSession();
+		User user=(User)session.getAttribute("user");
+
+		//
+		try {
+			long totalAsset = ShowResultDAO.getTotalAssets(user);
+				req.setAttribute("totalAsset", totalAsset);
+				Score score = new Score();
+				score.setUserID(user.getId());
+				score.setTotalAsset(totalAsset);
+
+				boolean insert= ShowResultDAO.insertScore(score);
+				if(insert) {
+					int rank = ShowResultDAO.getRank(score);
+					req.setAttribute("rank", rank);
+				}
+
+
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+
+		req.getRequestDispatcher(url).forward(req, resp);
+	}
 }

@@ -15,8 +15,8 @@
         <table class="rtable rtable--flip" width="50%">
 		  <thead>
 		    <tr>
-		      <th style="height:32px">ユーザーID</th>
-		      <th style="height:33px">口座残高</th>
+		      <th style="height:33px">ユーザーID</th>
+		      <th style="height:34px">口座残高</th>
 
 		    </tr>
 		  </thead>

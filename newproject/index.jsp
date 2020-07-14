@@ -23,9 +23,6 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
      <link href="https://fonts.googleapis.com/css?family=Lato|Staatliches" rel="stylesheet">
 
-
-
-
 	 <script src="<%=request.getContextPath()%>/stock/js/highlight.js"></script>
 	 <script src="<%=request.getContextPath()%>/stock/js/highlightjs-line-numbers.min.js"></script>
 	 <script src="<%=request.getContextPath()%>/stock/js/swiper.min.js"></script>
@@ -48,10 +45,11 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 
 	　<div class ="loginForm">
 			<form method="post" action="?" class ="loginInput">
-				User ID <input type="text" name="userID" maxlength='20' pattern="^[0-9A-Za-z]+$"><br>
-				Password<input type="password" name="pass" maxlength='20'>
-          		<input type="submit" formaction="<%=request.getContextPath() %>/login" value="Log in">
-          		<input type="submit" formaction="<%=request.getContextPath() %>/stock/signup.jsp" value="Sign up">
+				User ID  &nbsp;&nbsp;&nbsp;<input type="text" name="userID" maxlength='20' pattern="^[0-9A-Za-z]+$"><br>
+				Password <input type="password" name="pass" maxlength='20'>
+				<br>
+          		<input type="submit" formaction="<%=request.getContextPath() %>/login" class="btn btn-secondary" style="margin:5px; float:right;" value="Log in">
+          		<input type="submit" formaction="<%=request.getContextPath() %>/stock/signup.jsp" class="btn btn-secondary" style="background-color: #64f6a5; color:black;margin:5px;float:right;" value="Sign up">
 			</form>
         </div>
 

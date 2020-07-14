@@ -22,7 +22,7 @@
 		<div align="center">
 		<h3>以下の内容で${price.stockName }の株式を購入します</h3>
 			<form action ="<%=request.getContextPath() %>/purchase" method= "post">
-			<table>
+			<table style="width:500px;margin-left:160px" >
 				<tr>
 					<th>株式価格</th>
 					<td>${price.openPrice}円</td>
@@ -42,8 +42,8 @@
 
 			</table>
 
-				<input type="submit" name="button" value="購入する">
-				<input type="submit" name ="button" value="修正する">
+				<input type="submit" name="button" class="btn btn-primary" style="cursor:pointer"  value="購入する">
+				<input type="submit" name ="button" class="btn btn-default" style="cursor:pointer"  value="修正する">
 				<input type ="hidden" name = "purchaseNumber" value="${purchaseNumber }">
 			</form>
 		</div>
@@ -51,12 +51,6 @@
 
 
 
-    <div id="footer">
-      <div class="container">
-        <p>Simple layout design for <a href="http://blog.teamtreehouse.com/">Treehouse Blog</a>.</p>
-        <p>Feel free to download and use these codes for any basic template layout.</p>
-        <p><small>Website code structured with <a href="https://twitter.github.io/bootstrap/">Twitter Bootstrap</a>. Background image credits to <a href="http://www.flickr.com/photos/fjolnir/2342246699/">Fjölnir Ásgeirsson</a>. Sample content via <a href="http://bluthipsum.com/">Bluth Ipsum</a>.</small></p>
-      </div>
-    </div>
+ <%@ include file="../stocklistfooter.jsp" %>
 </body>
 </html>

@@ -77,7 +77,7 @@ public class BuySellServlet extends HttpServlet {
 
 				forwardURL="stock/purchase/purchaseInput.jsp";
 			}
-		}else {
+		}else if(button.equals("SELL")){
 			if(asset.getNumber()<100) {
 				forwardURL="/stock/sell/sellerror.jsp";
 			}else

@@ -145,8 +145,8 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 
 			<form action="<%=request.getContextPath() %>/buysellaction" method="post">
             	<input type="hidden" value =<%=pbean.getStockCode() %> name="stock_code">
-	            <td><input type="submit"value="BUY"  name="button"/></td>
-	            <td><input type="submit"value="SELL" name="button"/></td>
+	            <td><input type="submit"value="BUY"  name="button" class="btn btn-primary" style="cursor:pointer"/></td>
+	            <td><input type="submit"value="SELL" name="button" class="btn btn-default" style="cursor:pointer"/></td>
             </form>
             </tr>
             </tbody>
