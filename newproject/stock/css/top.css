@@ -24,20 +24,17 @@ body {
 .loginForm{
   position: absolute;
   top: 0px;
-  left:70%;
+  right:0%;
   display: inline-block;
 }
 
 .AfterloginForm {
   position: absolute;
   top: 0px;
-  left:50%;
+  right:0%;
   display: block;
 
 }
-
-
-
 
 #navigation .navlinks {
   list-style: none;
