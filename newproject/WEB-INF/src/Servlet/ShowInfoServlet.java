@@ -28,7 +28,7 @@ public class ShowInfoServlet extends HttpServlet{
 		User ubean=(User)session.getAttribute("user");
 
 		try {
-			List<News> newsList=ShowInfoDAO.selectNews();
+			List<News> newsList=ShowInfoDAO.selectNews(ubean);
 			request.setAttribute("newsList", newsList);
 
 			List<Price> priceList=ShowInfoDAO.selectPrice(ubean);

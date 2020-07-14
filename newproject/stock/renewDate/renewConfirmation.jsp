@@ -18,13 +18,13 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
  </head>
     <div id="main-content">
 		<div align="center">
-		<h3>${(empty alertMessage)? "次の日に進みます":"最終結果に進みます"}。よろしいですか？</h3>
-		<h5>前の日付には戻れません</h5>
+		<h3 style="margin-top:20px;">${(empty alertMessage)? "次の日に進みます":"最終結果に進みます"}。よろしいですか？</h3>
+		<h4 style="margin:20px 0;color:#fff;background-color:#000">前の日付には戻れません</h5>
 
 			<form action="<%= request.getContextPath() %>/renewdate " method="post">
-				<input type="submit" name="button" value
+				<input type="submit" name="button" class="btn btn-primary"style="cursor:pointer" value
 				=${(empty alertMessage)? "次の日に進む":"最終結果に進む"}>
-				<input type="submit" name ="button" value="戻る">
+				<input type="submit" name ="button" class="btn btn-default" style="cursor:pointer" value="戻る">
 				<input type ="hidden" name = "sellNumber" value="${sellNumber }">
 			</form>
 		</div>
@@ -34,9 +34,10 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 
     <div id="footer">
       <div class="container">
-        <p>Simple layout design for <a href="http://blog.teamtreehouse.com/">Treehouse Blog</a>.</p>
-        <p>Feel free to download and use these codes for any basic template layout.</p>
-        <p><small>Website code structured with <a href="https://twitter.github.io/bootstrap/">Twitter Bootstrap</a>. Background image credits to <a href="http://www.flickr.com/photos/fjolnir/2342246699/">Fjölnir Ásgeirsson</a>. Sample content via <a href="http://bluthipsum.com/">Bluth Ipsum</a>.</small></p>
+        <p>QUICKは、世界中から株式、債券、為替、コモディティ、デリバティブ、
+        企業情報など膨大なデー タやニュースを集め、金融・資本市場に関わる皆さまの意思決定をサポートするために独自の分析・評価で価値を付加する企業です。</p>
+		<p>プロフェッショナルから個人の方まで幅広いシーンに、 QUICKならではの価値ある金融情報サービスをお届けします。</p>
+
       </div>
     </div>
 </body>

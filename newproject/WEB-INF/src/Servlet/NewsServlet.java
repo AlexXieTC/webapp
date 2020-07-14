@@ -24,7 +24,7 @@ public class NewsServlet extends HttpServlet{
 		User ubean=(User)session.getAttribute("user");
 
 		try {
-			List<News> newsList=ShowInfoDAO.selectNews();
+			List<News> newsList=ShowInfoDAO.selectNews(ubean);
 			request.setAttribute("newsList", newsList);
 
 			forwardURL = "/stock/news/news.jsp";
@@ -51,7 +51,7 @@ public class NewsServlet extends HttpServlet{
 		User ubean=(User)session.getAttribute("user");
 
 		try {
-			List<News> newsList=ShowInfoDAO.selectNews();
+			List<News> newsList=ShowInfoDAO.selectNews(ubean);
 			request.setAttribute("newsList", newsList);
 			forwardURL = "/stock/news/news.jsp";
 
