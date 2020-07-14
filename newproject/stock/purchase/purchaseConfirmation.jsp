@@ -20,7 +20,7 @@
 
     <div id="main-content">
 		<div align="center">
-		<h3>以下の内容で${price.stockName }の株式を購入します</h3>
+		<h3 style="margin-top:20px;">以下の内容で${price.stockName }の株式を購入します</h3>
 			<form action ="<%=request.getContextPath() %>/purchase" method= "post">
 			<table style="width:500px;margin-left:160px" >
 				<tr>

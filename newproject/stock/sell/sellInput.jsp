@@ -17,9 +17,9 @@
 
     <div id="main-content">
 		<div align="center">
-		<h3>${price.stockName}の株式を売却します</h3>
+		<h3 style="margin-top:20px;">${price.stockName}の株式を売却します</h3><br>
 			<form action ="<%=request.getContextPath() %>/sellConfirmation" method= "post">
-			<table>
+			<table style="width:500px;margin-left:160px">
 				<tr>
 					<th>株式価格</th>
 					<td>${price.openPrice}円</td>
@@ -31,20 +31,15 @@
 					</td>
 				</tr>
 			</table>
-			<input type="submit" name ="buttuon" value="売却確認">
-			<input type="submit" name="button" value="キャンセル">
+			<input type="submit" name ="buttuon" class="btn btn-primary" style="cursor:pointer;"value="売却確認">
+			<input type="submit" name="button" class="btn btn-default" style="cursor:pointer;"value="キャンセル">
 			</form>
 		</div>
     </div><!-- @end #main-content -->
+<br>
+<br>
 
 
-
-    <div id="footer">
-      <div class="container">
-        <p>Simple layout design for <a href="http://blog.teamtreehouse.com/">Treehouse Blog</a>.</p>
-        <p>Feel free to download and use these codes for any basic template layout.</p>
-        <p><small>Website code structured with <a href="https://twitter.github.io/bootstrap/">Twitter Bootstrap</a>. Background image credits to <a href="http://www.flickr.com/photos/fjolnir/2342246699/">Fjölnir Ásgeirsson</a>. Sample content via <a href="http://bluthipsum.com/">Bluth Ipsum</a>.</small></p>
-      </div>
-    </div>
+ <%@ include file="../stocklistfooter.jsp" %>
 </body>
 </html>

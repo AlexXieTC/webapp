@@ -9,32 +9,15 @@
 
 
 	<div align="center">
-		<h3>売却処理に成功しました</h3>
+
+		<h3 style="margin-top:20px;">売却処理に成功しました</h3>
 		<br>
 		<form action="<%=request.getContextPath() %>/showinfo" method="post">
-			<input type="submit" value="トップへ戻る">
+			<input type="submit"class="btn btn-primary" style="cursor:pointer" value="トップへ戻る">
 		</form>
 	</div>
+<br><br>
 
-
-	<div id="footer">
-		<div class="container">
-			<p>
-				Simple layout design for <a href="http://blog.teamtreehouse.com/">Treehouse
-					Blog</a>.
-			</p>
-			<p>Feel free to download and use these codes for any basic
-				template layout.</p>
-			<p>
-				<small>Website code structured with <a
-					href="https://twitter.github.io/bootstrap/">Twitter Bootstrap</a>.
-					Background image credits to <a
-					href="http://www.flickr.com/photos/fjolnir/2342246699/">Fjölnir
-						Ásgeirsson</a>. Sample content via <a href="http://bluthipsum.com/">Bluth
-						Ipsum</a>.
-				</small>
-			</p>
-		</div>
-	</div>
+	<%@ include file="../stocklistfooter.jsp" %>
 </body>
 </html>

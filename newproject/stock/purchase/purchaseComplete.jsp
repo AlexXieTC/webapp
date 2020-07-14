@@ -16,13 +16,13 @@
 
 
 	<div align="center">
-		<h3>購入処理に成功しました</h3>
+		<h3 style="margin-top:20px;">購入処理に成功しました</h3>
 		<br>
 		<form action="<%=request.getContextPath() %>/showinfo" method="post">
 			<input type="submit" class="btn btn-primary" style="cursor:pointer" value="トップへ戻る">
 		</form>
 	</div>
-
+<br><br>
 
  <%@ include file="../stocklistfooter.jsp" %>
 </body>
