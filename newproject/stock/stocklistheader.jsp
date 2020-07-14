@@ -54,7 +54,7 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
         </ul>
 
         <div class ="AfterloginForm">
-		<form action="<%=request.getContextPath()%>/logout" method="Post">
+		<form action="<%=request.getContextPath()%>/logout" method="Post" >
 				<p style="background-color:#EDF7FF;">
                      <i class="fas fa-user"></i>
                           ユーザーID：<%=user.getId() %>

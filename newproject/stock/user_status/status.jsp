@@ -11,7 +11,7 @@
 <section>
 	<div class="wrapper">
         <!--for demo wrap-->
-        <h1>Status Page</h1>
+        <h1 style="color:green;">Status Page</h1>
         <table class="rtable rtable--flip" width="50%">
 		  <thead>
 		    <tr>
