@@ -104,14 +104,6 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
         Price jpyesterdaybean= idateList.get(0);
         Price usyesterdaybean;
 
-    	 if(indexList.get(1)==null||idateList.get(1)==null){
-    		 usbean=indexList.get(1);
-    		 usyesterdaybean=idateList.get(1);
-    		 usbean.setOpenPrice(usyesterdaybean.getClosingPrice());
-
-    	}else{
-    		usbean=indexList.get(1);
-    		usyesterdaybean=idateList.get(1);
 		%>
 
         <hr>
@@ -137,9 +129,7 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
         	</div>
         	<img src="<%=request.getContextPath()%>/stock/img/worldmap_big.gif" alt="map" style="height:300;width:60%;margin-top:20px">
         </div>
-		<%
-    	}
-		%>
+
 	<section>
         <!--for demo wrap-->
         <!-- <h1>Fixed Table header</h1> -->
