@@ -1,7 +1,9 @@
 window.onload=function calc()
 {
 	var n=document.getElementsByName('num');
+	var i=document.getElementsByName('inum');
 	console.log(n);
+	console.log(i);
 	n.forEach(
 		value=>{
 			console.log(value.innerText);
@@ -13,9 +15,27 @@ window.onload=function calc()
 				value.className = "white";
 			}else{
 				value.className = "red";
+				value.innerText="+"+value.innerText;
 			}
 		}
 
+
 	);
+	i.forEach(
+			value=>{
+				console.log(value.innerText);
+				inum=eval(value.innerText);
+				if (inum< 0)
+				{
+					value.className = "igreen";
+				}else if(inum==0){
+					value.className = "white";
+				}else{
+					value.className = "ired";
+					value.innerText="+"+value.innerText;
+				}
+			}
+
+		);
 
 }

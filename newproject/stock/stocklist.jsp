@@ -96,26 +96,50 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 
 		<%
 		List<Price> indexList = (List<Price>)request.getAttribute("indexList");
-            		 Price ibean = indexList.get(0);
+            		 Price jpbean = indexList.get(0);
+            		 Price usbean;
+
 
         List<Price> idateList = (List<Price>)request.getAttribute("idateList");
-        Price iyesterdaybean= idateList.get(0);
+        Price jpyesterdaybean= idateList.get(0);
+        Price usyesterdaybean;
+
+    	 if(indexList.get(1)==null||idateList.get(1)==null){
+    		 usbean=indexList.get(1);
+    		 usyesterdaybean=idateList.get(1);
+    		 usbean.setOpenPrice(usyesterdaybean.getClosingPrice());
+
+    	}else{
+    		usbean=indexList.get(1);
+    		usyesterdaybean=idateList.get(1);
 		%>
 
         <hr>
         <div align="center" style="position:relative;">
-        	<div class="map" style="opacity:0.8;position:absolute;display:flex;top:30%;left:43%;background-color:#083c8e;height:75;width:100">
-			<p style="color:#fff;font-weight:bold;margin:0">日経平均<i class="flag-icon flag-icon-jp" style="position:absolute;float:right;margin-top:3px;"></i><br>
-			<%=ibean.getOpenPrice() %><br>(円)</p>
-			<p name="num" style="margin:auto;"><%=iyesterdaybean.getClosingPrice()-(ibean.getOpenPrice()) %></p>
+        	<div style="opacity:0.8;position:absolute;display:flex;top:28%;left:45%;background-color:#083c8e;height:75;width:100">
+			<p style="color:#fff;font-weight:bold;margin:0">日経平均<i class="flag-icon flag-icon-jp flag-icon-squared" style="position:absolute;float:right;margin-top:3px;"></i><br>
+			<%=jpbean.getOpenPrice() %><br>(円)</p>
+			<p name="inum" style="margin:auto;"><%=(jpbean.getOpenPrice())-jpyesterdaybean.getClosingPrice() %></p>
         	</div>
-        	<div class="map" style="opacity:0.8;position:absolute;display:flex;top:40%;right:28%;background-color:#083c8e;height:75;width:100">
-			<p style="color:#fff;font-weight:bold;margin:auto">NYダウ <i class="flag-icon flag-icon-us" style="position:absolute;float:right;margin-top:3px;"></i><br>28102<br>(ドル)</p>
-			<p name="num" style="margin:auto;">+49</p>
+        	<div style="opacity:0.8;position:absolute;display:flex;top:40%;right:28%;background-color:#083c8e;height:75;width:100">
+			<p style="color:#fff;font-weight:bold;margin:auto">NYダウ <i class="flag-icon flag-icon-us flag-icon-squared" style="position:absolute;float:right;margin-top:3px;"></i><br><%=usbean.getOpenPrice() %><br>(ドル)</p>
+			<p name="inum" style="margin:auto;"><%=(usbean.getOpenPrice())-usyesterdaybean.getClosingPrice() %></p>
+        	</div>
+        	<div style="opacity:0.8;position:absolute;display:flex;top:53%;left:36%;background-color:#083c8e;height:75;width:100">
+			<p style="color:#fff;font-weight:bold;margin:0">上海総合<i class="flag-icon flag-icon-cn flag-icon-squared" style="position:absolute;float:right;margin-top:3px;"></i><br>
+			<%=jpbean.getOpenPrice() %><br>(元)</p>
+			<p name="inum" style="margin:auto;"><%=(jpbean.getOpenPrice())-jpyesterdaybean.getClosingPrice() %></p>
+        	</div>
+        	<div style="opacity:0.8;position:absolute;display:flex;top:13%;left:26%;background-color:#083c8e;height:75;width:100">
+			<p style="color:#fff;font-weight:bold;margin:0">FTSE<i class="flag-icon flag-icon-gb flag-icon-squared" style="position:absolute;float:right;margin-top:3px;"></i><br>
+			<%=jpbean.getOpenPrice() %><br>(ポンド)</p>
+			<p name="inum" style="margin:auto;"><%=(jpbean.getOpenPrice())-jpyesterdaybean.getClosingPrice() %></p>
         	</div>
         	<img src="<%=request.getContextPath()%>/stock/img/worldmap_big.gif" alt="map" style="height:300;width:60%;margin-top:20px">
         </div>
-
+		<%
+    	}
+		%>
 	<section>
         <!--for demo wrap-->
         <!-- <h1>Fixed Table header</h1> -->

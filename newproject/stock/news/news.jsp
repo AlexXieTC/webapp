@@ -12,7 +12,7 @@
     <section id="home-articles" class="py-2">
         <div class="container">
 
-            <h2>QUICK NEWS</h2>
+            <h2 style="color:#4fc5ea;background-color:#000;">QUICK NEWS</h2>
             <br>
 
             <% List<News> newsList = (List<News>)request.getAttribute("newsList");

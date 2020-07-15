@@ -1,5 +1,5 @@
 .green{
-    color: #0bbe79;
+    color:green;
     font-weight: bold;
 }
 .white{
@@ -8,5 +8,13 @@
 }
 .red{
     color: firebrick;
+    font-weight: bold;
+}
+.igreen{
+	color: #0bbe79;
+	font-weight: bold;
+}
+.ired{
+    color: #ed290e;
     font-weight: bold;
 }
