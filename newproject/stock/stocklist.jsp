@@ -4,7 +4,7 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 
 <%@ include file="stocklistheader.jsp" %>
 
-<link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/colorChange.css">
+
 <script src="<%=request.getContextPath()%>/stock/js/colorChange.js"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/css/flag-icon.css" rel="stylesheet">
 
@@ -120,21 +120,21 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 
         <hr>
         <div align="center" style="position:relative;">
-        	<div style="opacity:0.8;position:absolute;display:flex;top:28%;left:45%;background-color:#083c8e;height:75;width:100">
+        	<div style="opacity:0.8;position:absolute;display:flex;top:28%;left:45%;background-color:#083c8e;height:75;width:110">
 			<p style="color:#fff;font-weight:bold;margin:0">日経平均<i class="flag-icon flag-icon-jp " style="position:absolute;float:right;margin-top:3px;"></i><br>
 			<%=jpbean.getOpenPrice() %><br>(円)</p>
 			<p name="inum" style="margin:auto;"><%=(jpbean.getOpenPrice())-jpyesterdaybean.getClosingPrice() %></p>
         	</div>
-        	<div style="opacity:0.8;position:absolute;display:flex;top:40%;right:28%;background-color:#083c8e;height:75;width:100">
+        	<div style="opacity:0.8;position:absolute;display:flex;top:40%;right:28%;background-color:#083c8e;height:75;width:110">
 			<p style="color:#fff;font-weight:bold;margin:0">NYダウ<i class="flag-icon flag-icon-us " style="position:absolute;float:right;margin-top:3px;"></i><br><%=usbean.getOpenPrice() %><br>(ドル)</p>
 			<p name="inum" style="margin:auto;"><%=(usbean.getOpenPrice())-usyesterdaybean.getClosingPrice() %></p>
         	</div>
-        	<div style="opacity:0.8;position:absolute;display:flex;top:53%;left:36%;background-color:#083c8e;height:75;width:100">
+        	<div style="opacity:0.8;position:absolute;display:flex;top:53%;left:36%;background-color:#083c8e;height:75;width:110">
 			<p style="color:#fff;font-weight:bold;margin:0">上海総合<i class="flag-icon flag-icon-cn " style="position:absolute;float:right;margin-top:3px;"></i><br>
 			<%=cnbean.getOpenPrice() %><br>(元)</p>
 			<p name="inum" style="margin:auto;"><%=(cnbean.getOpenPrice())-cnyesterdaybean.getClosingPrice() %></p>
         	</div>
-        	<div style="opacity:0.8;position:absolute;display:flex;top:13%;left:26%;background-color:#083c8e;height:75;width:109">
+        	<div style="opacity:0.8;position:absolute;display:flex;top:13%;left:26%;background-color:#083c8e;height:75;width:123">
 			<p style="color:#fff;font-weight:bold;margin:0">FTSE100<i class="flag-icon flag-icon-gb " style="position:absolute;float:right;margin-top:3px;"></i><br>
 			<%=enbean.getOpenPrice() %><br>(ポンド)</p>
 			<p name="inum" style="margin:auto;"><%=(enbean.getOpenPrice())-enyesterdaybean.getClosingPrice() %></p>
