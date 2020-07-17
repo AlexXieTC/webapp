@@ -30,7 +30,6 @@ public class ShowInfoDAO {
 		String sql="SELECT * FROM NEWS,USERINFORMATION"
 				+ " WHERE NEWS.DATE= '"+ubean.getSimulationDate()+"'";
 
-		System.out.println(sql);
 
 		return DBManager.findAll(sql, new NewsMapping());
 	}
@@ -58,6 +57,7 @@ public class ShowInfoDAO {
 				+" AND HISTORY.STOCK_CODE=PRICE.STOCK_CODE"
 				+ " AND USERINFORMATION.USER_ID='"+ubean.getId()+"'"
 				+ " AND HISTORY.USER_ID='"+ubean.getId()+"'"
+				+" ORDER BY HISTORY.DATE DESC"
 				;
 		return DBManager.findAll(sql, new HistoryMapping());
 	}
@@ -65,11 +65,32 @@ public class ShowInfoDAO {
 		String sql="SELECT * FROM PRICE,USERINFORMATION,STOCK"
 				+ " WHERE PRICE.DATE='"+ubeanClone.getSimulationDate()+"'"
 				+" AND USERINFORMATION.USER_ID='"+ubeanClone.getId()+"'"
-				+" AND STOCK.STOCK_CODE<9999"
+				+" AND STOCK.STOCK_CODE<9990"
 				+" AND PRICE.STOCK_CODE=STOCK.STOCK_CODE ORDER BY STOCK.STOCK_CODE"
+				;
+
+		return DBManager.findAll(sql,new PriceMapping());
+	}
+	public static List<Price> selectIDate(User ubeanClone)throws SQLException {
+		String sql="SELECT * FROM PRICE,USERINFORMATION,STOCK"
+				+ " WHERE PRICE.DATE='"+ubeanClone.getSimulationDate()+"'"
+				+" AND USERINFORMATION.USER_ID='"+ubeanClone.getId()+"'"
+				+" AND STOCK.STOCK_CODE IN (9999,9998)"
+				+" AND PRICE.STOCK_CODE=STOCK.STOCK_CODE ORDER BY STOCK.STOCK_CODE DESC"
 				;
 		System.out.println(sql);
 		return DBManager.findAll(sql,new PriceMapping());
+	}
+	public static List<Price> selectIndex(User ubean)throws SQLException {
+		String sql="SELECT * FROM PRICE,USERINFORMATION,STOCK"
+				+ " WHERE PRICE.DATE=USERINFORMATION.SIMULATION_DATE"
+				+" AND PRICE.STOCK_CODE=STOCK.STOCK_CODE"
+				+" AND STOCK.STOCK_CODE IN (9999,9998)"
+				+" AND USERINFORMATION.USER_ID='"+ubean.getId()+"'"
+				+" ORDER BY STOCK.STOCK_CODE DESC"
+				;
+		System.out.println(sql);
+		return DBManager.findAll(sql, new PriceMapping());
 	}
 
 }

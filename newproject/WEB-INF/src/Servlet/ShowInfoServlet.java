@@ -34,6 +34,9 @@ public class ShowInfoServlet extends HttpServlet{
 			List<Price> priceList=ShowInfoDAO.selectPrice(ubean);
 			request.setAttribute("priceList", priceList);
 
+			List<Price> indexList=ShowInfoDAO.selectIndex(ubean);
+			request.setAttribute("indexList", indexList);
+
 			User user = ubean.clone();
 			Calendar c = Calendar.getInstance();
 			c.setTime(user.getSimulationDate());
@@ -43,6 +46,13 @@ public class ShowInfoServlet extends HttpServlet{
 
 			List<Price> dateList=ShowInfoDAO.selectDate(ubean);
 			request.setAttribute("dateList", dateList);
+
+			List<Price> idateList=ShowInfoDAO.selectIDate(ubean);
+			request.setAttribute("idateList", idateList);
+
+
+
+
 
 			//最終日付の確認
 			Date finalDate =Date.valueOf("2020-6-15");
@@ -64,6 +74,8 @@ public class ShowInfoServlet extends HttpServlet{
 		}catch(CloneNotSupportedException e) {
 			e.printStackTrace();
 		}
+
+
 
 		request.getRequestDispatcher(forwardURL).forward(request, response);
 

@@ -1,5 +1,6 @@
-/filter/
 /Servlet/
-/dao/
 /bean/
+/dao/
+/database/
+/filter/
 /resultmapping/

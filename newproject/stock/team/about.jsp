@@ -14,7 +14,7 @@
           <div class="page-container">
 
               <article class="card">
-					 <h1 class="l-heading" style="writing-mode:tb-rl;margin:20px;" >About Our Organization</h1>
+					 <h1 class="l-heading" style="writing-mode:tb-rl;margin:20px;color:#1aa6d3" >About Our Organization</h1>
 					 <br>
 
  				  <p>
@@ -49,7 +49,7 @@
 オンライントレードで利用するサービスにも
 QUICKの情報が使われています。
  				  </p>
- 				  <h3 color="red">日本経済新聞社グループの一員として、
+ 				  <h3 style="color:#1aa6d3;">日本経済新聞社グループの一員として、
 価値ある金融情報サービスを、皆さまへ。</h3>
               </article>
 

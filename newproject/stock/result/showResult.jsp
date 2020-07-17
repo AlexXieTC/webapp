@@ -10,7 +10,7 @@
 
 	<div class="wrapper">
         <!--for demo wrap-->
-        <h1>Ranking Page</h1>
+        <h1 style="color:#4fc5ea;background-color:#000;">Ranking Page</h1>
         <table class="rtable rtable--flip" width="100%">
 		  <thead>
 		    <tr>
