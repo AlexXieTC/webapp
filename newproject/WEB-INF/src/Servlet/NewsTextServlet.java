@@ -18,6 +18,7 @@ public class NewsTextServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request,
 			HttpServletResponse response)throws ServletException, IOException {
 				request.setCharacterEncoding("Shift_JIS");
+				System.out.println("doPostの実行");
 				String forwardURL=null;
 
 				HttpSession session =request.getSession();
@@ -43,7 +44,7 @@ public class NewsTextServlet extends HttpServlet {
 					}
 			public void doGet(HttpServletRequest request,
 			HttpServletResponse response)throws ServletException, IOException {
-
+				System.out.println("doGet");
 				request.setCharacterEncoding("Shift_JIS");
 				String forwardURL=null;
 

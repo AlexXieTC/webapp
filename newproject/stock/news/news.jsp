@@ -1,6 +1,10 @@
 <%@ page
 	import="java.sql.*, database.*, java.util.*, java.text.SimpleDateFormat,bean.* "
 	contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ include file="../stocklistheader.jsp"%>
 
 
 <%@ include file="../stocklistheader.jsp"%>
