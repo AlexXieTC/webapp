@@ -58,7 +58,7 @@
 			<td><%=hbean.getStockCode() %> </td>
             <td><%=hbean.getStockName() %>   </td>
             <td><%=hbean.getNumber() %> </td>
-            <td><%=hbean.getNumber()*hbean.getClosingPrice() %> </td>
+            <td><%=hbean.getNumber()*hbean.getClosingPrice()*-1%> </td>
             <td><%=sdf.format(hbean.getSimulationDate()) %> </td>
 
             </tr>
