@@ -19,6 +19,9 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/newspage.css">
 	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/mobile.css">
 	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/table1.css">
+	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/anime1.css">
+
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/colorChange.css">
 
 	 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
      <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.6.0.js" type="text/javascript"></script>
@@ -41,9 +44,11 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 
 
 <body>
+
+
  <nav id="main-nav">
       <div class="container">
-        <img src="<%=request.getContextPath()%>/stock/img/quicklogo.jpeg" alt="QUICK" class="logo">
+        <img src="<%=request.getContextPath()%>/stock/img/quicklogo2.jpeg" alt="QUICK" class="logo">
         <ul class="navlinks">
           <li style="margin:0px 30px;"><a href="<%=request.getContextPath()%>/showinfo">Homepage</a></li>
           <li style="margin:0px 30px;"><a href="<%=request.getContextPath()%>/status">User Status</a></li>
@@ -70,7 +75,17 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
         </div>
       </div>
     </nav>
-
+	<!-- アニメション -->
+<!-- 	  <div class="scene">
+        <div class="wrap">
+            <div class="wall wall-right"></div>
+            <div class="wall wall-left"></div>
+            <div class="wall wall-top"></div>
+            <div class="wall wall-bottom"></div>
+            <div class="wall wall-back"></div>
+        </div> -->
+      </div>
+<!-- アニメション -->
 	    <header id="showcase">
         <div class="container">
             <div class="showcase-container">

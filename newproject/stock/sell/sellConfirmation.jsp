@@ -12,7 +12,7 @@
 <head>
 
   <link rel="stylesheet" href="./stock/css/top.css">
-  <title>購入確認</title>
+  <title>売却確認</title>
 <%@ include file="../stocklistheader.jsp" %>
 
     <div id="main-content">
@@ -33,7 +33,7 @@
 					<td>${sellNumber*price.openPrice}円</td>
 				</tr>
 				<tr>
-					<th>購入後の所持金</th>
+					<th>売却後の所持金</th>
 					<td>${user.money+(sellNumber*price.openPrice)}円</td>
 				</tr>
 

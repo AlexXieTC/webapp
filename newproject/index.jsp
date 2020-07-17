@@ -30,7 +30,6 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 	 <script src="<%=request.getContextPath()%>/stock/js/table1.js"></script>
 </head>
 
-
 <body>
  <nav id="main-nav">
       <div class="container">
