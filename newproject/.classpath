@@ -10,5 +10,7 @@
 	<classpathentry kind="src" output="work" path="work"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/postgresql-42.2.4.jre6.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/ajd4jp-1.4.6.2019.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/jstl-api-1.2.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/jstl-impl-1.2.jar"/>
 	<classpathentry kind="output" path="WEB-INF/classes"/>
 </classpath>
