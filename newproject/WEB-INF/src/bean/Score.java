@@ -6,6 +6,15 @@ public class Score {
 	private String userID;
 	private Date date;
 	private long totalAsset;
+	private int rank;
+
+	public int getRank() {
+		return rank;
+	}
+
+	public void setRank(int rank) {
+		this.rank = rank;
+	}
 
 	public Score() {
 

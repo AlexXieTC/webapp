@@ -78,7 +78,8 @@ $words.each( function() {
 var myVar;
 
 function myFunction() {
-  myVar = setTimeout(showPage, 3000);
+  myVar = setTimeout(fadeOut, 3500);
+  myVar = setTimeout(showPage, 7000);
 }
 
 function showPage() {
@@ -87,4 +88,15 @@ function showPage() {
 //   document.body.style.addClass("change");
 //   document.getElementById("myDiv").style.display = "block";
      window.location.href='http://localhost:8080/newproject/';
+}
+
+var body = document.getElementsByTagName('body')[0];
+var frame = document.getElementById("load");
+
+function fadeOut() {
+    body.classList.add('bodyfadeout');
+    $('body').removeClass('load');
+    $('body').addClass('fadeout');
+    $('.word').html('QUICK');
+
 }

@@ -2,6 +2,7 @@ package Servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -54,6 +55,8 @@ public class ShowResultServlet extends HttpServlet {
 		HttpSession session = req.getSession();
 		User user=(User)session.getAttribute("user");
 
+
+
 		//
 		try {
 			long totalAsset = ShowResultDAO.getTotalAssets(user);
@@ -62,11 +65,16 @@ public class ShowResultServlet extends HttpServlet {
 				score.setUserID(user.getId());
 				score.setTotalAsset(totalAsset);
 
-				boolean insert= ShowResultDAO.insertScore(score);
-				if(insert) {
-					int rank = ShowResultDAO.getRank(score);
-					req.setAttribute("rank", rank);
-				}
+				List<Score> scoreList=ShowResultDAO.selectScore();
+				req.setAttribute("scoreList", scoreList);
+
+
+//				boolean insert= ShowResultDAO.insertScore(score);
+//				if(insert) {
+//					int rank = ShowResultDAO.getRank(score);
+//					req.setAttribute("rank", rank);
+//				}
+
 
 
 		}catch(SQLException e) {

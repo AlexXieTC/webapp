@@ -1,7 +1,49 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400);
 
+body{
+    transition: all 1s;
+}
+
+.bodyfadeout{
+    opacity: 0;
+    background-color: #fff;
+}
+
 .load{
   height: 100%;
+}
+
+.fadeout{
+    -webkit-transition: all 4s;
+    -moz-transition: all 4s;
+    -ms-transition: all 4s;
+    -o-transition: all 4s;
+    transition: all 4s;
+        /* content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%; */
+        background: linear-gradient(90deg, #1aa6d4,#1aa4d0, #bbbbbb,#808080);  /* 背景カラー */
+        animation: gradient 1s ease infinite;
+        z-index: 9999;  /* 一番手前に */
+        pointer-events: none;  /* 他の要素にアクセス可能にするためにポインターイベントは無効に */
+        /* -webkit-transition: opacity .8s ease;
+        transition: opacity .8s ease; */
+        opacity: 0;
+  }
+
+  @keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 
 .load{
@@ -9,16 +51,16 @@
   font-family: 'Source Code Pro', monospace;
   font-weight: 400;
   overflow: hidden;
-  padding: 30px 0 0 30px;
+  padding: 40px 0 0 40px;
   text-align: center;
 }
 .word {
   bottom: 0;
   color: #fff;
-  font-size: 2.5em;
-  height: 2.5em;
+  font-size: 4em;
+  height: 4em;
   left: 0;
-  line-height: 2.5em;
+  line-height: 4em;
   margin: auto;
   right: 0;
   position: absolute;

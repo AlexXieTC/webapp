@@ -32,6 +32,37 @@
 	          </tbody>
 			</form>
 		</table>
+
+		<table class="rtable" cellpadding="0" cellspacing="0" border="0" style="margin:10px 0;display:table">
+
+          	<thead>
+              <tr>
+                <th>ユーザー名</th>
+                <th>総資産</th>
+                <th>更新日</th>
+                <th>順位</th>
+              </tr>
+            </thead>
+
+
+            <%List<Score> scoreList = (List<Score>)request.getAttribute("scoreList");
+            	SimpleDateFormat sdf = new SimpleDateFormat("MM月dd日");
+            for(Score sbean:scoreList){
+			%>
+
+		 <tbody>
+			<tr bgcolor="#fff">
+			<td><%=sbean.getUserID() %> </td>
+            <td><%=sbean.getTotalAsset() %>   </td>
+            <td><%=sdf.format(sbean.getDate()) %> </td>
+            <td><%=sbean.getRank() %> </td>
+            </tr>
+			<%
+            }
+			%>
+            </tbody>
+          </table>
+
 		</div>
 	</section>
 
