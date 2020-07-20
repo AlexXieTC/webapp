@@ -29,6 +29,8 @@
 					end="${fn:length(newsList)>=6?6:fn:length(newsList)}" var="number">
 					<%
 						int number = (int) pageContext.findAttribute("number");
+						News news = newsList.get(number);
+						String newsImage = NewsParameter.getImageName(news.getStockCode());
 					%>
 					<c:choose>
 						<c:when test="${(number%6)==5}">
@@ -39,7 +41,7 @@
 										action="<%=request.getContextPath()%>/article">
 										<input type="hidden" name="news_number" value="${number}">
 										<input type="hidden" name="news_image"
-											value="<%=NewsParameter.getImageName(newsList.get(number).getStockCode())%>">
+											value="<%=newsImage%>">
 										<a  href="javascript:form_name${number}.submit()">
 											${newsList[number].newsDate}${newsList[number].title}</a>
 								</h3>
@@ -49,7 +51,7 @@
 								</p>
 								</form>
 								<img
-									src="<%=request.getContextPath()%>/stock/img/news/<%=NewsParameter.getImageName(newsList.get(number).getStockCode())%>"
+									src="<%=request.getContextPath()%>/stock/img/news/<%=newsImage%>"
 									alt="">
 							</article>
 						</c:when>
@@ -57,7 +59,7 @@
 							<article class="card">
 								<div>
 									<img
-										src="<%=request.getContextPath()%>/stock/img/news/<%=NewsParameter.getImageName(newsList.get(number).getStockCode())%>"
+										src="<%=request.getContextPath()%>/stock/img/news/<%=newsImage%>"
 										alt="">
 									<%=NewsParameter.category(newsList.get(number).getStockCode())%>
 
@@ -66,7 +68,7 @@
 											action="<%=request.getContextPath()%>/article">
 											<input type="hidden" name="news_number" value="${number}">
 											<input type="hidden" name="news_image"
-												value="<%=NewsParameter.getImageName(newsList.get(number).getStockCode())%>">
+												value="<%=newsImage%>">
 											<a  href="javascript:form_name${number}.submit()">
 												${newsList[number].newsDate}${newsList[number].title}</a>
 									</h3>
@@ -86,7 +88,7 @@
 										action="<%=request.getContextPath()%>/article">
 										<input type="hidden" name="news_number" value="${number}">
 										<input type="hidden" name="news_image"
-											value="<%=NewsParameter.getImageName(newsList.get(number).getStockCode())%>">
+											value="<%=newsImage%>">
 										<a href="javascript:form_name${number}.submit()">${newsList[number].newsDate}${newsList[number].title}</a>
 								</h3>
 								<p>${fn:substring(newsList[number].text,0,100)}...
@@ -95,7 +97,7 @@
 								</p>
 								</form>
 								<img
-									src="<%=request.getContextPath()%>/stock/img/news/<%=NewsParameter.getImageName(newsList.get(number).getStockCode())%>"
+									src="<%=request.getContextPath()%>/stock/img/news/<%=newsImage%>"
 									alt="">
 							</article>
 						</c:when>
