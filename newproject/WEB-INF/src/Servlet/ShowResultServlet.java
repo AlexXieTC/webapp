@@ -41,6 +41,7 @@ public class ShowResultServlet extends HttpServlet {
 					List<Score> scoreList=ShowResultDAO.selectScore();
 					req.setAttribute("scoreList", scoreList);
 					ShowResultDAO.initializeUser(user);
+					session.invalidate();
 				}
 
 
