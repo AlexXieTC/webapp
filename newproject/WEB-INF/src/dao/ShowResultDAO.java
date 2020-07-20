@@ -66,7 +66,12 @@ public class ShowResultDAO {
 		else return false;
 	}
 	public static List<Score> selectScore() throws SQLException{
-		String sql="SELECT * FROM score ORDER BY total_asset DESC";
+		String sql="SELECT distinct user_id,total_asset,date,\n" +
+				"DENSE_RANK() OVER(ORDER BY total_asset DESC) AS rank\n" +
+				"FROM score T1 WHERE NOT EXISTS \n" +
+				"(SELECT * FROM score T2 WHERE T1.user_id = T2.user_id AND T1.date < T2.date)\n" +
+				"order by total_asset desc";
+	    System.out.println(sql);
 		return DBManager.findAll(sql, new ScoreMapping());
 	}
 
