@@ -1,5 +1,5 @@
 <%@ page
-	import="java.sql.*, database.*, java.util.*, java.text.SimpleDateFormat,bean.* "
+	import="java.sql.*, database.*, java.util.*, java.text.SimpleDateFormat,bean.*,news.* "
 	contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
@@ -8,6 +8,13 @@
 
 
 <%@ include file="../stocklistheader.jsp"%>
+
+<body>
+
+    <!-- Home Articles -->
+    <section id="home-articles" class="py-2">
+        <div class="container">
+
 
 
 <body>
@@ -34,7 +41,7 @@
 					<c:choose>
 						<c:when test="${(number%6)==5}">
 							<article class="card bg-primary">
-								<div class="category category-sports">フィンテック</div>
+								<%=NewsParameter.category(newsList.get(number).getStockCode()) %>
 								<h3>
 									<form name="form_name${number}" method="POST"
 											action="<%=request.getContextPath()%>/article">
@@ -54,7 +61,7 @@
 								<img src="<%=request.getContextPath()%>/stock/img/ent1.jpg"
 									alt="">
 								<div>
-									<div class="category category-ent">経済・金融</div>
+									<%=NewsParameter.category(newsList.get(number).getStockCode()) %>
 									<h3>
 										<form name="form_name${number}" method="POST"
 											action="<%=request.getContextPath()%>/article">
@@ -73,7 +80,7 @@
 						<c:when test="${(number%2)==1}">
 
 							<article class="card bg-dark">
-								<div class="category category-sports">フィンテック</div>
+								<%=NewsParameter.category(newsList.get(number).getStockCode()) %>
 								<h3>
 									<form name="form_name${number}" method="POST"
 										action="<%=request.getContextPath()%>/article">
