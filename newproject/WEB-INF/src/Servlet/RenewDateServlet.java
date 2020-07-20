@@ -33,6 +33,13 @@ public class RenewDateServlet extends HttpServlet {
 		String forwardURL =null;
 		HttpSession session = req.getSession();
 
+		String button = req.getParameter("button");
+		if(button.equals("戻る")) {
+			forwardURL="/showinfo";
+			req.getRequestDispatcher(forwardURL).forward(req, resp);
+			return;
+		}
+
 
 
 

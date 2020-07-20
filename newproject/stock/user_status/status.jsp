@@ -16,7 +16,7 @@
 		  <thead>
 		    <tr>
 		      <th style="height:33px">ユーザーID</th>
-		      <th style="height:34px">口座残高</th>
+		      <th style="height:34px">所持金</th>
 			  <th style="height:33px">株資産残高</th>
 		    </tr>
 		  </thead>
@@ -58,7 +58,7 @@
 			<td><%=hbean.getStockCode() %> </td>
             <td><%=hbean.getStockName() %>   </td>
             <td><%=hbean.getNumber() %> </td>
-            <td><%=hbean.getNumber()*hbean.getClosingPrice() %> </td>
+            <td><%=hbean.getNumber()*hbean.getClosingPrice()*-1%> </td>
             <td><%=sdf.format(hbean.getSimulationDate()) %> </td>
 
             </tr>

@@ -11,7 +11,7 @@
 <head>
 
   <link rel="stylesheet" href="./stock/css/top.css">
-  <title>購入フォーム</title>
+  <title>売却フォーム</title>
   <%@ include file="../stocklistheader.jsp" %>
 
 
