@@ -2,6 +2,7 @@ package dao;
 
 import java.sql.Date;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,6 +16,11 @@ import resultmapping.AssetMapping;
 import resultmapping.ScoreMapping;
 
 public class ShowResultDAO {
+	public static void main(String[] args) throws SQLException {
+		User user =new User();
+		user.setId("admin");
+		ShowResultDAO.initializeUser(user);
+	}
 	public static Map<Integer,Integer> selectWhereUserID(User user) throws SQLException{
 		String sql="SELECT * FROM asset WHERE user_id=\'"+user.getId()+"'";
 		List<Asset> assetList= DBManager.findAll(sql, new AssetMapping());
@@ -39,6 +45,19 @@ public class ShowResultDAO {
 		}
 		return totalAsset;
 
+	}
+	public static boolean initializeUser(User user) throws SQLException {
+		String deleteAsset ="DELETE FROM asset WHERE user_id='"+user.getId()+"'";
+		String deleteHistory ="DELETE FROM history WHERE user_id='"+user.getId()+"'";
+		String initializeUser ="UPDATE userinformation SET money="+User.intialMoney+", "
+				+"simulation_date='"+User.intialDate+"' "
+				+"WHERE user_id='"+user.getId()+"'";
+
+		List<String> sqls = new ArrayList<String>();
+		sqls.add(deleteAsset);
+		sqls.add(deleteHistory);
+		sqls.add(initializeUser);
+		return DBManager.complexUpdate(sqls);
 	}
 
 	public static boolean insertScore(Score score) throws SQLException {

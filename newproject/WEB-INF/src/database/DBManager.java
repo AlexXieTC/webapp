@@ -80,7 +80,7 @@ public class DBManager{
 			for(String sql:sqls) {
 				result = smt.executeUpdate(sql);
 
-				if(result <=0) {
+				if(result <0) {
 					con.rollback();
 					return false;
 				}
