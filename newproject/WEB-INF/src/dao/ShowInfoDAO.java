@@ -27,10 +27,10 @@ public class ShowInfoDAO {
 				+" AND PRICE.STOCK_CODE=STOCK.STOCK_CODE";
 	}
 	public static List<News> selectNews(User ubean)throws SQLException {
-		String sql="SELECT * FROM NEWS,USERINFORMATION"
+		String sql="SELECT * FROM NEWS"
 				+ " WHERE NEWS.DATE= '"+ubean.getSimulationDate()+"'";
 
-
+		System.out.println(sql);
 		return DBManager.findAll(sql, new NewsMapping());
 	}
 	public static List<Price> selectPrice(User ubean)throws SQLException {
