@@ -44,8 +44,8 @@ public class ShowResultDAO {
 			}
 		}
 		return totalAsset;
-
 	}
+
 	public static boolean initializeUser(User user) throws SQLException {
 		String deleteAsset ="DELETE FROM asset WHERE user_id='"+user.getId()+"'";
 		String deleteHistory ="DELETE FROM history WHERE user_id='"+user.getId()+"'";

@@ -26,6 +26,9 @@ public class NewsTextServlet extends HttpServlet {
 
 				int newsNumber = Integer.parseInt(request.getParameter("news_number"));
 				request.setAttribute("news_number", newsNumber);
+
+				String newsImage=request.getParameter("news_image");
+				request.setAttribute("news_image", newsImage);
 				try {
 					List<News> newsList=ShowInfoDAO.selectNews(ubean);
 					request.setAttribute("newsList", newsList);

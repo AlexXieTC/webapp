@@ -38,7 +38,9 @@
 									<form name="form_name${number}" method="POST"
 										action="<%=request.getContextPath()%>/article">
 										<input type="hidden" name="news_number" value="${number}">
-										<a href="<%=request.getContextPath()%>/article">
+										<input type="hidden" name="news_image"
+											value="<%=NewsParameter.getImageName(newsList.get(number).getStockCode())%>">
+										<a  href="javascript:form_name${number}.submit()">
 											${newsList[number].newsDate}${newsList[number].title}</a>
 								</h3>
 								<p>${fn:substring(newsList[number].text,0,100)}...
@@ -63,7 +65,9 @@
 										<form name="form_name${number}" method="POST"
 											action="<%=request.getContextPath()%>/article">
 											<input type="hidden" name="news_number" value="${number}">
-											<a href="<%=request.getContextPath()%>/article">
+											<input type="hidden" name="news_image"
+												value="<%=NewsParameter.getImageName(newsList.get(number).getStockCode())%>">
+											<a  href="javascript:form_name${number}.submit()">
 												${newsList[number].newsDate}${newsList[number].title}</a>
 									</h3>
 									<p>${fn:substring(newsList[number].text,0,100)}...
@@ -81,6 +85,8 @@
 									<form name="form_name${number}" method="POST"
 										action="<%=request.getContextPath()%>/article">
 										<input type="hidden" name="news_number" value="${number}">
+										<input type="hidden" name="news_image"
+											value="<%=NewsParameter.getImageName(newsList.get(number).getStockCode())%>">
 										<a href="javascript:form_name${number}.submit()">${newsList[number].newsDate}${newsList[number].title}</a>
 								</h3>
 								<p>${fn:substring(newsList[number].text,0,100)}...
