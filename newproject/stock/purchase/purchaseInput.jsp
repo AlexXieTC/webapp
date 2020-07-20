@@ -17,10 +17,13 @@
 
 
     <div id="main-content">
+    <div id="footer-id">
 		<div align="center">
-		<h3 style="margin-top:20px;">${price.stockName}の株式を購入します</h3>
+
+		<h3 >${price.stockName}の株式を購入します</h3>
+		<br>
 			<form action ="<%=request.getContextPath() %>/purchaseConfirmation" method= "post">
-			<table style="width:500px">
+			<table>
 				<tr>
 					<th>株式価格</th>
 					<td>${price.openPrice}円</td>
@@ -32,21 +35,18 @@
 					</td>
 				</tr>
 			</table>
+			<br>
 			<input type="submit" name ="buttuon" class="btn btn-primary" style="cursor:pointer" value="購入確認">
 				<input type="submit" name="button" class="btn btn-default" style="cursor:pointer"value="キャンセル">
 			</form>
+		</div>
 		</div>
     </div><!-- @end #main-content -->
 
 
 
-    <div id="footer">
-      <div class="container">
-        <p>QUICKは、世界中から株式、債券、為替、コモディティ、デリバティブ、
-        企業情報など膨大なデー タやニュースを集め、金融・資本市場に関わる皆さまの意思決定をサポートするために独自の分析・評価で価値を付加する企業です。</p>
-		<p>プロフェッショナルから個人の方まで幅広いシーンに、 QUICKならではの価値ある金融情報サービスをお届けします。</p>
+	<%@ include file="../footer/subfooter.jsp" %>
 
-      </div>
     </div>
 </body>
 </html>

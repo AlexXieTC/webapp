@@ -8,28 +8,23 @@
 
 
 <title>購入処理完了</title>
-<link rel="stylesheet" href="./stock/css/top.css">
 <%@ include file="../stocklistheader.jsp" %>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/purchase.css">
 
 
 
 
 
 	<div align="center">
-		<h3 style="margin-top:20px;">購入処理に成功しました</h3>
+		<h3>購入処理に成功しました</h3>
 		<br>
 		<form action="<%=request.getContextPath() %>/showinfo" method="post">
 			<input type="submit" class="btn btn-primary" style="cursor:pointer" value="トップへ戻る">
 		</form>
-	</div>
-<br><br>
-    <div id="footer">
-      <div class="container">
-        <p>QUICKは、世界中から株式、債券、為替、コモディティ、デリバティブ、
-        企業情報など膨大なデー タやニュースを集め、金融・資本市場に関わる皆さまの意思決定をサポートするために独自の分析・評価で価値を付加する企業です。</p>
-		<p>プロフェッショナルから個人の方まで幅広いシーンに、 QUICKならではの価値ある金融情報サービスをお届けします。</p>
 
-      </div>
-    </div>
+	</div>
+<%@ include file="../footer/subfooter.jsp" %>
+
+
 </body>
 </html>
