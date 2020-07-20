@@ -35,6 +35,7 @@ a {
     text-decoration: none;
 }
 
+
 ul {
     list-style: none;
 }
@@ -55,7 +56,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Utility */
 .container {
- //
+    max-width: var(--max-width);
     margin: auto;
     padding: 0 2rem;
     overflow: hidden;
@@ -70,6 +71,7 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 15px;
     margin-bottom: 0.5rem;
     margin-top: 0.5rem;
+
 }
 
 .category-sports {
@@ -333,12 +335,7 @@ grid-gap: 1.5rem;
 
 /* Footer */
 /*ページ分割した方がよいかも*/
-:root {
-    --primary-color: #c72727;
-    --secondary-color: #f99500;
-    --light-color: #f3f3f3;
-    --dark-color: #333;
-}
+
 
 #main-footer {
     background: var(--dark-color);

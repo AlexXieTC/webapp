@@ -43,4 +43,17 @@ public class NewsParameter {
 		String tag ="<div class=\"category %s\">%s</div>";
 		return String.format(tag, cls,category);
 	}
+	public static String articleClass(int arrayNumber) {
+		String  cls="card";
+		switch(arrayNumber%6) {
+		case 5:
+			cls+=" bg-primary";
+			break;
+		case 1:
+			cls+=" bg-dark";
+			break;
+		}
+
+		return cls;
+	}
 }

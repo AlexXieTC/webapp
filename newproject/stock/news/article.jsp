@@ -1,4 +1,4 @@
-<%@ page import="java.sql.*, database.*, java.util.*, java.text.SimpleDateFormat,bean.* "
+<%@ page import="java.sql.*, database.*, java.util.*, java.text.SimpleDateFormat,bean.*,news.* "
     contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 
 
@@ -19,7 +19,10 @@
                   <% List<News> newsList = (List<News>)request.getAttribute("newsList");
 
 						SimpleDateFormat sdf1 = new SimpleDateFormat("MM月dd日");
-						News nbean0=newsList.get(0);%>
+
+						int newsNumber = 0;
+						if(request.getAttribute("news_number")!=null)newsNumber=(int)(request.getAttribute("news_number"));
+						News nbean0=newsList.get(newsNumber);%>
 
 
                   <h1 class="l-heading"><%=nbean0.getTitle()%></h1>
@@ -27,7 +30,7 @@
                       <small>
                           <i class="fas fa-user"></i> Written By Nikke Quick News
                       </small>
-                      <div class="category category-ent">経済・金融</div>
+                      <%=NewsParameter.category(nbean0.getStockCode()) %>
                   </div>
 
                   <p><%=nbean0.getText() %></p>
