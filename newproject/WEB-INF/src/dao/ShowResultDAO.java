@@ -41,7 +41,6 @@ public class ShowResultDAO {
 
 	}
 
-
 	public static boolean insertScore(Score score) throws SQLException {
 		String sql ="INSERT INTO score VALUES(\'"
 				+score.getUserID()+"', \'"
