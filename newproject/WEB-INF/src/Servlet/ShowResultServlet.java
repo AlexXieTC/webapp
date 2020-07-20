@@ -32,7 +32,7 @@ public class ShowResultServlet extends HttpServlet {
 				req.setAttribute("totalAsset", totalAsset);
 				Score score = new Score();
 				score.setUserID(user.getId());
-				score.setTotalAsset(totalAsset);
+				score.setTotalAsset(totalAsset+user.getMoney());
 
 				boolean insert= ShowResultDAO.insertScore(score);
 				if(insert) {
