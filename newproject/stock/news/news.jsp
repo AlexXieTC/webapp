@@ -7,8 +7,6 @@
 <%@ include file="../stocklistheader.jsp"%>
 
 
-<%@ include file="../stocklistheader.jsp"%>
-
 
 <body>
 
@@ -28,8 +26,7 @@
 			<div class="articles-container">
 
 				<c:forEach begin="0"
-					end="${fn:length(newsList)>=10?10:fn:length(newsList)}"
-					var="number">
+					end="${fn:length(newsList)>=6?6:fn:length(newsList)}" var="number">
 					<%
 						int number = (int) pageContext.findAttribute("number");
 					%>
@@ -49,14 +46,19 @@
 										class="btn btn-primary">Read More</a>
 								</p>
 								</form>
+								<img
+									src="<%=request.getContextPath()%>/stock/img/news/<%=NewsParameter.getImageName(newsList.get(number).getStockCode())%>"
+									alt="">
 							</article>
 						</c:when>
 						<c:when test="${(number%2)==0}">
 							<article class="card">
-								<img src="<%=request.getContextPath()%>/stock/img/ent1.jpg"
-									alt="">
 								<div>
+									<img
+										src="<%=request.getContextPath()%>/stock/img/news/<%=NewsParameter.getImageName(newsList.get(number).getStockCode())%>"
+										alt="">
 									<%=NewsParameter.category(newsList.get(number).getStockCode())%>
+
 									<h3>
 										<form name="form_name${number}" method="POST"
 											action="<%=request.getContextPath()%>/article">
@@ -73,7 +75,6 @@
 							</article>
 						</c:when>
 						<c:when test="${(number%2)==1}">
-
 							<article class="card bg-dark">
 								<%=NewsParameter.category(newsList.get(number).getStockCode())%>
 								<h3>
@@ -87,6 +88,9 @@
 										class="btn btn-primary">Read More</a>
 								</p>
 								</form>
+								<img
+									src="<%=request.getContextPath()%>/stock/img/news/<%=NewsParameter.getImageName(newsList.get(number).getStockCode())%>"
+									alt="">
 							</article>
 						</c:when>
 					</c:choose>
