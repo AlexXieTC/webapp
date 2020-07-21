@@ -42,7 +42,7 @@
 										<input type="hidden" name="news_number" value="${number}">
 										<input type="hidden" name="news_image"
 											value="<%=newsImage%>">
-										<a  href="javascript:form_name${number}.submit()">
+										<a  href="javascript:form_name${number}.submit()" class="newstitle">
 											${newsList[number].newsDate}${newsList[number].title}</a>
 								</h3>
 								<p>${fn:substring(newsList[number].text,0,100)}...
@@ -83,13 +83,13 @@
 						<c:when test="${(number%2)==1}">
 							<article class="card bg-dark">
 								<%=NewsParameter.category(newsList.get(number).getStockCode())%>
-								<h3>
+								<h3 >
 									<form name="form_name${number}" method="POST"
 										action="<%=request.getContextPath()%>/article">
 										<input type="hidden" name="news_number" value="${number}">
 										<input type="hidden" name="news_image"
 											value="<%=newsImage%>">
-										<a href="javascript:form_name${number}.submit()">${newsList[number].newsDate}${newsList[number].title}</a>
+										<a href="javascript:form_name${number}.submit()" class="newstitle">${newsList[number].newsDate}${newsList[number].title}</a>
 								</h3>
 								<p>${fn:substring(newsList[number].text,0,100)}...
 									<a href="javascript:form_name${number}.submit()"
