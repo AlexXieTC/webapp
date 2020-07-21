@@ -19,8 +19,8 @@ public class ShowResultDAO {
 	public static void main(String[] args) throws SQLException {
 		User user =new User();
 		user.setId("admin");
-//		ShowResultDAO.initializeUser(user);
-		selectScore();
+		ShowResultDAO.initializeUser(user);
+//		selectScore();
 	}
 	public static Map<Integer,Integer> selectWhereUserID(User user) throws SQLException{
 		String sql="SELECT * FROM asset WHERE user_id=\'"+user.getId()+"'";

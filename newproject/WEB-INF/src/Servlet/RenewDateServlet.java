@@ -65,7 +65,8 @@ public class RenewDateServlet extends HttpServlet {
 		if(isUpdate && alertMessage!=null) {
 			forwardURL="/showresult";
 		}
-		req.getRequestDispatcher(forwardURL).forward(req, resp);
+		resp.sendRedirect(req.getContextPath()+forwardURL);
+//		req.getRequestDispatcher(forwardURL).forward(req, resp);
 	}
 
 	public void addDate(Calendar c) {
@@ -89,7 +90,7 @@ public class RenewDateServlet extends HttpServlet {
 		}
 	}
 	public void returnDate(Calendar c) {
-		// 土日ならさらに日付を進ませる
+		// 土日ならさらに日付を戻す
 		c.add(Calendar.DATE, -1);
 		switch (c.get(Calendar.DAY_OF_WEEK)) {
 		case Calendar.SUNDAY:
