@@ -1,0 +1,84 @@
+@charset 'Shift_JIS';
+
+
+table{
+    border-collapse:separate;
+    border-spacing: 0;
+    width:500px;
+     height: 50px;
+
+  }
+
+  table th:first-child{
+    border-radius: 5px 0 0 0;
+  }
+
+  table th:last-child{
+    border-radius: 0 5px 0 0;
+    border-right: 1px solid #3c6690;
+  }
+
+  table th{
+    text-align: center;
+    color:white;
+    background: linear-gradient(100deg, black, transparent);
+    /*Å@åÛï‚êFàÍóó
+    background: linear-gradient(#829ebc,#225588);
+    background: rosybrown;
+    background: tan;
+    */
+
+    border-left: 1px solid #3c6690;
+    border-top: 1px solid #3c6690;
+    border-bottom: 1px solid #3c6690;
+    box-shadow: 0px 1px 1px rgba(255,255,255,0.3) inset;
+    width: 25%;
+    padding: 10px 0;
+    font-size: initial;
+  }
+
+  table td{
+    text-align: center;
+    background-color: gainsboro;
+    border-left: 1px solid #a8b7c5;
+    border-bottom: 1px solid #a8b7c5;
+    border-top:1px solid #a8b7c5;
+    box-shadow: 0px 0px 5px 0px #eee inset;
+    width: 25%;
+    padding: 10px 0;
+  }
+
+  table td:last-child{
+    border-right: 1px solid #a8b7c5;
+  }
+
+  table tr:last-child td:first-child {
+    border-radius: 0 0 0 5px;
+  }
+
+  table tr:last-child td:last-child {
+    border-radius: 0 0 5px 0;
+  }
+
+  td {
+    vertical-align: middle;
+    font-weight: 300;
+    font-size: initial;
+    color: #000;
+
+}
+button,input,optgroup,select,textarea{
+  font-family:sans-serif;
+  font-size:100%;
+  line-height:1.15;
+  width: inherit;
+  }
+
+  h3{
+  	font-size: 25px;
+  	margin-top:4em;
+  }
+
+  h5{
+  	font-size: 20px
+  }

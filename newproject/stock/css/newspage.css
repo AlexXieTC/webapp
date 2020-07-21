@@ -10,6 +10,12 @@
     --sports-color: #f99500;
     --ent-color: #a66bbe;
     --tech-color: #009cff;
+    --trn-color:#e5c12d;
+    --inf-color:#414c9f;
+    --sky-color:#68e1ee;
+    --che-color:#24cc71;
+    --lan-color:#ed923f;
+    --ret-color:#ed5375;
 }
 
 * {
@@ -28,6 +34,7 @@ a {
     color: var(--dark-color);
     text-decoration: none;
 }
+
 
 ul {
     list-style: none;
@@ -58,11 +65,13 @@ h1, h2, h3, h4, h5, h6 {
 .category {
     display: inline-block;
     color: #fff;
-    font-size: 0.55rem;
+    font-size: 1.1rem;
     text-transform: uppercase;
     padding: 0.4rem 0.6rem;
     border-radius: 15px;
     margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+
 }
 
 .category-sports {
@@ -75,6 +84,28 @@ h1, h2, h3, h4, h5, h6 {
 
 .category-tech {
     background: var(--tech-color)
+}
+.category-tran {
+    background: var(--trn-color)
+}
+
+.category-info {
+    background: var(--inf-color)
+}
+
+.category-sky {
+    background: var(--sky-color)
+}
+.category-chem {
+    background: var(--che-color)
+}
+
+.category-land {
+    background: var(--lan-color)
+}
+
+.category-retail {
+    background: var(--ret-color)
 }
 
 .btn {
@@ -303,6 +334,9 @@ grid-gap: 1.5rem;
 }
 
 /* Footer */
+/*ページ分割した方がよいかも*/
+
+
 #main-footer {
     background: var(--dark-color);
     color: #fff;
@@ -340,3 +374,4 @@ grid-gap: 1.5rem;
     width: 45%;
     padding: 0.9rem 0;
 }
+

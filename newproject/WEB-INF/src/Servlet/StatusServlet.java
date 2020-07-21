@@ -55,7 +55,7 @@ public class StatusServlet extends HttpServlet{
 					List<History> historyList=ShowInfoDAO.selectHistory(ubean);
 					request.setAttribute("historyList", historyList);
 
-					long stockAsset = ShowResultDAO.getStockAssets(ubean);
+					long stockAsset = ShowResultDAO.getTotalAssets(ubean);
 					request.setAttribute("stockAsset", stockAsset);
 					Score score = new Score();
 					score.setTotalAsset(stockAsset);

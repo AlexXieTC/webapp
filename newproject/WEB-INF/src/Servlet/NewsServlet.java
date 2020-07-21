@@ -44,7 +44,7 @@ public class NewsServlet extends HttpServlet{
 	public void doGet(HttpServletRequest request,
 	HttpServletResponse response)throws ServletException, IOException {
 
-		request.setCharacterEncoding("Shift_JIS");
+//		request.setCharacterEncoding("Shift_JIS");
 		String forwardURL=null;
 
 		HttpSession session =request.getSession();

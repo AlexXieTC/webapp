@@ -4,6 +4,7 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 
 <%
 	User user=(User)session.getAttribute("user");
+	if(user == null)user = new User();
 %>
 
 <head>

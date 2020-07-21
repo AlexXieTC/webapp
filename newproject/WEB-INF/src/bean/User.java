@@ -8,6 +8,9 @@ public class User  implements Cloneable{
 	private int money;
 	private Date simulationDate;
 
+	public static final int intialMoney =5000000;
+	public static final String intialDate="2020/06/01";
+
 	public User() {
 
 	}

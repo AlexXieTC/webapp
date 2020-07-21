@@ -42,9 +42,9 @@ public class SignupServlet extends HttpServlet {
 			ubean.setId(userID);
 			ubean.setPassword(password);
 
-			int updateCount = SignupDAO.insert(ubean);
+			int insertCount = SignupDAO.insert(ubean);
 
-			if (updateCount < 1) {
+			if (insertCount < 1) {
 				forwardURL = "/stock/signuperror.jsp";
 			} else {
 				forwardURL = "/index.jsp";
