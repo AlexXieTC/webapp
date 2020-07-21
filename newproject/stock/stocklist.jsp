@@ -6,6 +6,7 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 
 
 <script src="<%=request.getContextPath()%>/stock/js/colorChange.js"></script>
+
 <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/css/flag-icon.css" rel="stylesheet">
 
 
@@ -119,7 +120,7 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 		%>
 
         <hr>
-        <div align="center" style="position:relative;">
+        <div align="center" style="position:relative;margin:20px auto;">
         	<div style="opacity:0.8;position:absolute;display:flex;top:28%;left:45%;background-color:#083c8e;height:75;width:110">
 			<p style="color:#fff;font-weight:bold;margin:0">日経平均<i class="flag-icon flag-icon-jp " style="position:absolute;float:right;margin-top:3px;"></i><br>
 			<%=jpbean.getOpenPrice() %><br>(円)</p>
@@ -144,6 +145,11 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 <%-- 	<%
     	}
 		%> --%>
+
+		<%@ include file="chart.jsp" %>
+
+
+
 	<section>
         <!--for demo wrap-->
         <!-- <h1>Fixed Table header</h1> -->

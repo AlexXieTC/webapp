@@ -2,6 +2,7 @@ window.onload=function calc()
 {
 	var n=document.getElementsByName('num');
 	var i=document.getElementsByName('inum');
+	console.log("colorchange.js do");
 	console.log(n);
 	console.log(i);
 	n.forEach(
