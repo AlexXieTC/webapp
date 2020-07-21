@@ -36,8 +36,8 @@ public class ShowResultServlet extends HttpServlet {
 
 				boolean insert= ShowResultDAO.insertScore(score);
 				if(insert) {
-					int rank = ShowResultDAO.getRank(score);
-					req.setAttribute("rank", rank);
+//					int rank = ShowResultDAO.getRank(score);
+//					req.setAttribute("rank", rank);
 					List<Score> scoreList=ShowResultDAO.selectScore();
 					req.setAttribute("scoreList", scoreList);
 
@@ -52,6 +52,7 @@ public class ShowResultServlet extends HttpServlet {
 
 		req.getRequestDispatcher(url).forward(req, resp);
 	}
+	//暫定的ランキングページで使用
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO 自動生成されたメソッド・スタブ
 		//AssetListを取得する
@@ -61,17 +62,20 @@ public class ShowResultServlet extends HttpServlet {
 		User user=(User)session.getAttribute("user");
 
 
-
 		//
 		try {
 			long totalAsset = ShowResultDAO.getTotalAssets(user);
 				req.setAttribute("totalAsset", totalAsset);
 				Score score = new Score();
 				score.setUserID(user.getId());
-				score.setTotalAsset(totalAsset);
+				score.setTotalAsset(totalAsset+user.getMoney());
+				req.setAttribute("totalAsset",score.getTotalAsset());
 
 				List<Score> scoreList=ShowResultDAO.selectScore();
 				req.setAttribute("scoreList", scoreList);
+
+				int predictRank=getPredictRank(scoreList,score);
+				req.setAttribute("predict_rank", predictRank);
 
 
 //				boolean insert= ShowResultDAO.insertScore(score);
@@ -87,5 +91,17 @@ public class ShowResultServlet extends HttpServlet {
 		}
 
 		req.getRequestDispatcher(url).forward(req, resp);
+	}
+	public static int getPredictRank(List<Score> scoreList,Score tempScore)  {
+		int rank =1;
+		for(int i=0;i<scoreList.size();i++) {
+			Score s = scoreList.get(i);
+			boolean isBigger= (s.getTotalAsset() < tempScore.getTotalAsset());
+			if(isBigger) {
+				break;
+			}
+			rank++;
+		}
+		return rank;
 	}
 }

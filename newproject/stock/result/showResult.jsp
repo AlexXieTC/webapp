@@ -15,7 +15,7 @@
 		  <thead>
 		    <tr>
 		      <th style="height:53px; width:100px">総資産</th>
-		      <th style="height:54px; width:100px">順位</th>
+		      <th style="height:54px; width:100px">${(empty predict_rank)? "":"予測"}順位</th>
 		    </tr>
 		  </thead>
 
@@ -27,7 +27,7 @@
 			 <tbody bgcolor="#fff" >
 				<tr>
 				<td style="height:53px; width:500px">${totalAsset}円 </td>
-				<td style="height:54px; width:500px">${rank+1}位 </td>
+				<td style="height:54px; width:500px">${rank+predict_rank}位 </td>
 
 	          </tbody>
 			</form>

@@ -19,7 +19,8 @@ public class ShowResultDAO {
 	public static void main(String[] args) throws SQLException {
 		User user =new User();
 		user.setId("admin");
-		ShowResultDAO.initializeUser(user);
+//		ShowResultDAO.initializeUser(user);
+		selectScore();
 	}
 	public static Map<Integer,Integer> selectWhereUserID(User user) throws SQLException{
 		String sql="SELECT * FROM asset WHERE user_id=\'"+user.getId()+"'";
@@ -79,19 +80,6 @@ public class ShowResultDAO {
 		return DBManager.findAll(sql, new ScoreMapping());
 	}
 
-	public static int getRank(Score score) throws SQLException {
-		List<Score> scoreList = selectScore();
-		int rank =0;
-		for(int i=0;i<scoreList.size();i++) {
-			Score s = scoreList.get(i);
-			boolean sameAsset= s.getTotalAsset() == score.getTotalAsset();
-			boolean sameUser = s.getUserID().equals(score.getUserID());
-			if(sameAsset && sameUser) {
-				rank =i;
-				break;
-			}
-		}
-		return rank;
-	}
+
 
 }
