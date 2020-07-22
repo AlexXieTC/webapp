@@ -71,29 +71,6 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 
 
 
-<!--
-    <div id="main-content">
-      <div class="container">
-         <div class="row">
-           <div class="span4">
-             <h2>Our Products</h2>
-             <p>Oh…yeah…the guy in the…the $4,000 suit is holding the elevator for a guy who doesn't make that in three months. Come on! Speaking of settling, how's Ann? He's a regular Freddie Wilson, that one.</p>
-             <p class="text-center"><a class="btn" href="index.html">Read more</a></p>
-           </div>
-
-           <div class="span4">
-             <h2>We Love You! <small>so much</small></h2>
-             <p>I mean, it's one banana, Michael. What could it cost, ten dollars? It's sort of like going from prime rib to… I don't know… weird brother of prime rib. I hear the jury's still out on science. <strong>Check out banner, Michael!</strong></p>
-             <p class="text-center"><a class="btn btn-primary" href="index.html">Primary button</a></p>
-           </div>
-
-           <div class="span4">
-             <h2>Headline Here</h2>
-             <p>Obviously this blue part here is the land. Let the great experiment begin! But I'm the oldest. The matriarch if you will. She's always got to wedge herself in the middle of us so that she can control everything. Yeah. Mom's awesome. Maybe we should call her?</p>
-             <p class="text-center"><a class="btn" href="index.html">Read more</a></p>
-           </div>
-        </div>@end .row -->
-
 		<%
 		List<Price> indexList = (List<Price>)request.getAttribute("indexList");
             		 Price jpbean = indexList.get(0);
@@ -164,6 +141,7 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
                 <th>終値</th>
                 <th>出来高</th>
                 <th>前日比</th>
+                <th>所持数</th>
                 <th>買い注文</th>
                 <th>売り注文</th>
               </tr>
@@ -176,9 +154,14 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 
             	SimpleDateFormat sdf = new SimpleDateFormat("MM月dd日");
 
+            	Map<Integer,Integer> assetMap=(Map<Integer,Integer>)request.getAttribute("assetMap");
+
             for(int i =0;i<dateList.size();i++){
             	 Price pbean = priceList.get(i);
             	 Price yesterdaybean=  dateList.get(i);
+            	 //
+            	 int numberAsset =0;
+            	 if(assetMap.containsKey(pbean.getStockCode()))numberAsset=assetMap.get(pbean.getStockCode());
 			%>
 
 
@@ -195,7 +178,7 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
             <td><%=pbean.getClosingPrice() %> </td>
             <td><%=pbean.getVolume() %>  </td>
             <td name="num"><%=yesterdaybean.getClosingPrice()-(pbean.getOpenPrice()) %> </td>
-
+			<td><%=numberAsset %>株</td>
 			<form action="<%=request.getContextPath() %>/buysellaction" method="post">
             	<input type="hidden" value =<%=pbean.getStockCode() %> name="stock_code">
 	            <td><input type="submit"value="BUY"  name="button" class="btn btn-primary" style="cursor:pointer"/></td>

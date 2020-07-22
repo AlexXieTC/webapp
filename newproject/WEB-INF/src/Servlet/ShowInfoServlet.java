@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -16,6 +17,7 @@ import bean.News;
 import bean.Price;
 import bean.User;
 import dao.ShowInfoDAO;
+import dao.ShowResultDAO;
 
 
 public class ShowInfoServlet extends HttpServlet{
@@ -50,8 +52,8 @@ public class ShowInfoServlet extends HttpServlet{
 			List<Price> idateList=ShowInfoDAO.selectIDate(ubean);
 			request.setAttribute("idateList", idateList);
 
-
-
+			Map<Integer,Integer> assetMap=ShowResultDAO.selectWhereUserID(user);
+			request.setAttribute("assetMap", assetMap);
 
 
 			//最終日付の確認
