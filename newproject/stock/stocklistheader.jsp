@@ -1,10 +1,12 @@
-<%@ page import="java.sql.*, database.*, java.util.*, java.text.SimpleDateFormat,bean.* "
-contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
-
+<%@ page
+	import="java.sql.*, database.*, java.util.*, java.text.SimpleDateFormat,bean.* "
+	contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%
-	User user=(User)session.getAttribute("user");
-	if(user == null)user = new User();
+	User user = (User) session.getAttribute("user");
+	if (user == null)
+		user = new User();
 %>
 
 <head>
@@ -47,37 +49,52 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 
 <body>
 
- <nav id="main-nav">
-      <div class="container">
-        <img src="<%=request.getContextPath()%>/stock/img/quicklogo2.jpeg" alt="QUICK" class="logo">
-        <ul class="navlinks">
-          <li style="margin:0px 30px;"><a href="<%=request.getContextPath()%>/showinfo">Homepage</a></li>
-          <li style="margin:0px 30px;"><a href="<%=request.getContextPath()%>/status">User Status</a></li>
-          <li style="margin:0px 30px;"><a href="<%=request.getContextPath()%>/news">News</a></li>
-          <li style="margin:0px 30px;"><a href="<%=request.getContextPath()%>/stock/team/about.jsp">The Team</a></li>
-          <li style="margin:0px 30px;"><a href="<%=request.getContextPath()%>/showresult">Ranking</a></li>
-          <li style="margin:0px 30px;"><a class="current" href="<%=request.getContextPath()%>/renewconfirmation">renewDate</a></li>
-        </ul>
+	<nav id="main-nav">
 
-        <div class ="AfterloginForm">
-		<form action="<%=request.getContextPath()%>/logout" method="Post" >
-				<p style="background-color:#EDF7FF;">
-                     <i class="fas fa-user"></i>
-                          ユーザーID：<%=user.getId() %>
-				日付：<%=user.getSimulationDate() %>
-			    所持金：<%=user.getMoney() %>円
+		<div class="container">
+			<img src="<%=request.getContextPath()%>/stock/img/quicklogo2.jpeg"
+				alt="QUICK" class="logo">
+			<ul class="navlinks">
+				<li style="margin: 0px 30px;"><a
+					href="<%=request.getContextPath()%>/showinfo">Homepage</a></li>
+				<li style="margin: 0px 30px;"><a
+					href="<%=request.getContextPath()%>/status">User Status</a></li>
+				<li style="margin: 0px 30px;"><a
+					href="<%=request.getContextPath()%>/news">News</a></li>
+				<li style="margin: 0px 30px;"><a
+					href="<%=request.getContextPath()%>/stock/team/about.jsp">The
+						Team</a></li>
+				<li style="margin: 0px 30px;"><a
+					href="<%=request.getContextPath()%>/showresult">Ranking</a></li>
+				<li style="margin: 0px 30px;"><a class="current"
+					href="<%=request.getContextPath()%>/renewconfirmation">renewDate</a></li>
+			</ul>
 
-			    <input  type="submit" class="btn btn-outline-primary bth-sm" value="Log out">
-                 </p>
+			<div class="AfterloginForm">
+
+				<form action="<%=request.getContextPath()%>/logout" method="Post">
+					<p style="background-color: #EDF7FF;">
+						<c:if test="${!(empty user)}">
+							<i class="fas fa-user"></i>
+                          ユーザーID：<%=user.getId()%>
+				日付：<%=user.getSimulationDate()%>
+			    所持金：<%=user.getMoney()%>円
+				</c:if>
+
+						<input type="submit" class="btn btn-outline-primary bth-sm"
+							value="Log out">
+
+					</p>
+					<h2 style="margin-top: 1.5em; margin-left: 4.8em;">${(empty alertMessage)? "":alertMessage}</h2>
 
 
-          		<%--　メモ onclick="location.href='<%=request.getContextPath() %>/signup'"--%>
-		</form>
-        </div>
-      </div>
-    </nav>
+					<%--　メモ onclick="location.href='<%=request.getContextPath() %>/signup'"--%>
+				</form>
+			</div>
+		</div>
+	</nav>
 	<!-- アニメション -->
-<!-- 	  <div class="scene">
+	<!-- 	  <div class="scene">
         <div class="wrap">
             <div class="wall wall-right"></div>
             <div class="wall wall-left"></div>
@@ -85,19 +102,20 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
             <div class="wall wall-bottom"></div>
             <div class="wall wall-back"></div>
         </div> -->
-      </div>
-<!-- アニメション -->
-	    <header id="showcase">
-        <div class="container">
-            <div class="showcase-container">
-                <div class="showcase-content">
-                    <h1> QUICK証券</h1>
-                   <h4 style="margin-top:80px;color:#1aa6d3">＿Our Knowledge, Your Value.</h4>
-                </div>
-            </div>
-        </div>
-    </header>
-<!--     <header id="heading">
+	</div>
+	<!-- アニメション -->
+	<header id="showcase">
+		<div class="container">
+			<div class="showcase-container">
+				<div class="showcase-content">
+					<h1>QUICK証券</h1>
+					<h4 style="margin-top: 80px; color: #1aa6d3">＿Our Knowledge,
+						Your Value.</h4>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!--     <header id="heading">
       <div class="container text-center">
         <h1>QUICK証券</h1>
         <br><br><br><br><br><br><br><br>

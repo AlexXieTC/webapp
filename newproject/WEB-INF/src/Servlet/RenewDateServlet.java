@@ -40,9 +40,6 @@ public class RenewDateServlet extends HttpServlet {
 			return;
 		}
 
-
-
-
 		//
 		User user = (User) session.getAttribute("user");
 		Calendar c = Calendar.getInstance();
@@ -64,8 +61,11 @@ public class RenewDateServlet extends HttpServlet {
 		String alertMessage =(String)session.getAttribute("alertMessage");
 		if(isUpdate && alertMessage!=null) {
 			forwardURL="/showresult";
+			req.getRequestDispatcher(forwardURL).forward(req, resp);
+			return;
 		}
-		req.getRequestDispatcher(forwardURL).forward(req, resp);
+		resp.sendRedirect(req.getContextPath()+forwardURL);
+//		req.getRequestDispatcher(forwardURL).forward(req, resp);
 	}
 
 	public void addDate(Calendar c) {
@@ -89,7 +89,7 @@ public class RenewDateServlet extends HttpServlet {
 		}
 	}
 	public void returnDate(Calendar c) {
-		// 土日ならさらに日付を進ませる
+		// 土日ならさらに日付を戻す
 		c.add(Calendar.DATE, -1);
 		switch (c.get(Calendar.DAY_OF_WEEK)) {
 		case Calendar.SUNDAY:

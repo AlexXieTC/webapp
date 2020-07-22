@@ -14,7 +14,7 @@
 		  <thead>
 		    <tr>
 		      <th style="height:53px; width:100px">総資産</th>
-		      <th style="height:54px; width:100px">順位</th>
+		      <th style="height:54px; width:100px">${(empty predict_rank)? "":"予測"}順位</th>
 		    </tr>
 		  </thead>
 
@@ -26,7 +26,7 @@
 			 <tbody bgcolor="#fff" >
 				<tr>
 				<td style="height:53px; width:500px">${totalAsset}円 </td>
-				<td style="height:54px; width:500px">${rank+1}位 </td>
+				<td style="height:54px; width:500px">${predict_rank}${(empty result_score)? "位":result_score}</td>
 
 	          </tbody>
 			</form>
@@ -36,10 +36,10 @@
 
           	<thead>
               <tr>
+              	<th>順位</th>
                 <th>ユーザー名</th>
                 <th>総資産</th>
                 <th>更新日</th>
-                <th>順位</th>
               </tr>
             </thead>
 
@@ -51,10 +51,12 @@
 
 		 <tbody>
 			<tr bgcolor="#fff">
+
+			<td ><i class="fa fa-trophy "></i><%=sbean.getRank() %> </td>
 			<td><%=sbean.getUserID() %> </td>
             <td><%=sbean.getTotalAsset() %>   </td>
             <td><%=sdf.format(sbean.getDate()) %> </td>
-            <td><%=sbean.getRank() %> </td>
+
             </tr>
 			<%
             }

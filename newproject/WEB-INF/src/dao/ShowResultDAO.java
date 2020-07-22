@@ -20,6 +20,7 @@ public class ShowResultDAO {
 		User user =new User();
 		user.setId("admin");
 		ShowResultDAO.initializeUser(user);
+//		selectScore();
 	}
 	public static Map<Integer,Integer> selectWhereUserID(User user) throws SQLException{
 		String sql="SELECT * FROM asset WHERE user_id=\'"+user.getId()+"'";
@@ -65,6 +66,7 @@ public class ShowResultDAO {
 				+score.getUserID()+"', \'"
 				+new Date(new java.util.Date().getTime())+"',"
 				+score.getTotalAsset()+")";
+		System.out.println(sql);
 		int result = DBManager.simpleUpdate(sql);
 		if(result>0)return true;
 		else return false;
@@ -76,23 +78,10 @@ public class ShowResultDAO {
 				"(SELECT * FROM score T2 WHERE T1.user_id = T2.user_id AND T1.total_asset < T2.total_asset)\n" +
 
 				"order by total_asset desc";
-	    System.out.println(sql);
+//	    System.out.println(sql);
 		return DBManager.findAll(sql, new ScoreMapping());
 	}
 
-	public static int getRank(Score score) throws SQLException {
-		List<Score> scoreList = selectScore();
-		int rank =0;
-		for(int i=0;i<scoreList.size();i++) {
-			Score s = scoreList.get(i);
-			boolean sameAsset= s.getTotalAsset() == score.getTotalAsset();
-			boolean sameUser = s.getUserID().equals(score.getUserID());
-			if(sameAsset && sameUser) {
-				rank =i;
-				break;
-			}
-		}
-		return rank;
-	}
+
 
 }

@@ -20,8 +20,6 @@ public class ShowResultServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO 自動生成されたメソッド・スタブ
-		//AssetListを取得する
-		//PriceListを取得
 		String url ="/stock/result/showResult.jsp";
 		HttpSession session = req.getSession();
 		User user=(User)session.getAttribute("user");
@@ -29,17 +27,20 @@ public class ShowResultServlet extends HttpServlet {
 		//
 		try {
 			long totalAsset = ShowResultDAO.getTotalAssets(user);
-				req.setAttribute("totalAsset", totalAsset);
+				req.setAttribute("totalAsset", totalAsset+user.getMoney());
 				Score score = new Score();
 				score.setUserID(user.getId());
 				score.setTotalAsset(totalAsset+user.getMoney());
 
 				boolean insert= ShowResultDAO.insertScore(score);
 				if(insert) {
-					int rank = ShowResultDAO.getRank(score);
-					req.setAttribute("rank", rank);
+//					int rank = ShowResultDAO.getRank(score);
+//					req.setAttribute("rank", rank);
 					List<Score> scoreList=ShowResultDAO.selectScore();
 					req.setAttribute("scoreList", scoreList);
+
+					String resultScore = getResultRank(scoreList, score);
+					req.setAttribute("result_score",resultScore);
 
 					ShowResultDAO.initializeUser(user);
 					session.invalidate();
@@ -52,6 +53,7 @@ public class ShowResultServlet extends HttpServlet {
 
 		req.getRequestDispatcher(url).forward(req, resp);
 	}
+	//暫定的ランキングページで使用
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO 自動生成されたメソッド・スタブ
 		//AssetListを取得する
@@ -61,17 +63,20 @@ public class ShowResultServlet extends HttpServlet {
 		User user=(User)session.getAttribute("user");
 
 
-
 		//
 		try {
 			long totalAsset = ShowResultDAO.getTotalAssets(user);
 				req.setAttribute("totalAsset", totalAsset);
 				Score score = new Score();
 				score.setUserID(user.getId());
-				score.setTotalAsset(totalAsset);
+				score.setTotalAsset(totalAsset+user.getMoney());
+				req.setAttribute("totalAsset",score.getTotalAsset());
 
 				List<Score> scoreList=ShowResultDAO.selectScore();
 				req.setAttribute("scoreList", scoreList);
+
+				int predictRank=getPredictRank(scoreList,score);
+				req.setAttribute("predict_rank", predictRank);
 
 
 //				boolean insert= ShowResultDAO.insertScore(score);
@@ -87,5 +92,32 @@ public class ShowResultServlet extends HttpServlet {
 		}
 
 		req.getRequestDispatcher(url).forward(req, resp);
+	}
+
+	//自分のランキングがどの位置付近か総資産を見ていくメソッド
+	public static int getPredictRank(List<Score> scoreList,Score tempScore)  {
+		int rank =1;
+		for(int i=0;i<scoreList.size();i++) {
+			Score s = scoreList.get(i);
+			boolean isBigger= (s.getTotalAsset() <= tempScore.getTotalAsset());
+			if(isBigger) {
+				rank =s.getRank();
+				break;
+			}
+			rank++;
+		}
+		return rank;
+	}
+	public static String getResultRank(List<Score> scoreList,Score resultScore) {
+		String message="";
+		for(int i=0;i<scoreList.size();i++) {
+			Score score = scoreList.get(i);
+			if(score.getUserID().equals(resultScore.getUserID())) {
+				if(score.getTotalAsset()==resultScore.getTotalAsset())message=score.getRank()+"位";
+				else message ="前回の結果("+score.getRank()+"位)を上回ることが出来ませんでした";
+				break;
+			}
+		}
+		return message;
 	}
 }
