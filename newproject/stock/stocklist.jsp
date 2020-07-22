@@ -14,7 +14,6 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 
 
 	<div class="l-wrapper">
-			<h1 align="center">${(empty alertMessage)? "":alertMessage}</h1>
 	  <div class="c-container">
 	    <div class="sample sample02">
 	      <div class="swiper-container">

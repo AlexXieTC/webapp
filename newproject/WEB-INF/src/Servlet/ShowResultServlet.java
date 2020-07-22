@@ -39,6 +39,9 @@ public class ShowResultServlet extends HttpServlet {
 					List<Score> scoreList=ShowResultDAO.selectScore();
 					req.setAttribute("scoreList", scoreList);
 
+					String resultScore = getResultRank(scoreList, score);
+					req.setAttribute("result_score",resultScore);
+
 					ShowResultDAO.initializeUser(user);
 					session.invalidate();
 				}
@@ -105,15 +108,16 @@ public class ShowResultServlet extends HttpServlet {
 		}
 		return rank;
 	}
-//	public static String getResultRank(List<Score> scoreList,Score resultScore) {
-//		String message="";
-//		for(int i=0;i<scoreList.size();i++) {
-//			Score score = scoreList.get(i);
-//			if(score.getUserID().equals(resultScore.getUserID())) {
-//				if(score.getTotalAsset()==resultScore.getTotalAsset())message=score.getRank()+"位";
-//				else message ="前回の結果("+score.getRank()+"位)を上回ることが出来ませんでした";
-//				break;
-//			}
-//		}
-//	}
+	public static String getResultRank(List<Score> scoreList,Score resultScore) {
+		String message="";
+		for(int i=0;i<scoreList.size();i++) {
+			Score score = scoreList.get(i);
+			if(score.getUserID().equals(resultScore.getUserID())) {
+				if(score.getTotalAsset()==resultScore.getTotalAsset())message=score.getRank()+"位";
+				else message ="前回の結果("+score.getRank()+"位)を上回ることが出来ませんでした";
+				break;
+			}
+		}
+		return message;
+	}
 }

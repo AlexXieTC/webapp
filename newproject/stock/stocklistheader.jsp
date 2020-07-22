@@ -48,6 +48,7 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 <body>
 
  <nav id="main-nav">
+
       <div class="container">
         <img src="<%=request.getContextPath()%>/stock/img/quicklogo2.jpeg" alt="QUICK" class="logo">
         <ul class="navlinks">
@@ -60,6 +61,7 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
         </ul>
 
         <div class ="AfterloginForm">
+
 		<form action="<%=request.getContextPath()%>/logout" method="Post" >
 				<p style="background-color:#EDF7FF;">
                      <i class="fas fa-user"></i>
@@ -68,7 +70,9 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 			    所持金：<%=user.getMoney() %>円
 
 			    <input  type="submit" class="btn btn-outline-primary bth-sm" value="Log out">
+
                  </p>
+				<h2  style="margin-top:1.5em; margin-left:4.8em;">${(empty alertMessage)? "":alertMessage}</h2>
 
 
           		<%--　メモ onclick="location.href='<%=request.getContextPath() %>/signup'"--%>

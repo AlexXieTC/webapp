@@ -27,7 +27,7 @@
 			 <tbody bgcolor="#fff" >
 				<tr>
 				<td style="height:53px; width:500px">${totalAsset}円 </td>
-				<td style="height:54px; width:500px">${rank+predict_rank}位 </td>
+				<td style="height:54px; width:500px">${predict_rank}${(empty result_score)? "位":result_score}</td>
 
 	          </tbody>
 			</form>
