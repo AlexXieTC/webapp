@@ -37,10 +37,10 @@
 
           	<thead>
               <tr>
+              	<th>順位</th>
                 <th>ユーザー名</th>
                 <th>総資産</th>
                 <th>更新日</th>
-                <th>順位</th>
               </tr>
             </thead>
 
@@ -52,10 +52,12 @@
 
 		 <tbody>
 			<tr bgcolor="#fff">
+
+			<td ><i class="fa fa-trophy "></i><%=sbean.getRank() %> </td>
 			<td><%=sbean.getUserID() %> </td>
             <td><%=sbean.getTotalAsset() %>   </td>
             <td><%=sdf.format(sbean.getDate()) %> </td>
-            <td><%=sbean.getRank() %> </td>
+
             </tr>
 			<%
             }

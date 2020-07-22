@@ -148,7 +148,9 @@ QUICKの情報が使われています。
         </div>
 
 -->
-
+<div style=" text-align: center;margin:50px;background-color:#000">
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQiDALXTQHISyIP77IR2trQ_apDAaX8vf7dKBvh7MkTWUkidTk_SxTEEVK1WEIGY-MzLuaGHpp889i-/embed?start=true&loop=true&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+</div>
 
 
  <h2>参考サイト</h2>
@@ -205,6 +207,7 @@ QUICKの情報が使われています。
         <hr>
       </div><!-- @end .container -->
     </div><!-- @end #main-content -->
+
 
       <footer id="main-footer" class="py-2">
             <div class="container footer-container">
