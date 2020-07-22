@@ -40,9 +40,6 @@ public class RenewDateServlet extends HttpServlet {
 			return;
 		}
 
-
-
-
 		//
 		User user = (User) session.getAttribute("user");
 		Calendar c = Calendar.getInstance();
@@ -64,6 +61,8 @@ public class RenewDateServlet extends HttpServlet {
 		String alertMessage =(String)session.getAttribute("alertMessage");
 		if(isUpdate && alertMessage!=null) {
 			forwardURL="/showresult";
+			req.getRequestDispatcher(forwardURL).forward(req, resp);
+			return;
 		}
 		resp.sendRedirect(req.getContextPath()+forwardURL);
 //		req.getRequestDispatcher(forwardURL).forward(req, resp);
