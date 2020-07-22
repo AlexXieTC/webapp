@@ -49,12 +49,13 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 	      tmpData4.push(data[row][4])
 	      tmpData5.push(data[row][5])
 	      tmpData6.push(data[row][6])
-	      tmpData7.push(data[row][7])
+/* 	      tmpData7.push(data[row][7]) */
 	    };
 	    var color = Chart.helpers.color;
 	    // 4)chart.jsで描画
 	    var ctx = document.getElementById("myChart").getContext("2d");
 	    var myChart = new Chart(ctx, {
+
 	      type: 'line',
 	      //bar,line
 	      data: {
@@ -108,27 +109,67 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 	          borderColor: window.chartColors.purple ,
 	          pointRadius: 0,lineTension: 0,borderWidth: 2,
 	          fill: false},
-	          { label: "平均出来高", data: tmpData7,
+/* 	          { label: "平均出来高", data: tmpData7,
 	          backgroundColor: color(window.chartColors.grey).alpha(0.5).rgbString(),
 	          borderColor: window.chartColors.grey ,
 	          pointRadius: 0,lineTension: 0,borderWidth: 2,
-	          fill: true},
+	          fill: true}, */
 	          ],
 	      },
+
+
 	    options: {
+
 	      title:{
 	        display:true,
-	        text:'日経平均指数',
+	        text:' Nikkei 225',
+	        fontColor: "#FFFFFF",
 	        fontSize:20
 	      },
-	      animation: {
+	        legend: {
+	            labels: {
+	                fontColor:  "#FFFFFF"
+	            }
+	        },
+	        scales: {
+                xAxes: [{
+                    display: true,
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Daily',
+                        fontColor:'#FFFFFF',
+                        fontSize:20
+                    },
+                    ticks: {
+                       fontColor: "#FFFFFF",
+                       fontSize: 14
+                      }
+                }],
+                yAxes: [{
+                    display: true,
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Value (￥)',
+                        fontColor: '#FFFFFF',
+                        fontSize:20
+                    },
+                    ticks: {
+                          fontColor: "#FFFFFF",
+                          fontSize: 14
+                    },
+                    gridLines: { color: "#FFFFFF" }
+                }]
+
+	              }
+
+/* 	      animation: {
 	          duration: 0
-	      },
-	      hover: {
+	      }, */
+/* 	      hover: {
 	            mode: 'nearest',
 	            intersect: true
-	      },
-	      scales: {
+	      }, */
+/* 	      scales: {
 	          x: {
 	              type: 'timeseries',
 	              offset: true,
@@ -185,9 +226,9 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 	              labelString: 'Closing price'
 	          }
 	      }
-	  },
-	  tooltips: {
-	      intersect: false,
+	  }, */
+/* 	  tooltips: {
+	      intersect: true,
 	      mode: 'index',
 	      callbacks: {
 	          label: function(context) {
@@ -199,7 +240,7 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 	              return label;
 	              }
 	          }
-	      }
+	      } */
 	  }
 	    });
 	  }
