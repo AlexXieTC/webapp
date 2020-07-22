@@ -8,7 +8,7 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 %>
 
 <head>
-
+	<title>QUICK証券</title>
 	<meta charset="Shift_JIS" lang="ja">
 
 	 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" defer></script>

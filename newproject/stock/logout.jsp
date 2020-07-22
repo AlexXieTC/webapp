@@ -3,6 +3,7 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+<title>QUICK証券</title>
 
 	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/top.css">
 	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/highlight.js.css">

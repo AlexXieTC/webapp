@@ -74,6 +74,7 @@ public class ShowResultDAO {
 				"DENSE_RANK() OVER(ORDER BY total_asset DESC) AS rank\n" +
 				"FROM score T1 WHERE NOT EXISTS \n" +
 				"(SELECT * FROM score T2 WHERE T1.user_id = T2.user_id AND T1.total_asset < T2.total_asset)\n" +
+
 				"order by total_asset desc";
 	    System.out.println(sql);
 		return DBManager.findAll(sql, new ScoreMapping());

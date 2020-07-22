@@ -5,7 +5,7 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 <html>
 
 <head>
-
+	<title>QUICK証券</title>
 	<meta charset="Shift_JIS" lang="ja">
 
 	 <link rel="stylesheet" href="<%=request.getContextPath()%>/stock/css/top.css">
