@@ -29,6 +29,10 @@
 					<td>${price.openPrice}円</td>
 				</tr>
 				<tr>
+					<th>所持株数</th>
+					<td>${(empty asset)? 0:asset.number}株</td>
+				</tr>
+				<tr>
 					<th>購入株数</th>
 					<td>
 					<input type="number" name ="purchaseNumber" value="${(empty purchaseNumber)? 100:purchaseNumber }" min="100" step="100" max="${user.money/price.openPrice }"/>株
