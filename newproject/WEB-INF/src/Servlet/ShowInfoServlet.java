@@ -45,19 +45,20 @@ public class ShowInfoServlet extends HttpServlet{
 			RenewDateServlet d = new RenewDateServlet();
 			d.returnDate(c);
 			user.setSimulationDate(new Date(c.getTimeInMillis()));
+			System.out.println(user.getSimulationDate());
 
-			List<Price> dateList=ShowInfoDAO.selectDate(ubean);
+			List<Price> dateList=ShowInfoDAO.selectDate(user);
 			request.setAttribute("dateList", dateList);
 
-			List<Price> idateList=ShowInfoDAO.selectIDate(ubean);
+			List<Price> idateList=ShowInfoDAO.selectIDate(user);
 			request.setAttribute("idateList", idateList);
 
-			Map<Integer,Integer> assetMap=ShowResultDAO.selectWhereUserID(user);
+			Map<Integer,Integer> assetMap=ShowResultDAO.selectWhereUserID(ubean);
 			request.setAttribute("assetMap", assetMap);
 
 
 			//最終日付の確認
-			Date finalDate =Date.valueOf("2020-06-30");
+			Date finalDate =Date.valueOf("2020-06-29");
 			if(finalDate.equals(ubean.getSimulationDate())) {
 				String alertMessage = "本日が行動可能最終日です";
 				session.setAttribute("alertMessage", alertMessage);
