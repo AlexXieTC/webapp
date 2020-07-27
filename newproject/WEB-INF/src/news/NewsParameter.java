@@ -67,7 +67,7 @@ public class NewsParameter {
 			fileName="chem01.jpg";
 			break;
 		case 7203:
-			fileName="car/car"+getRandomNumber(3)+".jpg";
+			fileName="car/car"+getRandomNumber(4)+".jpg";
 			break;
 		case 9202:
 			fileName="sky01.jpg";
@@ -81,7 +81,7 @@ public class NewsParameter {
 
 			break;
 		case 9984:
-			fileName="com/com"+getRandomNumber(3)+".jpg";
+			fileName="com/com"+getRandomNumber(4)+".jpg";
 			break;
 		}
 
