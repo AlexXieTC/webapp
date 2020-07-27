@@ -35,13 +35,14 @@
 			</form>
 		</table>
 
+		<h1 style="color:#4fc5ea;background-color:#000;">History</h1>
           <table class="rtable" cellpadding="0" cellspacing="0" border="0"  style="margin:10px 0;width="100%;"  >
 
           	<thead>
               <tr>
                 <th>銘柄コード</th>
                 <th>銘柄名</th>
-                <th>所持数</th>
+                <th>取引数</th>
                 <th>株資産</th>
                 <th>日付</th>
               </tr>
