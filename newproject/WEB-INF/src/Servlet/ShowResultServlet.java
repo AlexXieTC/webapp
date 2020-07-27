@@ -28,6 +28,7 @@ public class ShowResultServlet extends HttpServlet {
 		try {
 			long totalAsset = ShowResultDAO.getTotalAssets(user);
 				req.setAttribute("totalAsset", totalAsset+user.getMoney());
+				System.out.println(totalAsset);
 				Score score = new Score();
 				score.setUserID(user.getId());
 				score.setTotalAsset(totalAsset+user.getMoney());
@@ -67,6 +68,7 @@ public class ShowResultServlet extends HttpServlet {
 		try {
 			long totalAsset = ShowResultDAO.getTotalAssets(user);
 				req.setAttribute("totalAsset", totalAsset);
+				System.out.println(totalAsset);
 				Score score = new Score();
 				score.setUserID(user.getId());
 				score.setTotalAsset(totalAsset+user.getMoney());

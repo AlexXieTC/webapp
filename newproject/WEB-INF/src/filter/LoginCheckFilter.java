@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 
 import bean.User;
 
-@WebFilter(urlPatterns={"/showinfo", "/status","/news","/showresult","/renewconfirmation"})
+@WebFilter(urlPatterns={"/showinfo", "/status","/news","/showresult","/renewconfirmation","/buysellaction"})
 public class LoginCheckFilter implements Filter{
 	public void init(FilterConfig config) throws ServletException{
 		System.out.println("LoginCheckFilterの生成完了");
