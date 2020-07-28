@@ -34,6 +34,10 @@
 					<td>${(empty asset)? 0:asset.number}株</td>
 				</tr>
 				<tr>
+					<th>所持平均株価</th>
+					<td>${stock_average}円</td>
+				</tr>
+				<tr>
 					<th>売却株数</th>
 					<td><input type="number" name="sellNumber"
 						value="${(empty sellNumber)? 100:sellNumber }" min="100"

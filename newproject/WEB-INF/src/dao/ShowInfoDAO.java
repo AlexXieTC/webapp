@@ -61,6 +61,7 @@ public class ShowInfoDAO {
 				;
 		return DBManager.findAll(sql, new HistoryMapping());
 	}
+
 	public static List<Price> selectDate(User ubeanClone)throws SQLException {
 		String sql="SELECT * FROM PRICE,USERINFORMATION,STOCK"
 				+ " WHERE PRICE.DATE='"+ubeanClone.getSimulationDate()+"'"
