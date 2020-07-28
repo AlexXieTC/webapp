@@ -22,6 +22,7 @@
 	<div align="center">
 		<h3>${price.stockName}の株式を売却します</h3>
 		<br>
+
 		<form action="<%=request.getContextPath()%>/sellConfirmation"
 			method="post">
 			<table>
@@ -35,7 +36,7 @@
 				</tr>
 				<tr>
 					<th>所持平均株価</th>
-					<td>${stock_average}円</td>
+					<td name="num">${stock_average}円</td>
 				</tr>
 				<tr>
 					<th>売却株数</th>
