@@ -32,6 +32,12 @@
 					<th>所持株数</th>
 					<td>${(empty asset)? 0:asset.number}株</td>
 				</tr>
+				<c:if test="${((stock_average!=0)&&!(empty stock_average))}">
+					<tr>
+					<th>所持平均株価</th>
+						<td name="num">${stock_average}円</td>
+					</tr>
+				</c:if>
 				<tr>
 					<th>購入株数</th>
 					<td>

@@ -78,6 +78,13 @@ public class BuySellServlet extends HttpServlet {
 			} else {
 
 				forwardURL = "stock/purchase/purchaseInput.jsp";
+				try {
+					float stockAverage = getAveragePrice(user,stock_code);
+					session.setAttribute("stock_average", stockAverage);
+				} catch (SQLException e) {
+					// TODO 自動生成された catch ブロック
+					e.printStackTrace();
+				}
 			}
 		} else if (button.equals("SELL")) {
 			if (asset == null) {
@@ -89,7 +96,7 @@ public class BuySellServlet extends HttpServlet {
 			//当日購入平均価格を計算?
 			try {
 				float stockAverage = getAveragePrice(user,stock_code);
-				req.setAttribute("stock_average", stockAverage);
+				session.setAttribute("stock_average", stockAverage);
 			} catch (SQLException e) {
 				// TODO 自動生成された catch ブロック
 				e.printStackTrace();
@@ -97,7 +104,6 @@ public class BuySellServlet extends HttpServlet {
 
 		}
 
-		System.out.println(price);
 		if (price == null)
 			forwardURL = errorURL;
 		else {
@@ -136,7 +142,6 @@ public class BuySellServlet extends HttpServlet {
 
 		for (History purchase : purchaseList) {
 			size += purchase.getNumber();
-			System.out.println(purchase.getClosingPrice()+","+purchase.getNumber());
 			sum += (purchase.getClosingPrice() * purchase.getNumber());
 		}
 		if (size == 0)

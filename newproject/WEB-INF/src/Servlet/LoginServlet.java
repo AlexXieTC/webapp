@@ -33,11 +33,11 @@ public class LoginServlet extends HttpServlet {
 		String userID = request.getParameter("userID");
 		String password = request.getParameter("pass");
 
-		//userIDが""ならadminとしてログイン
-		if (userID.equals("")) {
-			userID = "admin";
-			password = "adm1";
-		}
+//		//userIDが""ならadminとしてログイン
+//		if (userID.equals("")) {
+//			userID = "admin";
+//			password = "adm1";
+//		}
 
 		// userインスタンスを生成しつつ、コントラスタを動かす。
 		User ubean = new User();
