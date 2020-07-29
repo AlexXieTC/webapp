@@ -23,8 +23,8 @@ body {
 
 .loginForm{
   position: absolute;
-  top: 0px;
-  right:0%;
+  top: 1em;
+  right:1%;
   display: inline-block;
 }
 
