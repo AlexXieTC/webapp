@@ -20,6 +20,12 @@ public class SellServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO 自動生成されたメソッド・スタブ
 		req.setCharacterEncoding("Shift-JIS");
+		HttpSession session = req.getSession();
+		Asset aBean = (Asset) session.getAttribute("asset");
+		if(aBean==null) {
+			req.getRequestDispatcher("/showinfo").forward(req, resp);
+			return;
+		}
 
 		String forwardURL = "/stock/sell/sellerror.jsp";
 
@@ -31,7 +37,7 @@ public class SellServlet extends HttpServlet {
 			return;
 		}
 
-		HttpSession session = req.getSession();
+
 
 		//SessionScopeから更新後の情報を持つbeanを取得
 		User uBean = (User) session.getAttribute("user");
@@ -49,7 +55,6 @@ public class SellServlet extends HttpServlet {
 		updateUserBean.setMoney(updateUserBean.getMoney() + (sellNumber * pBean.getOpenPrice()));
 
 		//更新用のAssetがあるかどうか確認
-		Asset aBean = (Asset) session.getAttribute("asset");
 		Asset updateAssetBean = null;
 		try {
 			updateAssetBean = aBean.clone();

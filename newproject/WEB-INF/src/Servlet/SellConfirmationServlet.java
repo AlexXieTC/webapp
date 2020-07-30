@@ -7,6 +7,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import bean.Asset;
 
 @WebServlet("/sellConfirmation")
 public class SellConfirmationServlet extends HttpServlet {
@@ -17,6 +20,13 @@ public class SellConfirmationServlet extends HttpServlet {
 		req.setCharacterEncoding("Shift-JIS");
 		String pushedButton = req.getParameter("button");
 		if(pushedButton!=null &&pushedButton.equals("キャンセル")) {
+			req.getRequestDispatcher("/showinfo").forward(req, resp);
+			return;
+		}
+		//ブラウザバック対策
+		HttpSession session = req.getSession();
+		Asset aBean = (Asset) session.getAttribute("asset");
+		if(aBean==null) {
 			req.getRequestDispatcher("/showinfo").forward(req, resp);
 			return;
 		}

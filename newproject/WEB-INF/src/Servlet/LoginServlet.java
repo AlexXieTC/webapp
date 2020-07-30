@@ -3,7 +3,6 @@ package Servlet;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Enumeration;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -26,18 +25,14 @@ public class LoginServlet extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8");
 
-		Enumeration d = request.getParameterNames();
-		while (d.hasMoreElements())
-			System.out.println((String) d.nextElement());
-
 		String userID = request.getParameter("userID");
 		String password = request.getParameter("pass");
 
-//		//userIDが""ならadminとしてログイン
-//		if (userID.equals("")) {
-//			userID = "admin";
-//			password = "adm1";
-//		}
+		//userIDが""ならadminとしてログイン
+		if (userID.equals("")) {
+			userID = "admin";
+			password = "adm1";
+		}
 
 		// userインスタンスを生成しつつ、コントラスタを動かす。
 		User ubean = new User();

@@ -7,13 +7,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import bean.Asset;
 
 @WebServlet("/purchaseConfirmation")
 public class PurchaseConfirmationServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO 自動生成されたメソッド・スタブ
-
+		String url ="showinfo";
+		HttpSession session =req.getSession();
+		Asset asset =(Asset )session.getAttribute("asset");
+		if(asset==null) {
+			req.getRequestDispatcher("/showinfo").forward(req, resp);
+			return;
+		}
 
 		String pushedButton = req.getParameter("button");
 		if(pushedButton!=null &&pushedButton.equals("キャンセル")) {
@@ -27,7 +36,7 @@ public class PurchaseConfirmationServlet extends HttpServlet {
 
 		//		System.out.println(req.getAtt);
 		//		System.out.println(stock.getStockName());
-
-		req.getRequestDispatcher("/stock/purchase/purchaseConfirmation.jsp").forward(req, resp);
+		url="/stock/purchase/purchaseConfirmation.jsp";
+		req.getRequestDispatcher(url).forward(req, resp);
 	}
 }
