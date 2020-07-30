@@ -21,7 +21,7 @@ public class SellServlet extends HttpServlet {
 		// TODO 自動生成されたメソッド・スタブ
 		req.setCharacterEncoding("Shift-JIS");
 
-		String forwardURL = "/stock/error.jsp";
+		String forwardURL = "/stock/sell/sellerror.jsp";
 
 		String pushedButton = req.getParameter("button");
 		if (pushedButton.equals("修正する")) {
@@ -80,6 +80,8 @@ public class SellServlet extends HttpServlet {
 
 			//sell処理と使いまわすのならメッセージを追加するべき？
 
+		}else {
+			req.setAttribute("sell_error", "error");
 		}
 
 		req.getRequestDispatcher(forwardURL).forward(req, resp);

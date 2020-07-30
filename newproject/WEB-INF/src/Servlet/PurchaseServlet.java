@@ -21,7 +21,7 @@ public class PurchaseServlet extends HttpServlet {
 		// TODO 自動生成されたメソッド・スタブ
 		req.setCharacterEncoding("Shift-JIS");
 
-		String forwardURL = "/stock/error.jsp";
+		String forwardURL = "/stock/purchase/purchaseerror.jsp";
 
 		String pushedButton=req.getParameter("button");
 		if(pushedButton.equals("修正する")) {
@@ -83,7 +83,7 @@ public class PurchaseServlet extends HttpServlet {
 
 		if (isSuccess) {
 			forwardURL = "/stock/purchase/purchaseComplete.jsp";
-
+//			req.setAttribute("purchase_error", "error");
 			session.setAttribute("user", updateUserBean);
 			session.removeAttribute("price");
 			session.removeAttribute("stock");
@@ -92,6 +92,8 @@ public class PurchaseServlet extends HttpServlet {
 			System.out.println("更新処理完了");
 
 
+		}else {
+			req.setAttribute("purchase_error", "error");
 		}
 
 		req.getRequestDispatcher(forwardURL).forward(req, resp);

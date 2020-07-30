@@ -19,9 +19,14 @@
 
     <div id="main-content">
 		<div align="center">
-		<h3>購入することが出来ません。</h3>
+	<c:if test="${(empty purchase_error)}">
+				<h3>購入することが出来ません。</h3>
 		<h4 style="margin-top:20px;" >所持金を確認してください。</h4>
-
+	</c:if>
+	<c:if test="${!(empty purchase_error)}">
+				<h3>購入処理に失敗しました。</h3>
+		<h4 style="margin-top:20px;" >もう一度やり直してください</h4>
+	</c:if>
 
 		<br><br>
 <a href="<%=request.getContextPath() %>/showinfo"  class="btn btn-primary">戻る</a>
