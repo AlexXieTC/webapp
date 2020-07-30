@@ -249,7 +249,7 @@ contentType="text/html; charset=Shift_JIS" pageEncoding="UTF-8"%>
 	function main() {
 	    // 1) ajaxでCSVファイルをロード
 	    var req = new XMLHttpRequest();
-	    var filePath = 'http://localhost:8080/newproject/stock/data/data0.csv';
+	    var filePath = '<%=request.getContextPath()%>/stock/data/data0.csv';
 	    req.open("GET", filePath, true);
 	    req.onload = function() {
 	      // 2) CSVデータ変換の呼び出し
