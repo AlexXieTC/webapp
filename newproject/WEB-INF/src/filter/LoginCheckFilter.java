@@ -23,7 +23,6 @@ public class LoginCheckFilter implements Filter{
 
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain)throws IOException,ServletException{
-
 		 HttpServletRequest httpReq = (HttpServletRequest) request;
 		 HttpServletResponse httpRes = (HttpServletResponse) response;
 
@@ -31,7 +30,7 @@ public class LoginCheckFilter implements Filter{
 		 User user =(User)session.getAttribute("user");
 		 if(user == null) {
 			 httpRes.sendRedirect(httpReq.getContextPath());
-				System.out.println("セッション確認");
+				System.out.println("ログインチェック失敗");
 			 return;
 		 }
 

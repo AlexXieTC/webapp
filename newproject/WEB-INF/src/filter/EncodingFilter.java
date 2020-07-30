@@ -9,16 +9,14 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
+public class EncodingFilter implements Filter {
 
-public class EncodingFilter implements Filter{
-
-	public void init(FilterConfig config) throws ServletException{
+	public void init(FilterConfig config) throws ServletException {
 		System.out.println("EncogingFilterの生成完了");
 	}
 
 	public void doFilter(ServletRequest request, ServletResponse response,
-			FilterChain chain)throws IOException,ServletException{
-		System.out.println("doFilterの実行");
+			FilterChain chain) throws IOException, ServletException {
 		request.setCharacterEncoding("Shift-JIS");
 		chain.doFilter(request, response);
 	}
