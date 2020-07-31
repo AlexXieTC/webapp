@@ -17,7 +17,7 @@ public class SellConfirmationServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO 自動生成されたメソッド・スタブ
 
-		req.setCharacterEncoding("Shift-JIS");
+
 		String pushedButton = req.getParameter("button");
 		if(pushedButton!=null &&pushedButton.equals("キャンセル")) {
 			req.getRequestDispatcher("/showinfo").forward(req, resp);

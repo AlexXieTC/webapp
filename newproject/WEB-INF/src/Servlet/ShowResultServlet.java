@@ -20,6 +20,7 @@ public class ShowResultServlet extends HttpServlet {
 	@Override
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
 		// TODO 自動生成されたメソッド・スタブ
 		String url = "/stock/result/showResult.jsp";
 		HttpSession session = req.getSession();
@@ -27,8 +28,8 @@ public class ShowResultServlet extends HttpServlet {
 
 		//
 		try {
-			long totalAsset = ShowResultDAO.getTotalAssets(user)+user.getMoney();
-			req.setAttribute("totalAsset", totalAsset );
+			long totalAsset = ShowResultDAO.getTotalAssets(user) + user.getMoney();
+			req.setAttribute("totalAsset", totalAsset);
 
 			Score score = new Score();
 			score.setUserID(user.getId());

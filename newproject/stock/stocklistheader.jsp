@@ -74,7 +74,7 @@
 
 				<form action="<%=request.getContextPath()%>/logout" method="Post">
 					<p style="background-color: #EDF7FF;">
-						<c:if test="${!(empty user)}">
+					<c:if test="${!(empty user)}">
 							<i class="fas fa-user"></i>
                           ユーザーID：<%=user.getId()%>
 				日付：<%=user.getSimulationDate()%>

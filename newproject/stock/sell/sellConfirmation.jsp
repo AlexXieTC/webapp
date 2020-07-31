@@ -28,7 +28,7 @@
 				</tr>
 				<tr>
 					<th>売却株数</th>
-					<td>${requestScope.sellNumber}</td>
+					<td>${sellNumber}</td>
 				</tr>
 								<tr>
 					<th>売却金額</th>
