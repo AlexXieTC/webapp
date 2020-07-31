@@ -7,6 +7,7 @@ public class NewsParameter {
 		String str=NewsParameter.category(0);
 		System.out.println(NewsParameter.getImageName(9984));
 	}
+
 	public static String category(int stockCode) {
 		String category ="";
 		String cls ="";
@@ -45,6 +46,7 @@ public class NewsParameter {
 		String tag ="<div class=\"category %s\">%s</div>";
 		return String.format(tag, cls,category);
 	}
+
 	public static String articleClass(int arrayNumber) {
 		String  cls="card";
 		switch(arrayNumber%6) {

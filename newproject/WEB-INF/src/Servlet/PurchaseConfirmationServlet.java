@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import bean.Asset;
+import bean.Price;
 
 @WebServlet("/purchaseConfirmation")
 public class PurchaseConfirmationServlet extends HttpServlet {
@@ -18,8 +18,8 @@ public class PurchaseConfirmationServlet extends HttpServlet {
 		// TODO 自動生成されたメソッド・スタブ
 		String url ="showinfo";
 		HttpSession session =req.getSession();
-		Asset asset =(Asset )session.getAttribute("asset");
-		if(asset==null) {
+		Price price =(Price )session.getAttribute("price");
+		if(price==null) {
 			req.getRequestDispatcher("/showinfo").forward(req, resp);
 			return;
 		}

@@ -41,13 +41,13 @@ public class DBManager{
 
 
 	public static int simpleUpdate(String sql) throws SQLException{
-
+		int result =0;
 		Connection con =null;
 		Statement smt=null;
 		try {
 			con=getConnection();
 			smt=con.createStatement();
-			return smt.executeUpdate(sql);
+			result = smt.executeUpdate(sql);
 		}finally {
 			if(smt != null) {
 				try {
@@ -64,14 +64,15 @@ public class DBManager{
 				}
 			}
 		}
+		return result;
 	}
 
 	//複数の更新処理を挟む場合のようなsql実行処理
 	public static boolean complexUpdate(List<String> sqls) throws SQLException{
-
+		boolean isSuccess=false;
 		Connection con =null;
 		Statement smt=null;
-		int result;
+		int result=0;
 		try {
 			con=getConnection();
 			con.setAutoCommit(false);
@@ -79,17 +80,18 @@ public class DBManager{
 
 			for(String sql:sqls) {
 				result = smt.executeUpdate(sql);
-
-				if(result <0) {
+				if(result ==0) {
 					con.rollback();
-					return false;
+					break;
 				}
 			}
+			if(result !=0) {
+				con.commit();
+				isSuccess=true;
+			}
 
-			con.commit();
-			return true;
-
-
+		}catch (SQLException e) {
+			con.rollback();
 		}finally {
 			if(smt != null) {
 				try {
@@ -106,6 +108,7 @@ public class DBManager{
 				}
 			}
 		}
+		return isSuccess;
 	}
 
 
@@ -114,18 +117,17 @@ public class DBManager{
 
 		Connection con = null;
 		Statement smt = null;
-
+		List<T> list=new ArrayList<T>();
 		try {
 			con=getConnection();
 			smt=con.createStatement();
 			ResultSet rs=smt.executeQuery(sql);
 
-			List<T> list=new ArrayList<T>();
+
 			while (rs.next()) {
 				T bean=mapping.createFromResultSet(rs);
 				list.add(bean);
 			}
-			return list;
 		}finally {
 			if(smt != null) {
 				try {
@@ -135,6 +137,7 @@ public class DBManager{
 				}
 			}
 		}
+		return list;
 	}
 
 

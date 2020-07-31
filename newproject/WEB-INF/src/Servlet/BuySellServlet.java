@@ -26,14 +26,19 @@ public class BuySellServlet extends HttpServlet {
 	public static void main(String[] args) throws SQLException {
 		//暫定的にsession生成
 		User user = new User();
-//		user.setMoney(1600000);
+		//		user.setMoney(1600000);
 		user.setId("admin");
-//		user.setSimulationDate(Date.valueOf("2020-6-1"));
+		//		user.setSimulationDate(Date.valueOf("2020-6-1"));
 		//		session.setAttribute("user", user);
-		int stock_code=2503;
+		int stock_code = 2503;
 		System.out.println(BuySellServlet.getAveragePrice(user, stock_code));
 
 	}
+
+	private static final String SELLINPUT = "/stock/sell/sellInput.jsp";
+	private static final String SELLERROR = "/stock/sell/sellerror.jsp";
+	private static final String PURCHASEINPUT = "stock/purchase/purchaseInput.jsp";
+	private static final String PURCHASEERROR = "/stock/purchase/purchaseerror.jsp";
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO 自動生成されたメソッド・スタブ
@@ -44,7 +49,6 @@ public class BuySellServlet extends HttpServlet {
 		// TODO 自動生成されたメソッド・スタブ
 
 		String forwardURL = null;
-		String errorURL = "error";
 		String button = req.getParameter("button");
 		System.out.println(button);
 
@@ -58,11 +62,11 @@ public class BuySellServlet extends HttpServlet {
 		//		session.setAttribute("user", user);
 		User user = (User) session.getAttribute("user");
 
-		System.out.println(req.getParameter("stock_code"));
 		int stock_code = Integer.parseInt(req.getParameter("stock_code"));
 
 		Price price = null;
 		Asset asset = null;
+
 		try {
 			price = PurchaseDAO.selectPrice(stock_code, user.getSimulationDate());
 			asset = PurchaseDAO.selectAsset(stock_code, user.getId());
@@ -73,57 +77,62 @@ public class BuySellServlet extends HttpServlet {
 		}
 
 		if (button.equals("BUY")) {
-			if (price.getOpenPrice() * 100 > user.getMoney()) {
-				forwardURL = "/stock/purchase/purchaseerror.jsp";
-			} else {
 
-				forwardURL = "stock/purchase/purchaseInput.jsp";
+			if ((price != null) && (price.getOpenPrice() * 100 <= user.getMoney())) {
+				forwardURL = PURCHASEINPUT;
 				try {
-					float stockAverage = getAveragePrice(user,stock_code);
+					float stockAverage = getAveragePrice(user, stock_code);
 					session.setAttribute("stock_average", stockAverage);
 				} catch (SQLException e) {
 					// TODO 自動生成された catch ブロック
 					e.printStackTrace();
+					forwardURL = PURCHASEERROR;
 				}
+			} else {
+				forwardURL = PURCHASEERROR;
 			}
 		} else if (button.equals("SELL")) {
 			if (asset == null) {
-				forwardURL = "/stock/sell/sellerror.jsp";
+				forwardURL = SELLERROR;
 			} else if (asset.getNumber() < 100) {
-				forwardURL = "/stock/sell/sellerror.jsp";
+				forwardURL = SELLERROR;
+				System.out.println("不正なデータ混入");
 			} else
-				forwardURL = "/stock/sell/sellInput.jsp";
+				forwardURL = SELLINPUT;
+
 			//当日購入平均価格を計算?
 			try {
-				float stockAverage = getAveragePrice(user,stock_code);
+				float stockAverage = getAveragePrice(user, stock_code);
 				session.setAttribute("stock_average", stockAverage);
 			} catch (SQLException e) {
 				// TODO 自動生成された catch ブロック
 				e.printStackTrace();
+				forwardURL = SELLERROR;
 			}
 
 		}
-
-		if (price == null)
-			forwardURL = errorURL;
-		else {
+		price = null;
+		if (price == null) {
+			forwardURL = "/showinfo";
+			resp.sendRedirect(req.getContextPath()+forwardURL);
+			return;
+		} else {
 			session.setAttribute("price", price);
 			session.setAttribute("asset", asset);
 		}
 
-		//		req.getRequestDispatcher("/stock/purchase/purchaseInput.jsp").forward(req, resp);
 		req.getRequestDispatcher(forwardURL).forward(req, resp);
 	}
 
-	public static float getAveragePrice(User user,int stockCode) throws SQLException {
-		List<History> purchaseList = SellDAO.selectPurchaseHistory(user,stockCode);
-		List<History> sellList = SellDAO.selectSellHistory(user,stockCode);
+	public static float getAveragePrice(User user, int stockCode) throws SQLException {
+		List<History> purchaseList = SellDAO.selectPurchaseHistory(user, stockCode);
+		List<History> sellList = SellDAO.selectSellHistory(user, stockCode);
 
 		//最後の購入履歴から売却数を引いていく
-		int index=0;
+		int index = 0;
 		for (int i = 0; i < sellList.size(); i++) {
 			int sellNumber = Math.abs(sellList.get(i).getNumber());
-			while (sellNumber > 0 && index<purchaseList.size()) {
+			while (sellNumber > 0 && index < purchaseList.size()) {
 				History pnHistory = purchaseList.get(index);
 				if (sellNumber < pnHistory.getNumber()) {
 					pnHistory.setNumber(pnHistory.getNumber() - sellNumber);
@@ -133,7 +142,7 @@ public class BuySellServlet extends HttpServlet {
 					pnHistory.setNumber(0);
 					index++;
 				}
-//				System.out.println(index+","+sellNumber);
+				//				System.out.println(index+","+sellNumber);
 			}
 
 		}

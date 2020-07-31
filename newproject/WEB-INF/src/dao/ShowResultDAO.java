@@ -22,6 +22,7 @@ public class ShowResultDAO {
 		ShowResultDAO.initializeUser(user);
 //		selectScore();
 	}
+
 	public static Map<Integer,Integer> selectWhereUserID(User user) throws SQLException{
 		String sql="SELECT * FROM asset WHERE user_id=\'"+user.getId()+"'";
 		List<Asset> assetList= DBManager.findAll(sql, new AssetMapping());
@@ -32,6 +33,7 @@ public class ShowResultDAO {
 		}
 		return assetMap;
 	}
+
 	public static long getTotalAssets(User user) throws SQLException {
 		List<Price> priceList = ShowInfoDAO.selectPrice(user);
 		Map<Integer,Integer> assetMap=ShowResultDAO.selectWhereUserID(user);
@@ -71,6 +73,7 @@ public class ShowResultDAO {
 		if(result>0)return true;
 		else return false;
 	}
+
 	public static List<Score> selectScore() throws SQLException{
 		String sql="SELECT distinct user_id,total_asset,date,\n" +
 				"DENSE_RANK() OVER(ORDER BY total_asset DESC) AS rank\n" +
@@ -78,7 +81,6 @@ public class ShowResultDAO {
 				"(SELECT * FROM score T2 WHERE T1.user_id = T2.user_id AND T1.total_asset < T2.total_asset)\n" +
 
 				"order by total_asset desc";
-//	    System.out.println(sql);
 		return DBManager.findAll(sql, new ScoreMapping());
 	}
 

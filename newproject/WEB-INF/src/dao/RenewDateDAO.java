@@ -18,7 +18,7 @@ public class RenewDateDAO {
 		String sql ="UPDATE userinformation SET "
 				+"simulation_date = \'"+user.getSimulationDate()+"' "
 				+"WHERE user_id =\'"+user.getId()+"'";
-		System.out.println(sql);
+
 		int result = DBManager.simpleUpdate(sql);
 		if(result>0)return true;
 		else return false;

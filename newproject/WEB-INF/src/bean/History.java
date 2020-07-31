@@ -8,7 +8,7 @@ public class History {
 	private String userID;
 	private Date simulationDate;
 	private int number;
-	private int closingPrice;
+	private int openPrice;
 	private int money;
 
 	public int getMoney() {
@@ -20,11 +20,11 @@ public class History {
 	}
 
 	public int getClosingPrice() {
-		return closingPrice;
+		return openPrice;
 	}
 
 	public void setClosingPrice(int closingPrice) {
-		this.closingPrice = closingPrice;
+		this.openPrice = closingPrice;
 	}
 
 	public History() {

@@ -32,10 +32,15 @@ public class PurchaseServlet extends HttpServlet {
 		}
 
 		HttpSession session = req.getSession();
+		Price pBean =(Price )session.getAttribute("price");
+		if(pBean==null) {
+			req.getRequestDispatcher("/showinfo").forward(req, resp);
+			return;
+		}
 
 		//SessionScopeから更新後の情報を持つbeanを取得
 		User uBean = (User) session.getAttribute("user");
-		Price pBean = (Price) session.getAttribute("price");
+//		Price pBean = (Price) session.getAttribute("price");
 //		Stock sBean = (Stock) session.getAttribute("stock");
 
 		//更新後の情報を持つuserBeanの作成

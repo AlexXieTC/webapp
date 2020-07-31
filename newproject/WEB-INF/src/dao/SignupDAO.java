@@ -14,9 +14,6 @@ public class SignupDAO {
 	}
 	public static int insert(User user) throws SQLException{
 
-//		String sql= "INSERT INTO userinformation"+"(user_id,password,money,simulation_date)
-//						VALUES("+"'"+user.getId() +"',"+"'"+ user.getPassword()+"',"+ 1000000,"'"+2020/06/01"'"+)";
-
 		String sql="INSERT INTO userinformation" +"(user_id,password,money,simulation_date) VALUES(" +
 			"'"+user.getId()+"',"+"'"+user.getPassword()+"',"
 				+User.intialMoney+", '"+User.intialDate+"')";
