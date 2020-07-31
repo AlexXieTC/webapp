@@ -111,10 +111,10 @@ public class BuySellServlet extends HttpServlet {
 			}
 
 		}
-		price = null;
+
 		if (price == null) {
 			forwardURL = "/showinfo";
-			resp.sendRedirect(req.getContextPath()+forwardURL);
+			resp.sendRedirect(req.getContextPath() + forwardURL);
 			return;
 		} else {
 			session.setAttribute("price", price);
