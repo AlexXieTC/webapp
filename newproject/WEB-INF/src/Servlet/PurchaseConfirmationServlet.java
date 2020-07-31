@@ -36,8 +36,6 @@ public class PurchaseConfirmationServlet extends HttpServlet {
 		int purchaseNumber = Integer.parseInt(req.getParameter("purchaseNumber"));
 		req.setAttribute("purchaseNumber", purchaseNumber);
 
-		//		System.out.println(req.getAtt);
-		//		System.out.println(stock.getStockName());
 		url="/stock/purchase/purchaseConfirmation.jsp";
 		req.getRequestDispatcher(url).forward(req, resp);
 	}

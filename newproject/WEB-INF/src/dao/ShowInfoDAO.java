@@ -57,7 +57,7 @@ public class ShowInfoDAO {
 				+ " AND HISTORY.STOCK_CODE=PRICE.STOCK_CODE"
 				+ " AND USERINFORMATION.USER_ID='" + ubean.getId() + "'"
 				+ " AND HISTORY.USER_ID='" + ubean.getId() + "'"
-				+ " ORDER BY HISTORY.DATE DESC";
+				;
 		return DBManager.findAll(sql, new HistoryMapping());
 	}
 

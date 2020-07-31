@@ -24,6 +24,7 @@ public class PurchaseServlet extends HttpServlet {
 		String forwardURL = "/stock/purchase/purchaseerror.jsp";
 
 		String pushedButton=req.getParameter("button");
+
 		if(pushedButton.equals("修正する")) {
 			int purchaseNumber = Integer.parseInt(req.getParameter("purchaseNumber"));
 			req.setAttribute("purchaseNumber", purchaseNumber);
