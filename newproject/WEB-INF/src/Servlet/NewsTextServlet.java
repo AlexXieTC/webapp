@@ -16,61 +16,43 @@ import dao.ShowInfoDAO;
 
 public class NewsTextServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request,
-			HttpServletResponse response)throws ServletException, IOException {
-				request.setCharacterEncoding("Shift_JIS");
-				System.out.println("doPostの実行");
-				String forwardURL=null;
+			HttpServletResponse response) throws ServletException, IOException {
 
-				HttpSession session =request.getSession();
-				User ubean=(User)session.getAttribute("user");
+		String forwardURL = null;
 
-				int newsNumber = Integer.parseInt(request.getParameter("news_number"));
-				request.setAttribute("news_number", newsNumber);
+		HttpSession session = request.getSession();
+		User ubean = (User) session.getAttribute("user");
 
-				String newsImage=request.getParameter("news_image");
-				request.setAttribute("news_image", newsImage);
-				try {
-					List<News> newsList=ShowInfoDAO.selectNews(ubean);
-					request.setAttribute("newsList", newsList);
+		String numberInput = request.getParameter("news_number");
+		String newsImage = request.getParameter("news_image");
 
-					forwardURL = "/stock/news/article.jsp";
+		if (numberInput == null || newsImage == null) {
+			response.sendRedirect(request.getContextPath() + "/showinfo");
+			return;
+		} else {
+			int newsNumber = Integer.parseInt(numberInput);
+			request.setAttribute("news_number", newsNumber);
+			request.setAttribute("news_image", newsImage);
+		}
 
-				}catch(NumberFormatException e) {
-					e.printStackTrace();
-					forwardURL = "/showinfo";
-				}catch(SQLException e) {
-					e.printStackTrace();
-					forwardURL = "/showinfo";
-				}
+		try {
+			List<News> newsList = ShowInfoDAO.selectNews(ubean);
+			request.setAttribute("newsList", newsList);
 
-				request.getRequestDispatcher(forwardURL).forward(request, response);
+			forwardURL = "/stock/news/article.jsp";
 
+		} catch (SQLException e) {
+			e.printStackTrace();
+			forwardURL = "/showinfo";
+		}
 
-					}
-			public void doGet(HttpServletRequest request,
-			HttpServletResponse response)throws ServletException, IOException {
-				System.out.println("doGet");
-				request.setCharacterEncoding("Shift_JIS");
-				String forwardURL=null;
+		request.getRequestDispatcher(forwardURL).forward(request, response);
+	}
 
-				HttpSession session =request.getSession();
-				User ubean=(User)session.getAttribute("user");
-
-				try {
-					List<News> newsList=ShowInfoDAO.selectNews(ubean);
-					request.setAttribute("newsList", newsList);
-					forwardURL = "/stock/news/article.jsp";
-
-				}catch(NumberFormatException e) {
-					e.printStackTrace();
-//					forwardURL = "";
-				}catch(SQLException e) {
-					e.printStackTrace();
-//					forwardURL = "";
-				}
-
-				request.getRequestDispatcher(forwardURL).forward(request, response);
-
-			}
+	public void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("doGet");
+		doPost(request, response);
+	}
 
 }

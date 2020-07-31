@@ -8,8 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+
 public class LogoutServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+//	private static final long serialVersionUID = 1L;
 
 	public LogoutServlet() {
 		super();
@@ -26,7 +27,7 @@ public class LogoutServlet extends HttpServlet {
 		}
 
 		// ログアウトページへ遷移(リダイレクト).
-		response.sendRedirect( "./stock/logout.jsp");
+		response.sendRedirect( request.getContextPath()+"/stock/logout.jsp");
 		}
 
 
@@ -40,7 +41,7 @@ public class LogoutServlet extends HttpServlet {
 		}
 
 		// ログアウトページへ遷移(リダイレクト).
-		response.sendRedirect( "./stock/logout.jsp");
+		response.sendRedirect( request.getContextPath()+"/stock/logout.jsp");
 		}
 
 }

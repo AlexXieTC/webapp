@@ -18,7 +18,6 @@ import resultmapping.UserMapping;
 public class ShowInfoDAO {
 
 	User ubean = new User();
-
 	public static void main(String[] args) {
 		String sql = "SELECT * FROM PRICE,USERINFORMATION,STOCK"
 				+ " WHERE PRICE.DATE=USERINFORMATION.SIMULATION_DATE"
@@ -29,7 +28,6 @@ public class ShowInfoDAO {
 		String sql = "SELECT * FROM NEWS"
 				+ " WHERE NEWS.DATE= '" + ubean.getSimulationDate() + "'";
 
-		System.out.println(sql);
 		return DBManager.findAll(sql, new NewsMapping());
 	}
 

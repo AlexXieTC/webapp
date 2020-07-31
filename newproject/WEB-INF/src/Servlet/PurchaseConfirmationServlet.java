@@ -16,17 +16,19 @@ public class PurchaseConfirmationServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO 自動生成されたメソッド・スタブ
-		String url ="showinfo";
+		String url ="/showinfo";
 		HttpSession session =req.getSession();
 		Price price =(Price )session.getAttribute("price");
+
+		//戻る対策
 		if(price==null) {
-			req.getRequestDispatcher("/showinfo").forward(req, resp);
+			req.getRequestDispatcher(url).forward(req, resp);
 			return;
 		}
 
 		String pushedButton = req.getParameter("button");
 		if(pushedButton!=null &&pushedButton.equals("キャンセル")) {
-			req.getRequestDispatcher("/showinfo").forward(req, resp);
+			req.getRequestDispatcher(url).forward(req, resp);
 			return;
 		}
 

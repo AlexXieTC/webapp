@@ -14,53 +14,28 @@ import bean.News;
 import bean.User;
 import dao.ShowInfoDAO;
 
-public class NewsServlet extends HttpServlet{
+public class NewsServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request,
-	HttpServletResponse response)throws ServletException, IOException {
-		request.setCharacterEncoding("Shift_JIS");
-		String forwardURL=null;
+			HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
+	}
 
-		HttpSession session =request.getSession();
-		User ubean=(User)session.getAttribute("user");
-
-		try {
-			List<News> newsList=ShowInfoDAO.selectNews(ubean);
-			request.setAttribute("newsList", newsList);
-
-			forwardURL = "/stock/news/news.jsp";
-
-		}catch(NumberFormatException e) {
-			e.printStackTrace();
-//			forwardURL = "";
-		}catch(SQLException e) {
-			e.printStackTrace();
-//			forwardURL = "";
-		}
-
-		request.getRequestDispatcher(forwardURL).forward(request, response);
-
-
-			}
 	public void doGet(HttpServletRequest request,
-	HttpServletResponse response)throws ServletException, IOException {
+			HttpServletResponse response) throws ServletException, IOException {
 
-//		request.setCharacterEncoding("Shift_JIS");
-		String forwardURL=null;
+		String forwardURL = null;
 
-		HttpSession session =request.getSession();
-		User ubean=(User)session.getAttribute("user");
+		HttpSession session = request.getSession();
+		User ubean = (User) session.getAttribute("user");
 
 		try {
-			List<News> newsList=ShowInfoDAO.selectNews(ubean);
+			List<News> newsList = ShowInfoDAO.selectNews(ubean);
 			request.setAttribute("newsList", newsList);
 			forwardURL = "/stock/news/news.jsp";
 
-		}catch(NumberFormatException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
-//			forwardURL = "";
-		}catch(SQLException e) {
-			e.printStackTrace();
-//			forwardURL = "";
+			forwardURL="/showinfo";
 		}
 
 		request.getRequestDispatcher(forwardURL).forward(request, response);

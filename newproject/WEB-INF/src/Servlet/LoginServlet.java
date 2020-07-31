@@ -23,8 +23,6 @@ public class LoginServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		request.setCharacterEncoding("UTF-8");
-
 		String userID = request.getParameter("userID");
 		String password = request.getParameter("pass");
 
@@ -43,27 +41,19 @@ public class LoginServlet extends HttpServlet {
 		List<User> userList = new ArrayList<User>();
 		try {
 			userList = LoginDAO.getLoginUser(ubean);
-			//			request.setAttribute("userList",userList);
-			//			forwardURL="/database/selectresult.jsp";
 
 		} catch (SQLException e) {
 			e.printStackTrace();
-			//			forwardURL="/database/selecterror.jsp";
 		}
-
-		//		request.getRequestDispatcher(forwardURL).forward(request, response);
 
 		//		userListに値が入っていれば、以下の動作を実行。
 		if (userList.size() == 1) {
 			//		未入力の場合、エラー画面に遷移させる。
-
 			if (userID == "") {
 				//テスト版につき、adminでのログイン処理を実行
 				forwardURL = "/showinfo";
-
 				//完成版については以下の処理。
 				//		forwardURL="/stock/loginerror.jsp";
-
 			} else {
 				forwardURL = "/showinfo";
 				ubean = userList.get(0);
@@ -74,7 +64,7 @@ public class LoginServlet extends HttpServlet {
 		} else {
 			forwardURL = "/stock/loginerror.jsp";
 		}
-		System.out.println(userList.size());
+//		System.out.println(userList.size());
 		//	    リストuserを取得
 		//	    条件分岐
 		//	    if　リストの要素数が０
