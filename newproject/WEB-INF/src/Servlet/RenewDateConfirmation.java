@@ -17,10 +17,11 @@ public class RenewDateConfirmation extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO 自動生成されたメソッド・スタブ
-		HttpSession session =req.getSession();
-		User user =(User)session.getAttribute("user");
+		HttpSession session = req.getSession();
+		User user = (User) session.getAttribute("user");
 		req.getRequestDispatcher("/stock/renewDate/renewConfirmation.jsp").forward(req, resp);
 	}
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO 自動生成されたメソッド・スタブ

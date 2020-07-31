@@ -27,6 +27,7 @@ public class RenewDateServlet extends HttpServlet {
 		d.returnDate(c);
 		System.out.println(new Date(c.getTimeInMillis()));
 	}
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO 自動生成されたメソッド・スタブ

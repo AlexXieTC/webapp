@@ -19,7 +19,7 @@ public class PurchaseServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO 自動生成されたメソッド・スタブ
-		req.setCharacterEncoding("Shift-JIS");
+
 
 		String forwardURL = "/stock/purchase/purchaseerror.jsp";
 
