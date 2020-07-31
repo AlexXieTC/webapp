@@ -21,12 +21,12 @@ public class SignupServlet extends HttpServlet {
 
 	public void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		//		request.setCharacterEncoding("UTF-8");
-		System.out.println("出力確認");
+
 		String userID = request.getParameter("userID");
 		String password = request.getParameter("password");
 
 		String forwardURL = null;
+
 		//空文字か判定して、空文字だったらエラーページに遷移
 		if (userID.equals("") || password.equals("")) {
 			forwardURL = "/stock/signuperrorblank.jsp";
@@ -36,7 +36,6 @@ public class SignupServlet extends HttpServlet {
 
 		forwardURL = "/stock/signuperror.jsp";
 
-		System.out.println(userID);
 		try {
 			User ubean = new User();
 			ubean.setId(userID);
@@ -50,9 +49,6 @@ public class SignupServlet extends HttpServlet {
 				forwardURL = "/index.jsp";
 			}
 			System.out.println(forwardURL);
-		} catch (NumberFormatException e) {
-			e.printStackTrace();
-			forwardURL = "/stock/signuperror.jsp";
 		} catch (SQLException e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();

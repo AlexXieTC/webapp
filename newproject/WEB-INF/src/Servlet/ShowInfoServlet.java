@@ -19,110 +19,63 @@ import bean.User;
 import dao.ShowInfoDAO;
 import dao.ShowResultDAO;
 
-
-public class ShowInfoServlet extends HttpServlet{
+public class ShowInfoServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request,
-	HttpServletResponse response)throws ServletException, IOException {
+			HttpServletResponse response) throws ServletException, IOException {
 
-		request.setCharacterEncoding("UTF-8");
-		String forwardURL="/stock/stocklist.jsp";
-		HttpSession session =request.getSession();
-		User ubean=(User)session.getAttribute("user");
+		String forwardURL = "/stock/stocklist.jsp";
+		HttpSession session = request.getSession();
+		User ubean = (User) session.getAttribute("user");
 
 		try {
-			List<News> newsList=ShowInfoDAO.selectNews(ubean);
+			List<News> newsList = ShowInfoDAO.selectNews(ubean);
 			request.setAttribute("newsList", newsList);
 
-			List<Price> priceList=ShowInfoDAO.selectPrice(ubean);
+			List<Price> priceList = ShowInfoDAO.selectPrice(ubean);
 			request.setAttribute("priceList", priceList);
 
-			List<Price> indexList=ShowInfoDAO.selectIndex(ubean);
+			List<Price> indexList = ShowInfoDAO.selectIndex(ubean);
 			request.setAttribute("indexList", indexList);
 
 			User user = ubean.clone();
 			Calendar c = Calendar.getInstance();
 			c.setTime(user.getSimulationDate());
-			RenewDateServlet d = new RenewDateServlet();
-			d.returnDate(c);
+			RenewDateServlet.returnDate(c);
 			user.setSimulationDate(new Date(c.getTimeInMillis()));
-			System.out.println(user.getSimulationDate());
 
-			List<Price> dateList=ShowInfoDAO.selectDate(user);
+			List<Price> dateList = ShowInfoDAO.selectDate(user);
 			request.setAttribute("dateList", dateList);
 
-			List<Price> idateList=ShowInfoDAO.selectIDate(user);
+			List<Price> idateList = ShowInfoDAO.selectIDate(user);
 			request.setAttribute("idateList", idateList);
 
-			Map<Integer,Integer> assetMap=ShowResultDAO.selectWhereUserID(ubean);
+			Map<Integer, Integer> assetMap = ShowResultDAO.selectWhereUserID(ubean);
 			request.setAttribute("assetMap", assetMap);
 
-
 			//最終日付の確認
-			Date finalDate =Date.valueOf("2020-06-29");			if(finalDate.equals(ubean.getSimulationDate())) {
+			Date finalDate = Date.valueOf("2020-06-29");
+			if (finalDate.equals(ubean.getSimulationDate())) {
 				String alertMessage = "本日が行動可能最終日です";
 				session.setAttribute("alertMessage", alertMessage);
-				System.out.println("判定成功");
 			}
 
+			forwardURL = "/stock/stocklist.jsp";
 
-			forwardURL="/stock/stocklist.jsp";
-
-		}catch(NumberFormatException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
-//			forwardURL = "";
-		}catch(SQLException e) {
-			e.printStackTrace();
-//			forwardURL = "";
-		}catch(CloneNotSupportedException e) {
+			//			forwardURL = "";
+		} catch (CloneNotSupportedException e) {
 			e.printStackTrace();
 		}
 
-
-
 		request.getRequestDispatcher(forwardURL).forward(request, response);
 
+	}
+
+	public void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
 
 	}
-	public void doPost(HttpServletRequest request,
-			HttpServletResponse response)throws ServletException, IOException {
-				doGet(request,response);
-				return;
-//				request.setCharacterEncoding("Shift_JIS");
-//				String forwardURL=null;
-//
-//				HttpSession session =request.getSession();
-//				User ubean=(User)session.getAttribute("user");
-//
-//				try {
-//					List<News> newsList=ShowInfoDAO.selectNews();
-//					request.setAttribute("newsList", newsList);
-//					List<Price> priceList=ShowInfoDAO.selectPrice(ubean);
-//					request.setAttribute("priceList", priceList);
-//
-//
-//					User user = (User) session.getAttribute("user");
-//					Calendar c = Calendar.getInstance();
-//					c.setTime(user.getSimulationDate());
-//					RenewDateServlet d = new RenewDateServlet();
-//					d.returnDate(c);
-//					user.setSimulationDate(new Date(c.getTimeInMillis()));
-//
-//					List<Price> dateList=ShowInfoDAO.selectDate(ubean);
-//					request.setAttribute("dateList", dateList);
-//
-//					forwardURL = "/stock/stocklist.jsp";
-//
-//				}catch(NumberFormatException e) {
-//					e.printStackTrace();
-////					forwardURL = "";
-//				}catch(SQLException e) {
-//					e.printStackTrace();
-////					forwardURL = "";
-//				}
-//
-//				request.getRequestDispatcher(forwardURL).forward(request, response);
-
-
-			}
 
 }

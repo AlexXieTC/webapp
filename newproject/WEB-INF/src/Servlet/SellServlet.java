@@ -19,15 +19,21 @@ public class SellServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO 自動生成されたメソッド・スタブ
-		req.setCharacterEncoding("Shift-JIS");
-		HttpSession session = req.getSession();
-		Asset aBean = (Asset) session.getAttribute("asset");
-		if(aBean==null) {
-			req.getRequestDispatcher("/showinfo").forward(req, resp);
-			return;
-		}
 
 		String forwardURL = "/stock/sell/sellerror.jsp";
+		HttpSession session = req.getSession();
+
+		//SessionScopeから更新後の情報を持つbeanを取得
+		User uBean = (User) session.getAttribute("user");
+		Price pBean = (Price) session.getAttribute("price");
+		Asset aBean = (Asset) session.getAttribute("asset");
+
+		//不正処理対策
+		//戻る、日付の不一致対策
+		if((pBean==null)||(!pBean.getDate().equals(uBean.getSimulationDate()))) {
+			resp.sendRedirect(req.getContextPath()+"/showinfo");
+			return;
+		}
 
 		String pushedButton = req.getParameter("button");
 		if (pushedButton.equals("修正する")) {
@@ -38,12 +44,6 @@ public class SellServlet extends HttpServlet {
 		}
 
 
-
-		//SessionScopeから更新後の情報を持つbeanを取得
-		User uBean = (User) session.getAttribute("user");
-		Price pBean = (Price) session.getAttribute("price");
-//		Stock sBean = (Stock) session.getAttribute("stock");
-
 		//更新後の情報を持つuserBeanの作成
 		User updateUserBean = null;
 		try {
@@ -53,21 +53,11 @@ public class SellServlet extends HttpServlet {
 		}
 		int sellNumber = Integer.parseInt(req.getParameter("sellNumber"));
 		updateUserBean.setMoney(updateUserBean.getMoney() + (sellNumber * pBean.getOpenPrice()));
-
-		//更新用のAssetがあるかどうか確認
-		Asset updateAssetBean = null;
-		try {
-			updateAssetBean = aBean.clone();
-		} catch (CloneNotSupportedException e) {
-			e.printStackTrace();
-		}
-		updateAssetBean.setNumber(updateAssetBean.getNumber() - sellNumber);
+		aBean.setNumber(aBean.getNumber() - sellNumber);
 
 		boolean isSuccess = false;
 		try {
-
-			isSuccess = dao.PurchaseDAO.update(updateUserBean, updateAssetBean,pBean.getStockName(),-sellNumber);
-
+			isSuccess = dao.PurchaseDAO.update(updateUserBean, aBean,pBean.getStockName(),-sellNumber);
 		} catch (SQLException e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
@@ -81,11 +71,11 @@ public class SellServlet extends HttpServlet {
 			session.removeAttribute("stock");
 			session.removeAttribute("asset");
 
-			System.out.println("更新処理完了");
 
 			//sell処理と使いまわすのならメッセージを追加するべき？
 
 		}else {
+			session.removeAttribute("price");
 			req.setAttribute("sell_error", "error");
 		}
 
